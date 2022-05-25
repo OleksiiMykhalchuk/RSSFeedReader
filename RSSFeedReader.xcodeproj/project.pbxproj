@@ -28,6 +28,8 @@
 		88C01666283E6AEE0030D7FD /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C01665283E6AEE0030D7FD /* Coordinator.swift */; };
 		88C01668283E6C800030D7FD /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C01667283E6C800030D7FD /* AppCoordinator.swift */; };
 		88C0166A283E6D610030D7FD /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C01669283E6D610030D7FD /* ListViewModel.swift */; };
+		88C0166C283E82C90030D7FD /* Results.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C0166B283E82C90030D7FD /* Results.swift */; };
+		88C0166E283E84AB0030D7FD /* LoadData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C0166D283E84AB0030D7FD /* LoadData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +55,8 @@
 		88C01665283E6AEE0030D7FD /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		88C01667283E6C800030D7FD /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		88C01669283E6D610030D7FD /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
+		88C0166B283E82C90030D7FD /* Results.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Results.swift; sourceTree = "<group>"; };
+		88C0166D283E84AB0030D7FD /* LoadData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadData.swift; sourceTree = "<group>"; };
 		95C78FC83EBD143D5C71536E /* Pods-RSSFeedReader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RSSFeedReader.release.xcconfig"; path = "Target Support Files/Pods-RSSFeedReader/Pods-RSSFeedReader.release.xcconfig"; sourceTree = "<group>"; };
 		E17B295F1BF39E84CB111E0B /* Pods-RSSFeedReader.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RSSFeedReader.debug.xcconfig"; path = "Target Support Files/Pods-RSSFeedReader/Pods-RSSFeedReader.debug.xcconfig"; sourceTree = "<group>"; };
 		FCF9ADCE138F2681BC8ADD78 /* Pods_RSSFeedReader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RSSFeedReader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -123,6 +127,8 @@
 		88C01655283E614E0030D7FD /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				88C0166B283E82C90030D7FD /* Results.swift */,
+				88C0166D283E84AB0030D7FD /* LoadData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -327,8 +333,10 @@
 				88C01650283E47CE0030D7FD /* LoginViewController.swift in Sources */,
 				88C0164E283E40E80030D7FD /* AppCoordinatorExample.swift in Sources */,
 				88C0166A283E6D610030D7FD /* ListViewModel.swift in Sources */,
+				88C0166E283E84AB0030D7FD /* LoadData.swift in Sources */,
 				88C01668283E6C800030D7FD /* AppCoordinator.swift in Sources */,
 				88C01663283E64F80030D7FD /* SettingsViewController.swift in Sources */,
+				88C0166C283E82C90030D7FD /* Results.swift in Sources */,
 				88C01652283E48210030D7FD /* RegisterViewController.swift in Sources */,
 				88054013283D3A1B007D2762 /* ViewController.swift in Sources */,
 				8805400F283D3A1B007D2762 /* AppDelegate.swift in Sources */,
