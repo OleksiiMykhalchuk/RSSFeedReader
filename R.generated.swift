@@ -139,6 +139,54 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
+  /// This `R.nib` struct is generated, and contains static references to 3 nibs.
+  struct nib {
+    /// Nib `DetailsViewController`.
+    static let detailsViewController = _R.nib._DetailsViewController()
+    /// Nib `ListViewController`.
+    static let listViewController = _R.nib._ListViewController()
+    /// Nib `SettingsViewController`.
+    static let settingsViewController = _R.nib._SettingsViewController()
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "DetailsViewController", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.detailsViewController) instead")
+    static func detailsViewController(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.detailsViewController)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "ListViewController", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.listViewController) instead")
+    static func listViewController(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.listViewController)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "SettingsViewController", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.settingsViewController) instead")
+    static func settingsViewController(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.settingsViewController)
+    }
+    #endif
+
+    static func detailsViewController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> DetailsViewController? {
+      return R.nib.detailsViewController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? DetailsViewController
+    }
+
+    static func listViewController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> ListViewController? {
+      return R.nib.listViewController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? ListViewController
+    }
+
+    static func settingsViewController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> SettingsViewController? {
+      return R.nib.settingsViewController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? SettingsViewController
+    }
+
+    fileprivate init() {}
+  }
+
   fileprivate struct intern: Rswift.Validatable {
     fileprivate static func validate() throws {
       try _R.validate()
@@ -158,6 +206,45 @@ struct _R: Rswift.Validatable {
     try storyboard.validate()
     #endif
   }
+
+  #if os(iOS) || os(tvOS)
+  struct nib {
+    struct _DetailsViewController: Rswift.NibResourceType {
+      let bundle = R.hostingBundle
+      let name = "DetailsViewController"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> DetailsViewController? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? DetailsViewController
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _ListViewController: Rswift.NibResourceType {
+      let bundle = R.hostingBundle
+      let name = "ListViewController"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> ListViewController? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? ListViewController
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _SettingsViewController: Rswift.NibResourceType {
+      let bundle = R.hostingBundle
+      let name = "SettingsViewController"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> SettingsViewController? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? SettingsViewController
+      }
+
+      fileprivate init() {}
+    }
+
+    fileprivate init() {}
+  }
+  #endif
 
   #if os(iOS) || os(tvOS)
   struct storyboard: Rswift.Validatable {

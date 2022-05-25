@@ -8,9 +8,9 @@
 import Foundation
 import UIKit
 
-class AppCoordinator: Coordinator {
-  var parentCoordinator: Coordinator?
-  var children: [Coordinator] = []
+class AppCoordinatorExample: CoordinatorExample {
+  var parentCoordinator: CoordinatorExample?
+  var children: [CoordinatorExample] = []
   var navigationController: UINavigationController
 
   init(navCon: UINavigationController) {

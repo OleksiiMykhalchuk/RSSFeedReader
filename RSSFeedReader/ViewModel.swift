@@ -8,14 +8,14 @@
 import Foundation
 
 class LoginViewModel {
-  weak var coordinator: AppCoordinator?
+  weak var coordinator: AppCoordinatorExample?
   func goToRegister() {
     coordinator?.goToRegisterPage()
   }
 }
 
 class RegisterViewModel {
-  weak var coordinator: AppCoordinator?
+  weak var coordinator: AppCoordinatorExample?
   func goToLogin() {
     coordinator?.goToLoginPage()
   }

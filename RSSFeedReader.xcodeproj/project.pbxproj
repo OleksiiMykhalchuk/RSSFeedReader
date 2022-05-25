@@ -14,8 +14,8 @@
 		88054018283D3A1D007D2762 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88054017283D3A1D007D2762 /* Assets.xcassets */; };
 		8805401B283D3A1D007D2762 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88054019283D3A1D007D2762 /* LaunchScreen.storyboard */; };
 		88054027283D559A007D2762 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88054026283D559A007D2762 /* R.generated.swift */; };
-		88C0164C283E40340030D7FD /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C0164B283E40340030D7FD /* Coordinator.swift */; };
-		88C0164E283E40E80030D7FD /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C0164D283E40E80030D7FD /* AppCoordinator.swift */; };
+		88C0164C283E40340030D7FD /* CoordinatorExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C0164B283E40340030D7FD /* CoordinatorExample.swift */; };
+		88C0164E283E40E80030D7FD /* AppCoordinatorExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C0164D283E40E80030D7FD /* AppCoordinatorExample.swift */; };
 		88C01650283E47CE0030D7FD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C0164F283E47CE0030D7FD /* LoginViewController.swift */; };
 		88C01652283E48210030D7FD /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C01651283E48210030D7FD /* RegisterViewController.swift */; };
 		88C01654283E48B70030D7FD /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C01653283E48B70030D7FD /* ViewModel.swift */; };
@@ -25,6 +25,7 @@
 		88C01660283E64C20030D7FD /* DetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88C0165E283E64C20030D7FD /* DetailsViewController.xib */; };
 		88C01663283E64F80030D7FD /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C01661283E64F80030D7FD /* SettingsViewController.swift */; };
 		88C01664283E64F80030D7FD /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88C01662283E64F80030D7FD /* SettingsViewController.xib */; };
+		88C01666283E6AEE0030D7FD /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C01665283E6AEE0030D7FD /* Coordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,8 +37,8 @@
 		8805401A283D3A1D007D2762 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8805401C283D3A1D007D2762 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		88054026283D559A007D2762 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
-		88C0164B283E40340030D7FD /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
-		88C0164D283E40E80030D7FD /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		88C0164B283E40340030D7FD /* CoordinatorExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorExample.swift; sourceTree = "<group>"; };
+		88C0164D283E40E80030D7FD /* AppCoordinatorExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinatorExample.swift; sourceTree = "<group>"; };
 		88C0164F283E47CE0030D7FD /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		88C01651283E48210030D7FD /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		88C01653283E48B70030D7FD /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
@@ -47,6 +48,7 @@
 		88C0165E283E64C20030D7FD /* DetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailsViewController.xib; sourceTree = "<group>"; };
 		88C01661283E64F80030D7FD /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		88C01662283E64F80030D7FD /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
+		88C01665283E6AEE0030D7FD /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		95C78FC83EBD143D5C71536E /* Pods-RSSFeedReader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RSSFeedReader.release.xcconfig"; path = "Target Support Files/Pods-RSSFeedReader/Pods-RSSFeedReader.release.xcconfig"; sourceTree = "<group>"; };
 		E17B295F1BF39E84CB111E0B /* Pods-RSSFeedReader.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RSSFeedReader.debug.xcconfig"; path = "Target Support Files/Pods-RSSFeedReader/Pods-RSSFeedReader.debug.xcconfig"; sourceTree = "<group>"; };
 		FCF9ADCE138F2681BC8ADD78 /* Pods_RSSFeedReader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RSSFeedReader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -105,8 +107,8 @@
 				88054017283D3A1D007D2762 /* Assets.xcassets */,
 				88054019283D3A1D007D2762 /* LaunchScreen.storyboard */,
 				8805401C283D3A1D007D2762 /* Info.plist */,
-				88C0164B283E40340030D7FD /* Coordinator.swift */,
-				88C0164D283E40E80030D7FD /* AppCoordinator.swift */,
+				88C0164B283E40340030D7FD /* CoordinatorExample.swift */,
+				88C0164D283E40E80030D7FD /* AppCoordinatorExample.swift */,
 				88C0164F283E47CE0030D7FD /* LoginViewController.swift */,
 				88C01651283E48210030D7FD /* RegisterViewController.swift */,
 				88C01653283E48B70030D7FD /* ViewModel.swift */,
@@ -144,6 +146,7 @@
 		88C01658283E616A0030D7FD /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
+				88C01665283E6AEE0030D7FD /* Coordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -316,13 +319,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				88C01650283E47CE0030D7FD /* LoginViewController.swift in Sources */,
-				88C0164E283E40E80030D7FD /* AppCoordinator.swift in Sources */,
+				88C0164E283E40E80030D7FD /* AppCoordinatorExample.swift in Sources */,
 				88C01663283E64F80030D7FD /* SettingsViewController.swift in Sources */,
 				88C01652283E48210030D7FD /* RegisterViewController.swift in Sources */,
 				88054013283D3A1B007D2762 /* ViewController.swift in Sources */,
 				8805400F283D3A1B007D2762 /* AppDelegate.swift in Sources */,
 				88C0165B283E64AD0030D7FD /* ListViewController.swift in Sources */,
-				88C0164C283E40340030D7FD /* Coordinator.swift in Sources */,
+				88C0164C283E40340030D7FD /* CoordinatorExample.swift in Sources */,
+				88C01666283E6AEE0030D7FD /* Coordinator.swift in Sources */,
 				88C01654283E48B70030D7FD /* ViewModel.swift in Sources */,
 				88054027283D559A007D2762 /* R.generated.swift in Sources */,
 				88C0165F283E64C20030D7FD /* DetailsViewController.swift in Sources */,
