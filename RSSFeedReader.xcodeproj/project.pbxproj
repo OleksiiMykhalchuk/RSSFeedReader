@@ -26,6 +26,7 @@
 		88C01663283E64F80030D7FD /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C01661283E64F80030D7FD /* SettingsViewController.swift */; };
 		88C01664283E64F80030D7FD /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88C01662283E64F80030D7FD /* SettingsViewController.xib */; };
 		88C01666283E6AEE0030D7FD /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C01665283E6AEE0030D7FD /* Coordinator.swift */; };
+		88C01668283E6C800030D7FD /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C01667283E6C800030D7FD /* AppCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +50,7 @@
 		88C01661283E64F80030D7FD /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		88C01662283E64F80030D7FD /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
 		88C01665283E6AEE0030D7FD /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		88C01667283E6C800030D7FD /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		95C78FC83EBD143D5C71536E /* Pods-RSSFeedReader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RSSFeedReader.release.xcconfig"; path = "Target Support Files/Pods-RSSFeedReader/Pods-RSSFeedReader.release.xcconfig"; sourceTree = "<group>"; };
 		E17B295F1BF39E84CB111E0B /* Pods-RSSFeedReader.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RSSFeedReader.debug.xcconfig"; path = "Target Support Files/Pods-RSSFeedReader/Pods-RSSFeedReader.debug.xcconfig"; sourceTree = "<group>"; };
 		FCF9ADCE138F2681BC8ADD78 /* Pods_RSSFeedReader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RSSFeedReader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -147,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				88C01665283E6AEE0030D7FD /* Coordinator.swift */,
+				88C01667283E6C800030D7FD /* AppCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -320,6 +323,7 @@
 			files = (
 				88C01650283E47CE0030D7FD /* LoginViewController.swift in Sources */,
 				88C0164E283E40E80030D7FD /* AppCoordinatorExample.swift in Sources */,
+				88C01668283E6C800030D7FD /* AppCoordinator.swift in Sources */,
 				88C01663283E64F80030D7FD /* SettingsViewController.swift in Sources */,
 				88C01652283E48210030D7FD /* RegisterViewController.swift in Sources */,
 				88054013283D3A1B007D2762 /* ViewController.swift in Sources */,
