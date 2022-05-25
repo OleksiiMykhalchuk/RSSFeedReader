@@ -16,6 +16,7 @@
 		8805401B283D3A1D007D2762 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88054019283D3A1D007D2762 /* LaunchScreen.storyboard */; };
 		88054027283D559A007D2762 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88054026283D559A007D2762 /* R.generated.swift */; };
 		88C0164C283E40340030D7FD /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C0164B283E40340030D7FD /* Coordinator.swift */; };
+		88C0164E283E40E80030D7FD /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C0164D283E40E80030D7FD /* AppCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		8805401C283D3A1D007D2762 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		88054026283D559A007D2762 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		88C0164B283E40340030D7FD /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		88C0164D283E40E80030D7FD /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		95C78FC83EBD143D5C71536E /* Pods-RSSFeedReader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RSSFeedReader.release.xcconfig"; path = "Target Support Files/Pods-RSSFeedReader/Pods-RSSFeedReader.release.xcconfig"; sourceTree = "<group>"; };
 		E17B295F1BF39E84CB111E0B /* Pods-RSSFeedReader.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RSSFeedReader.debug.xcconfig"; path = "Target Support Files/Pods-RSSFeedReader/Pods-RSSFeedReader.debug.xcconfig"; sourceTree = "<group>"; };
 		FCF9ADCE138F2681BC8ADD78 /* Pods_RSSFeedReader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RSSFeedReader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -85,6 +87,7 @@
 				88054019283D3A1D007D2762 /* LaunchScreen.storyboard */,
 				8805401C283D3A1D007D2762 /* Info.plist */,
 				88C0164B283E40340030D7FD /* Coordinator.swift */,
+				88C0164D283E40E80030D7FD /* AppCoordinator.swift */,
 			);
 			path = RSSFeedReader;
 			sourceTree = "<group>";
@@ -253,6 +256,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88C0164E283E40E80030D7FD /* AppCoordinator.swift in Sources */,
 				88054013283D3A1B007D2762 /* ViewController.swift in Sources */,
 				8805400F283D3A1B007D2762 /* AppDelegate.swift in Sources */,
 				88C0164C283E40340030D7FD /* Coordinator.swift in Sources */,
