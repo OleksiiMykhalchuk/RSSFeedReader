@@ -18,5 +18,26 @@ class AppCoordinator: Coordinator {
   }
   func start() {
     print("App Coordinator start")
+    goToLoginPage()
+  }
+  let storyboard = UIStoryboard(name: "Main", bundle: .main)
+  func goToLoginPage() {
+    let loginViewController = storyboard.instantiateViewController(
+      withIdentifier: "LoginViewController") as? LoginViewController
+    let loginViewModel = LoginViewModel.init()
+    // set coordinator to the viewModel
+    loginViewModel.coordinator = self
+    // set viewModel to viewController
+    loginViewController?.viewModel = loginViewModel
+    // push it
+    navigationController.pushViewController(loginViewController!, animated: true)
+  }
+  func goToRegisterPage() {
+    let registerViewController = storyboard.instantiateViewController(
+      withIdentifier: "RegisterViewController") as? RegisterViewController
+    let registerViewModel = RegisterViewModel.init()
+    registerViewModel.coordinator = self
+    registerViewController?.viewModel = registerViewModel
+    navigationController.pushViewController(registerViewController!, animated: true)
   }
 }
