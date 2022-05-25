@@ -176,8 +176,8 @@ struct R: Rswift.Validatable {
       return R.nib.detailsViewController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? DetailsViewController
     }
 
-    static func listViewController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> ListViewController? {
-      return R.nib.listViewController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? ListViewController
+    static func listViewController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+      return R.nib.listViewController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
     }
 
     static func settingsViewController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> SettingsViewController? {
@@ -224,8 +224,8 @@ struct _R: Rswift.Validatable {
       let bundle = R.hostingBundle
       let name = "ListViewController"
 
-      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> ListViewController? {
-        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? ListViewController
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
       }
 
       fileprivate init() {}

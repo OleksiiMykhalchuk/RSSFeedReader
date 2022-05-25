@@ -18,6 +18,13 @@ class AppCoordinator: Coordinator {
   }
 
   func start() {
-
+    goToListPage()
+  }
+  func goToListPage() {
+    let listViewController = ListViewController(nibName: "ListViewController", bundle: nil)
+    let listViewModel = ListViewModel()
+    listViewModel.coordinator = self
+    listViewController.viewModel = listViewModel
+    navigationController?.pushViewController(listViewController, animated: true)
   }
 }
