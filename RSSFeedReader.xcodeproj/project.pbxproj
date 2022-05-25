@@ -14,7 +14,7 @@
 		88054016283D3A1B007D2762 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88054014283D3A1B007D2762 /* Main.storyboard */; };
 		88054018283D3A1D007D2762 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88054017283D3A1D007D2762 /* Assets.xcassets */; };
 		8805401B283D3A1D007D2762 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88054019283D3A1D007D2762 /* LaunchScreen.storyboard */; };
-		88054025283D3CE4007D2762 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88054024283D3CE4007D2762 /* R.generated.swift */; };
+		88054027283D559A007D2762 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88054026283D559A007D2762 /* R.generated.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,7 +26,7 @@
 		88054017283D3A1D007D2762 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8805401A283D3A1D007D2762 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8805401C283D3A1D007D2762 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		88054024283D3CE4007D2762 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
+		88054026283D559A007D2762 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		95C78FC83EBD143D5C71536E /* Pods-RSSFeedReader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RSSFeedReader.release.xcconfig"; path = "Target Support Files/Pods-RSSFeedReader/Pods-RSSFeedReader.release.xcconfig"; sourceTree = "<group>"; };
 		E17B295F1BF39E84CB111E0B /* Pods-RSSFeedReader.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RSSFeedReader.debug.xcconfig"; path = "Target Support Files/Pods-RSSFeedReader/Pods-RSSFeedReader.debug.xcconfig"; sourceTree = "<group>"; };
 		FCF9ADCE138F2681BC8ADD78 /* Pods_RSSFeedReader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RSSFeedReader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -56,7 +56,7 @@
 		88054002283D3A1B007D2762 = {
 			isa = PBXGroup;
 			children = (
-				88054024283D3CE4007D2762 /* R.generated.swift */,
+				88054026283D559A007D2762 /* R.generated.swift */,
 				8805400D283D3A1B007D2762 /* RSSFeedReader */,
 				8805400C283D3A1B007D2762 /* Products */,
 				7813A91AABD6D447581B8839 /* Pods */,
@@ -102,8 +102,8 @@
 			buildConfigurationList = 8805401F283D3A1D007D2762 /* Build configuration list for PBXNativeTarget "RSSFeedReader" */;
 			buildPhases = (
 				B112644E6A4AA70B10C0A1C3 /* [CP] Check Pods Manifest.lock */,
+				88054023283D3BD1007D2762 /* RSwift */,
 				88054022283D3BC1007D2762 /* SwiftLint */,
-				88054023283D3BD1007D2762 /* R.swift */,
 				88054007283D3A1B007D2762 /* Sources */,
 				88054008283D3A1B007D2762 /* Frameworks */,
 				88054009283D3A1B007D2762 /* Resources */,
@@ -201,7 +201,7 @@
 			shellPath = /bin/sh;
 			shellScript = "if which \"${PODS_ROOT}/SwiftLint/swiftlint\" >/dev/null; then\n    ${PODS_ROOT}/SwiftLint/swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
-		88054023283D3BD1007D2762 /* R.swift */ = {
+		88054023283D3BD1007D2762 /* RSwift */ = {
 			isa = PBXShellScriptBuildPhase;
 			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
@@ -211,10 +211,11 @@
 			);
 			inputPaths = (
 			);
-			name = R.swift;
+			name = RSwift;
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				$SRCROOT/R.generated.swift,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -252,7 +253,7 @@
 				88054013283D3A1B007D2762 /* ViewController.swift in Sources */,
 				8805400F283D3A1B007D2762 /* AppDelegate.swift in Sources */,
 				88054011283D3A1B007D2762 /* SceneDelegate.swift in Sources */,
-				88054025283D3CE4007D2762 /* R.generated.swift in Sources */,
+				88054027283D559A007D2762 /* R.generated.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
