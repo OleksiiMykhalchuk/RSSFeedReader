@@ -19,6 +19,12 @@
 		88C01650283E47CE0030D7FD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C0164F283E47CE0030D7FD /* LoginViewController.swift */; };
 		88C01652283E48210030D7FD /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C01651283E48210030D7FD /* RegisterViewController.swift */; };
 		88C01654283E48B70030D7FD /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C01653283E48B70030D7FD /* ViewModel.swift */; };
+		88C0165B283E64AD0030D7FD /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C01659283E64AD0030D7FD /* ListViewController.swift */; };
+		88C0165C283E64AD0030D7FD /* ListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88C0165A283E64AD0030D7FD /* ListViewController.xib */; };
+		88C0165F283E64C20030D7FD /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C0165D283E64C20030D7FD /* DetailsViewController.swift */; };
+		88C01660283E64C20030D7FD /* DetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88C0165E283E64C20030D7FD /* DetailsViewController.xib */; };
+		88C01663283E64F80030D7FD /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C01661283E64F80030D7FD /* SettingsViewController.swift */; };
+		88C01664283E64F80030D7FD /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88C01662283E64F80030D7FD /* SettingsViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +41,12 @@
 		88C0164F283E47CE0030D7FD /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		88C01651283E48210030D7FD /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		88C01653283E48B70030D7FD /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		88C01659283E64AD0030D7FD /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		88C0165A283E64AD0030D7FD /* ListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListViewController.xib; sourceTree = "<group>"; };
+		88C0165D283E64C20030D7FD /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		88C0165E283E64C20030D7FD /* DetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailsViewController.xib; sourceTree = "<group>"; };
+		88C01661283E64F80030D7FD /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		88C01662283E64F80030D7FD /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
 		95C78FC83EBD143D5C71536E /* Pods-RSSFeedReader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RSSFeedReader.release.xcconfig"; path = "Target Support Files/Pods-RSSFeedReader/Pods-RSSFeedReader.release.xcconfig"; sourceTree = "<group>"; };
 		E17B295F1BF39E84CB111E0B /* Pods-RSSFeedReader.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RSSFeedReader.debug.xcconfig"; path = "Target Support Files/Pods-RSSFeedReader/Pods-RSSFeedReader.debug.xcconfig"; sourceTree = "<group>"; };
 		FCF9ADCE138F2681BC8ADD78 /* Pods_RSSFeedReader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RSSFeedReader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -83,6 +95,10 @@
 		8805400D283D3A1B007D2762 /* RSSFeedReader */ = {
 			isa = PBXGroup;
 			children = (
+				88C01658283E616A0030D7FD /* Coordinator */,
+				88C01657283E61600030D7FD /* ViewModel */,
+				88C01656283E61570030D7FD /* View */,
+				88C01655283E614E0030D7FD /* Model */,
 				8805400E283D3A1B007D2762 /* AppDelegate.swift */,
 				88054012283D3A1B007D2762 /* ViewController.swift */,
 				88054014283D3A1B007D2762 /* Main.storyboard */,
@@ -96,6 +112,40 @@
 				88C01653283E48B70030D7FD /* ViewModel.swift */,
 			);
 			path = RSSFeedReader;
+			sourceTree = "<group>";
+		};
+		88C01655283E614E0030D7FD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		88C01656283E61570030D7FD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				88C01659283E64AD0030D7FD /* ListViewController.swift */,
+				88C0165A283E64AD0030D7FD /* ListViewController.xib */,
+				88C0165D283E64C20030D7FD /* DetailsViewController.swift */,
+				88C0165E283E64C20030D7FD /* DetailsViewController.xib */,
+				88C01661283E64F80030D7FD /* SettingsViewController.swift */,
+				88C01662283E64F80030D7FD /* SettingsViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		88C01657283E61600030D7FD /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		88C01658283E616A0030D7FD /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Coordinator;
 			sourceTree = "<group>";
 		};
 		C423C5A21C030464B8869F9C /* Frameworks */ = {
@@ -169,7 +219,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				8805401B283D3A1D007D2762 /* LaunchScreen.storyboard in Resources */,
+				88C01664283E64F80030D7FD /* SettingsViewController.xib in Resources */,
 				88054018283D3A1D007D2762 /* Assets.xcassets in Resources */,
+				88C01660283E64C20030D7FD /* DetailsViewController.xib in Resources */,
+				88C0165C283E64AD0030D7FD /* ListViewController.xib in Resources */,
 				88054016283D3A1B007D2762 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -264,12 +317,15 @@
 			files = (
 				88C01650283E47CE0030D7FD /* LoginViewController.swift in Sources */,
 				88C0164E283E40E80030D7FD /* AppCoordinator.swift in Sources */,
+				88C01663283E64F80030D7FD /* SettingsViewController.swift in Sources */,
 				88C01652283E48210030D7FD /* RegisterViewController.swift in Sources */,
 				88054013283D3A1B007D2762 /* ViewController.swift in Sources */,
 				8805400F283D3A1B007D2762 /* AppDelegate.swift in Sources */,
+				88C0165B283E64AD0030D7FD /* ListViewController.swift in Sources */,
 				88C0164C283E40340030D7FD /* Coordinator.swift in Sources */,
 				88C01654283E48B70030D7FD /* ViewModel.swift in Sources */,
 				88054027283D559A007D2762 /* R.generated.swift in Sources */,
+				88C0165F283E64C20030D7FD /* DetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
