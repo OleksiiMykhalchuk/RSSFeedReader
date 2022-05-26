@@ -17,6 +17,8 @@ class ListViewController: UIViewController {
       showTableView()
       loadData = LoadData()
       loadData?.loadData()
+      let nib = UINib(nibName: "ListCell", bundle: nil)
+      tableView.register(nib, forCellReuseIdentifier: "ListCell")
     }
   private func showTableView() {
     tableView = UITableView(frame: view.frame)
@@ -27,10 +29,13 @@ class ListViewController: UIViewController {
 // MARK: - UITableViewDataSource
 extension ListViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = UITableViewCell(style: .default, reuseIdentifier: "ListCell")
-    cell.textLabel?.text = "Text Cell"
-    return cell
+    let cell = tableView.dequeueReusableCell(withIdentifier: "ListCell") as? ListTableViewCell
+    cell?.titleLabel.text = "Text Cell"
+    cell?.pubDateLabel.text = "PubDate"
+    tableView.rowHeight = 99
+    return cell!
   }
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return 30  }
+    return 1
+  }
 }

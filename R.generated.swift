@@ -139,10 +139,12 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.nib` struct is generated, and contains static references to 3 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 4 nibs.
   struct nib {
     /// Nib `DetailsViewController`.
     static let detailsViewController = _R.nib._DetailsViewController()
+    /// Nib `ListCell`.
+    static let listCell = _R.nib._ListCell()
     /// Nib `ListViewController`.
     static let listViewController = _R.nib._ListViewController()
     /// Nib `SettingsViewController`.
@@ -153,6 +155,14 @@ struct R: Rswift.Validatable {
     @available(*, deprecated, message: "Use UINib(resource: R.nib.detailsViewController) instead")
     static func detailsViewController(_: Void = ()) -> UIKit.UINib {
       return UIKit.UINib(resource: R.nib.detailsViewController)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "ListCell", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.listCell) instead")
+    static func listCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.listCell)
     }
     #endif
 
@@ -176,6 +186,10 @@ struct R: Rswift.Validatable {
       return R.nib.detailsViewController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? DetailsViewController
     }
 
+    static func listCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> ListTableViewCell? {
+      return R.nib.listCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? ListTableViewCell
+    }
+
     static func listViewController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
       return R.nib.listViewController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
     }
@@ -183,6 +197,14 @@ struct R: Rswift.Validatable {
     static func settingsViewController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> SettingsViewController? {
       return R.nib.settingsViewController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? SettingsViewController
     }
+
+    fileprivate init() {}
+  }
+
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 1 reuse identifiers.
+  struct reuseIdentifier {
+    /// Reuse identifier `ListCell`.
+    static let listCell: Rswift.ReuseIdentifier<ListTableViewCell> = Rswift.ReuseIdentifier(identifier: "ListCell")
 
     fileprivate init() {}
   }
@@ -215,6 +237,20 @@ struct _R: Rswift.Validatable {
 
       func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> DetailsViewController? {
         return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? DetailsViewController
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _ListCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
+      typealias ReusableType = ListTableViewCell
+
+      let bundle = R.hostingBundle
+      let identifier = "ListCell"
+      let name = "ListCell"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> ListTableViewCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? ListTableViewCell
       }
 
       fileprivate init() {}

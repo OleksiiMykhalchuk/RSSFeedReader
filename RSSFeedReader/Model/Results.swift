@@ -7,11 +7,20 @@
 
 import Foundation
 
-class Results: Codable {
-  var resultCount = 0
-  var results: [Result] = []
-}
-
-class Result: Codable {
-  var title = ""
+class Results {
+  var results: [[String: String]]?
+  var dictionary: [String: String]?
+  var currentValue: String?
+  var rss = false
+  var channel = false
+  var item = false
+  var dictionaryKeys = [ "title",
+                         "link",
+                         "description",
+                         "content:encoded",
+                         "pubDate",
+                         "guid" ]
+  deinit {
+    print("Results deinit")
+  }
 }
