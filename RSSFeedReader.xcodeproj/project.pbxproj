@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		08A3A822284000E600D9F88C /* ViewModelApplyied.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A3A821284000E600D9F88C /* ViewModelApplyied.swift */; };
 		08A3A824284000F900D9F88C /* ViewControllerMakeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A3A823284000F900D9F88C /* ViewControllerMakeable.swift */; };
+		08A3A827284001E000D9F88C /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A3A826284001E000D9F88C /* NetworkManager.swift */; };
+		08A3A82A2840027D00D9F88C /* RSSItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A3A8292840027D00D9F88C /* RSSItem.swift */; };
 		18470FC9E4E9440EB05AFE5E /* Pods_RSSFeedReader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCF9ADCE138F2681BC8ADD78 /* Pods_RSSFeedReader.framework */; };
 		8805400F283D3A1B007D2762 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8805400E283D3A1B007D2762 /* AppDelegate.swift */; };
 		88054013283D3A1B007D2762 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88054012283D3A1B007D2762 /* ViewController.swift */; };
@@ -39,6 +41,8 @@
 /* Begin PBXFileReference section */
 		08A3A821284000E600D9F88C /* ViewModelApplyied.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelApplyied.swift; sourceTree = "<group>"; };
 		08A3A823284000F900D9F88C /* ViewControllerMakeable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerMakeable.swift; sourceTree = "<group>"; };
+		08A3A826284001E000D9F88C /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		08A3A8292840027D00D9F88C /* RSSItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSSItem.swift; sourceTree = "<group>"; };
 		8805400B283D3A1B007D2762 /* RSSFeedReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RSSFeedReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8805400E283D3A1B007D2762 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		88054012283D3A1B007D2762 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -127,6 +131,15 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		08A3A825284001C500D9F88C /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				08A3A826284001E000D9F88C /* NetworkManager.swift */,
+				08A3A8292840027D00D9F88C /* RSSItem.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		7813A91AABD6D447581B8839 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -159,6 +172,7 @@
 		8805400D283D3A1B007D2762 /* RSSFeedReader */ = {
 			isa = PBXGroup;
 			children = (
+				08A3A825284001C500D9F88C /* Network */,
 				08A3A81B283FF7A100D9F88C /* Flows */,
 				08A3A81A283FF51900D9F88C /* Generics */,
 				88C01658283E616A0030D7FD /* Coordinator */,
@@ -388,6 +402,7 @@
 				08A3A824284000F900D9F88C /* ViewControllerMakeable.swift in Sources */,
 				88C01650283E47CE0030D7FD /* LoginViewController.swift in Sources */,
 				88C0164E283E40E80030D7FD /* AppCoordinatorExample.swift in Sources */,
+				08A3A82A2840027D00D9F88C /* RSSItem.swift in Sources */,
 				88C0166A283E6D610030D7FD /* ListViewModel.swift in Sources */,
 				88C0166E283E84AB0030D7FD /* LoadData.swift in Sources */,
 				88C01668283E6C800030D7FD /* AppCoordinator.swift in Sources */,
@@ -397,6 +412,7 @@
 				88C0166C283E82C90030D7FD /* Results.swift in Sources */,
 				88C01652283E48210030D7FD /* RegisterViewController.swift in Sources */,
 				88054013283D3A1B007D2762 /* ViewController.swift in Sources */,
+				08A3A827284001E000D9F88C /* NetworkManager.swift in Sources */,
 				8805400F283D3A1B007D2762 /* AppDelegate.swift in Sources */,
 				88C0165B283E64AD0030D7FD /* ListViewController.swift in Sources */,
 				88C0164C283E40340030D7FD /* CoordinatorExample.swift in Sources */,
