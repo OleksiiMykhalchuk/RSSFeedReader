@@ -9,14 +9,13 @@ import UIKit
 
 class ListViewController: UIViewController {
   var tableView: UITableView!
-  var loadData: LoadData?
+  var loadData = LoadData()
   var viewModel: ListViewModel?
     override func viewDidLoad() {
         super.viewDidLoad()
       title = "Title"
       showTableView()
-      loadData = LoadData()
-      loadData?.loadData()
+      loadData.loadData()
       let nib = UINib(nibName: "ListCell", bundle: nil)
       tableView.register(nib, forCellReuseIdentifier: "ListCell")
     }
@@ -32,7 +31,7 @@ extension ListViewController: UITableViewDataSource {
     let cell = tableView.dequeueReusableCell(withIdentifier: "ListCell") as? ListTableViewCell
     cell?.titleLabel.text = "Text Cell"
     cell?.pubDateLabel.text = "PubDate"
-    tableView.rowHeight = 99
+    tableView.rowHeight = 80
     return cell!
   }
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

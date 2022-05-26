@@ -8,9 +8,9 @@
 import Foundation
 
 class Results {
-  var results: [[String: String]]?
-  var dictionary: [String: String]?
-  var currentValue: String?
+  var results = [["": ""]]
+  var dictionary = ["": ""]
+  var currentValue = ""
   var rss = false
   var channel = false
   var item = false

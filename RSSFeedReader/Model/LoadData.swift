@@ -15,7 +15,8 @@ class LoadData: NSObject {
     let urlString = "https://www.upwork.com/ab/feed/jobs/rss?q=mobile+developer"
     let url = URL(string: urlString)!
     let session = URLSession.shared
-    let dataTask = session.dataTask(with: url) { data, response, error in
+    let dataTask = session.dataTask(with: url) { [weak self] data, response, error in
+      guard let self = self else { return }
       if let error = error as NSError?, error.code == -999 {
         print("data Task Error \(error)")
         return
@@ -26,52 +27,54 @@ class LoadData: NSObject {
     }
     dataTask.resume()
   }
-  func parse(data: Data) -> Results {
+  func parse(data: Data){
       let parser = XMLParser(data: data)
       parser.delegate = self
       parser.parse()
-    return results!
+    result = results.results
   }
 
-  var results: Results?
+  var results = Results()
+  var result: [[String: String]] = []
 
 }
 extension LoadData: XMLParserDelegate {
 
   func parserDidStartDocument(_ parser: XMLParser) {
     results = Results()
-    results?.results = []
+    results.results = []
   }
   func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) {
     if elementName == "rss" {
-      results?.rss = true
+      results.rss = true
     } else if elementName == "channel" {
-      results?.channel = true
+      results.channel = true
     } else if elementName == "item" {
-      results?.item = true
-      results?.dictionary = [:]
-    } else if (results?.dictionaryKeys.contains(elementName))! && results!.rss && results!.channel {
-      results?.currentValue = ""
+      results.item = true
+      results.dictionary = [:]
+    } else if (results.dictionaryKeys.contains(elementName)) && results.rss && results.channel {
+      results.currentValue = ""
     }
   }
   func parser(_ parser: XMLParser, foundCharacters string: String) {
-    results?.currentValue = string
+    results.currentValue = string
   }
   func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
     if elementName == "item" {
-      results?.item = false
-      results?.results?.append((results?.dictionary!)!)
-    } else if (results?.dictionaryKeys.contains(elementName))! && results!.rss && results!.channel && results!.item {
-      results?.dictionary![elementName] = results?.currentValue
+      results.item = false
+      results.results.append((results.dictionary))
+    } else if (results.dictionaryKeys.contains(elementName)) && results.rss && results.channel && results.item {
+      results.dictionary[elementName] = results.currentValue
     }
   }
   func parser(_ parser: XMLParser, parseErrorOccurred parseError: Error) {
     print("Parse Error \(parseError)")
   }
   func parserDidEndDocument(_ parser: XMLParser) {
-    print(results?.results)
-    results?.rss = false
-    results?.channel = false
-    results?.item = false
+    print(results.results)
+//    result = results.results
+    results.rss = false
+    results.channel = false
+    results.item = false
   }
 }
