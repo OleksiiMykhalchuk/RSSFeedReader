@@ -8,7 +8,7 @@
 import Foundation
 
 extension ListViewController {
-    class ListViewModel {
+    class ViewModel {
       weak var coordinator: AppCoordinator?
         var itemNumber: Int  {
             dataSource.count

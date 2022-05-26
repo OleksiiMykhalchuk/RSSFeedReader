@@ -21,7 +21,7 @@ class AppCoordinator: Coordinator {
     goToListPage()
   }
   func goToListPage() {
-      let viewModel = ListViewController.ListViewModel()
+      let viewModel = ListViewController.ViewModel()
       viewModel.coordinator = self
       let viewController = ListViewController.make(viewModel: viewModel)
       (rootViewController as? UINavigationController)?.pushViewController(viewController, animated: true)

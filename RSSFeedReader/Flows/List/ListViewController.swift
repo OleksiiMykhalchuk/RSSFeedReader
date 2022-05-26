@@ -10,7 +10,7 @@ import UIKit
 class ListViewController: UIViewController, ViewModelApplyied, ViewControllerMakeable {
   var tableView: UITableView!
 //  var loadData: LoadData?
-  var viewModel: ListViewModel!
+  var viewModel: ViewModel!
     override func viewDidLoad() {
         super.viewDidLoad()
       title = "Title"
