@@ -11,6 +11,8 @@
 		08A3A824284000F900D9F88C /* ViewControllerMakeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A3A823284000F900D9F88C /* ViewControllerMakeable.swift */; };
 		08A3A827284001E000D9F88C /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A3A826284001E000D9F88C /* NetworkManager.swift */; };
 		08A3A82A2840027D00D9F88C /* RSSItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A3A8292840027D00D9F88C /* RSSItem.swift */; };
+		08A3A82C284004D300D9F88C /* Bindable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A3A82B284004D300D9F88C /* Bindable.swift */; };
+		08A3A82F2840055E00D9F88C /* ListCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A3A82E2840055E00D9F88C /* ListCellViewModel.swift */; };
 		18470FC9E4E9440EB05AFE5E /* Pods_RSSFeedReader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCF9ADCE138F2681BC8ADD78 /* Pods_RSSFeedReader.framework */; };
 		8805400F283D3A1B007D2762 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8805400E283D3A1B007D2762 /* AppDelegate.swift */; };
 		88054013283D3A1B007D2762 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88054012283D3A1B007D2762 /* ViewController.swift */; };
@@ -43,6 +45,8 @@
 		08A3A823284000F900D9F88C /* ViewControllerMakeable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerMakeable.swift; sourceTree = "<group>"; };
 		08A3A826284001E000D9F88C /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		08A3A8292840027D00D9F88C /* RSSItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSSItem.swift; sourceTree = "<group>"; };
+		08A3A82B284004D300D9F88C /* Bindable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bindable.swift; sourceTree = "<group>"; };
+		08A3A82E2840055E00D9F88C /* ListCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCellViewModel.swift; sourceTree = "<group>"; };
 		8805400B283D3A1B007D2762 /* RSSFeedReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RSSFeedReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8805400E283D3A1B007D2762 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		88054012283D3A1B007D2762 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -90,6 +94,7 @@
 		08A3A81A283FF51900D9F88C /* Generics */ = {
 			isa = PBXGroup;
 			children = (
+				08A3A82B284004D300D9F88C /* Bindable.swift */,
 				88C01665283E6AEE0030D7FD /* Coordinator.swift */,
 				08A3A821284000E600D9F88C /* ViewModelApplyied.swift */,
 				08A3A823284000F900D9F88C /* ViewControllerMakeable.swift */,
@@ -108,27 +113,12 @@
 		08A3A81C283FF7AA00D9F88C /* List */ = {
 			isa = PBXGroup;
 			children = (
-				08A3A81E283FF7BC00D9F88C /* Model */,
-				08A3A81D283FF7B600D9F88C /* View */,
-			);
-			path = List;
-			sourceTree = "<group>";
-		};
-		08A3A81D283FF7B600D9F88C /* View */ = {
-			isa = PBXGroup;
-			children = (
+				08A3A82D2840053E00D9F88C /* Cell */,
+				88C01669283E6D610030D7FD /* ListViewModel.swift */,
 				88C0165A283E64AD0030D7FD /* ListViewController.xib */,
 				88C01659283E64AD0030D7FD /* ListViewController.swift */,
 			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		08A3A81E283FF7BC00D9F88C /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				88C01669283E6D610030D7FD /* ListViewModel.swift */,
-			);
-			path = Model;
+			path = List;
 			sourceTree = "<group>";
 		};
 		08A3A825284001C500D9F88C /* Network */ = {
@@ -138,6 +128,16 @@
 				08A3A8292840027D00D9F88C /* RSSItem.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		08A3A82D2840053E00D9F88C /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				88C01672283FC8CC0030D7FD /* ListTableViewCell.swift */,
+				88C01670283FC7E00030D7FD /* ListCell.xib */,
+				08A3A82E2840055E00D9F88C /* ListCellViewModel.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		7813A91AABD6D447581B8839 /* Pods */ = {
@@ -206,8 +206,6 @@
 		88C01656283E61570030D7FD /* View */ = {
 			isa = PBXGroup;
 			children = (
-				88C01672283FC8CC0030D7FD /* ListTableViewCell.swift */,
-				88C01670283FC7E00030D7FD /* ListCell.xib */,
 				88C0165D283E64C20030D7FD /* DetailsViewController.swift */,
 				88C0165E283E64C20030D7FD /* DetailsViewController.xib */,
 				88C01661283E64F80030D7FD /* SettingsViewController.swift */,
@@ -400,9 +398,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				08A3A824284000F900D9F88C /* ViewControllerMakeable.swift in Sources */,
+				08A3A82F2840055E00D9F88C /* ListCellViewModel.swift in Sources */,
 				88C01650283E47CE0030D7FD /* LoginViewController.swift in Sources */,
 				88C0164E283E40E80030D7FD /* AppCoordinatorExample.swift in Sources */,
 				08A3A82A2840027D00D9F88C /* RSSItem.swift in Sources */,
+				08A3A82C284004D300D9F88C /* Bindable.swift in Sources */,
 				88C0166A283E6D610030D7FD /* ListViewModel.swift in Sources */,
 				88C0166E283E84AB0030D7FD /* LoadData.swift in Sources */,
 				88C01668283E6C800030D7FD /* AppCoordinator.swift in Sources */,

@@ -9,16 +9,20 @@ import UIKit
 
 class ListViewController: UIViewController, ViewModelApplyied, ViewControllerMakeable {
   var tableView: UITableView!
-  var loadData: LoadData?
+//  var loadData: LoadData?
   var viewModel: ListViewModel!
     override func viewDidLoad() {
         super.viewDidLoad()
       title = "Title"
       showTableView()
-      loadData = LoadData()
-      loadData?.loadData()
+//      loadData = LoadData()
+//      loadData?.loadData()
       let nib = UINib(nibName: "ListCell", bundle: nil)
       tableView.register(nib, forCellReuseIdentifier: "ListCell")
+        viewModel.reloadData.bind(to: self) { _ in
+            // refresh tableView
+        }
+        viewModel.start()
     }
   private func showTableView() {
     tableView = UITableView(frame: view.frame)
