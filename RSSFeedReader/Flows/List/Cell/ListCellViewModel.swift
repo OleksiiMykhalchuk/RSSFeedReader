@@ -8,5 +8,5 @@
 import Foundation
 
 struct ListCellViewModel {
-    
+    let title: String
 }

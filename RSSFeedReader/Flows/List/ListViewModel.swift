@@ -9,14 +9,20 @@ import Foundation
 
 class ListViewModel {
   weak var coordinator: AppCoordinator?
-    private(set) var itemNumber: Int = 0
+    var itemNumber: Int  {
+        dataSource.count
+    }
+    private var dataSource: [NetworkManager.RSSItem] = []
     var reloadData: Bindable<Void> = .init(nil)
     func start() {
+        // do network request here
+        // update dataSource
+        // call reloadData
     }
     
     func cellViewModel(for index: Int) -> ListCellViewModel {
-        // your code here
-        return .init()
+        let rssItem = dataSource[index]
+        return .init(title: rssItem.title)
     }
 
 //  func goToList() {

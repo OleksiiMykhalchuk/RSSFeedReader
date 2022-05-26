@@ -33,13 +33,13 @@ class ListViewController: UIViewController, ViewModelApplyied, ViewControllerMak
 // MARK: - UITableViewDataSource
 extension ListViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+      let cellViewModel = viewModel.cellViewModel(for: indexPath.row)
     let cell = tableView.dequeueReusableCell(withIdentifier: "ListCell") as? ListTableViewCell
-    cell?.titleLabel.text = "Text Cell"
-    cell?.pubDateLabel.text = "PubDate"
+      cell?.viewModel = cellViewModel
     tableView.rowHeight = 99
     return cell!
   }
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return 1
+      return viewModel.itemNumber
   }
 }
