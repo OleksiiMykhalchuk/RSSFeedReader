@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		08A3A822284000E600D9F88C /* ViewModelApplyied.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A3A821284000E600D9F88C /* ViewModelApplyied.swift */; };
+		08A3A824284000F900D9F88C /* ViewControllerMakeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A3A823284000F900D9F88C /* ViewControllerMakeable.swift */; };
 		18470FC9E4E9440EB05AFE5E /* Pods_RSSFeedReader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCF9ADCE138F2681BC8ADD78 /* Pods_RSSFeedReader.framework */; };
 		8805400F283D3A1B007D2762 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8805400E283D3A1B007D2762 /* AppDelegate.swift */; };
 		88054013283D3A1B007D2762 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88054012283D3A1B007D2762 /* ViewController.swift */; };
@@ -35,6 +37,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		08A3A821284000E600D9F88C /* ViewModelApplyied.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelApplyied.swift; sourceTree = "<group>"; };
+		08A3A823284000F900D9F88C /* ViewControllerMakeable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerMakeable.swift; sourceTree = "<group>"; };
 		8805400B283D3A1B007D2762 /* RSSFeedReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RSSFeedReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8805400E283D3A1B007D2762 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		88054012283D3A1B007D2762 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -83,6 +87,8 @@
 			isa = PBXGroup;
 			children = (
 				88C01665283E6AEE0030D7FD /* Coordinator.swift */,
+				08A3A821284000E600D9F88C /* ViewModelApplyied.swift */,
+				08A3A823284000F900D9F88C /* ViewControllerMakeable.swift */,
 			);
 			path = Generics;
 			sourceTree = "<group>";
@@ -379,12 +385,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08A3A824284000F900D9F88C /* ViewControllerMakeable.swift in Sources */,
 				88C01650283E47CE0030D7FD /* LoginViewController.swift in Sources */,
 				88C0164E283E40E80030D7FD /* AppCoordinatorExample.swift in Sources */,
 				88C0166A283E6D610030D7FD /* ListViewModel.swift in Sources */,
 				88C0166E283E84AB0030D7FD /* LoadData.swift in Sources */,
 				88C01668283E6C800030D7FD /* AppCoordinator.swift in Sources */,
 				88C01673283FC8CC0030D7FD /* ListTableViewCell.swift in Sources */,
+				08A3A822284000E600D9F88C /* ViewModelApplyied.swift in Sources */,
 				88C01663283E64F80030D7FD /* SettingsViewController.swift in Sources */,
 				88C0166C283E82C90030D7FD /* Results.swift in Sources */,
 				88C01652283E48210030D7FD /* RegisterViewController.swift in Sources */,
