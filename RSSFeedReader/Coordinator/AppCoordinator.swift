@@ -11,10 +11,10 @@ import UIKit
 class AppCoordinator: Coordinator {
   var parentCoordinator: Coordinator?
   var children: [Coordinator] = []
-  var navigationController: UINavigationController?
+  let rootViewController: UIViewController
 
   init(_ navigationController: UINavigationController) {
-    self.navigationController = navigationController
+    self.rootViewController = navigationController
   }
 
   func start() {
@@ -25,6 +25,6 @@ class AppCoordinator: Coordinator {
     let listViewModel = ListViewModel()
     listViewModel.coordinator = self
     listViewController.viewModel = listViewModel
-    navigationController?.pushViewController(listViewController, animated: true)
+      (rootViewController as? UINavigationController)?.pushViewController(listViewController, animated: true)
   }
 }
