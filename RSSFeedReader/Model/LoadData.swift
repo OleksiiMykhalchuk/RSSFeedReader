@@ -11,15 +11,19 @@ class LoadData: NSObject {
   private var dataTask: URLSessionDataTask?
 
   func loadData() {
-    let url = "https://www.upwork.com/ab/feed/jobs/rss?q=mobile+developer"
+    let urlString = "https://www.upwork.com/ab/feed/jobs/rss?q=mobile+developer"
+    let url = URL(string: urlString)!
     let session = URLSession.shared
-    let dataTask = session.dataTask(with: url, completionHandler: { data, response, error in })
+    let dataTask = session.dataTask(with: url) { data, response, error in
+      print(error)
+    }
     dataTask.resume()
   }
   func parse(data: Data) -> [Result] {
       let parser = XMLParser(data: data)
       parser.delegate = self
       parser.parse()
+    return [Result]()
   }
 }
 extension LoadData: XMLParserDelegate {
@@ -34,7 +38,7 @@ extension LoadData: XMLParserDelegate {
 
   }
   func parser(_ parser: XMLParser, parseErrorOccurred parseError: Error) {
-    
+
   }
   func parserDidEndDocument(_ parser: XMLParser) {
 

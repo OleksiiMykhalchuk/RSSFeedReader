@@ -9,11 +9,14 @@ import UIKit
 
 class ListViewController: UIViewController {
   var tableView: UITableView!
+  var loadData: LoadData?
   var viewModel: ListViewModel?
     override func viewDidLoad() {
         super.viewDidLoad()
       title = "Title"
       showTableView()
+      loadData = LoadData()
+      loadData?.loadData()
     }
   private func showTableView() {
     tableView = UITableView(frame: view.frame)
