@@ -11,10 +11,11 @@ class ListTableViewCell: UITableViewCell {
     var viewModel: ListCellViewModel? {
         didSet {
             titleLabel.text = viewModel?.title
+            descriptionLabel.text = viewModel?.description
         }
     }
   @IBOutlet weak var titleLabel: UILabel!
-  @IBOutlet weak var pubDateLabel: UILabel!
+  @IBOutlet weak var descriptionLabel: UILabel!
   override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

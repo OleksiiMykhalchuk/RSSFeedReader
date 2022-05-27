@@ -19,8 +19,9 @@ class ListViewController: UIViewController, ViewModelApplyied, ViewControllerMak
 //      loadData?.loadData()
       let nib = UINib(nibName: "ListCell", bundle: nil)
       tableView.register(nib, forCellReuseIdentifier: "ListCell")
-        viewModel.reloadData.bind(to: self) { _ in
+        viewModel.reloadData.bind(to: self) { [weak self] _ in
             // refresh tableView
+            self?.tableView.reloadData()
         }
         viewModel.start()
     }
@@ -36,7 +37,6 @@ extension ListViewController: UITableViewDataSource {
       let cellViewModel = viewModel.cellViewModel(for: indexPath.row)
     let cell = tableView.dequeueReusableCell(withIdentifier: "ListCell") as? ListTableViewCell
       cell?.viewModel = cellViewModel
-    tableView.rowHeight = 99
     return cell!
   }
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

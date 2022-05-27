@@ -21,22 +21,21 @@ extension ListViewController {
             // call reloadData
             let url = URL(string: "https://www.upwork.com/ab/feed/jobs/rss?q=mobile+developer")
             let networkManager = NetworkManager(with: url!)
-            do {
-                try networkManager.fetch(completion: { result in
+               networkManager.fetch(completion: { [weak self] result in
                     switch result {
                     case .success(let data):
-                        self.dataSource = data
+                        self?.dataSource = data
+                        DispatchQueue.main.async {
+                            self?.reloadData.update(with: ())
+                        }
                     case .failure(let error):
                         print(error)
                     }
                 })
-            } catch {
-                print("NetworkManager Error")
-            }
         }
         func cellViewModel(for index: Int) -> ListCellViewModel {
             let rssItem = dataSource[index]
-            return .init(title: rssItem.title)
+            return .init(title: rssItem.title, description: rssItem.description)
         }
 
         //  func goToList() {
