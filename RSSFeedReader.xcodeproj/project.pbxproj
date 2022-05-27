@@ -38,6 +38,7 @@
 		88C0166E283E84AB0030D7FD /* LoadData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C0166D283E84AB0030D7FD /* LoadData.swift */; };
 		88C01671283FC7E00030D7FD /* ListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88C01670283FC7E00030D7FD /* ListCell.xib */; };
 		88C01673283FC8CC0030D7FD /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C01672283FC8CC0030D7FD /* ListTableViewCell.swift */; };
+		88C016752840C76E0030D7FD /* XMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C016742840C76E0030D7FD /* XMLParser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,6 +75,7 @@
 		88C0166F283F72F20030D7FD /* XML.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = XML.xml; sourceTree = "<group>"; };
 		88C01670283FC7E00030D7FD /* ListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListCell.xib; sourceTree = "<group>"; };
 		88C01672283FC8CC0030D7FD /* ListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
+		88C016742840C76E0030D7FD /* XMLParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XMLParser.swift; sourceTree = "<group>"; };
 		95C78FC83EBD143D5C71536E /* Pods-RSSFeedReader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RSSFeedReader.release.xcconfig"; path = "Target Support Files/Pods-RSSFeedReader/Pods-RSSFeedReader.release.xcconfig"; sourceTree = "<group>"; };
 		E17B295F1BF39E84CB111E0B /* Pods-RSSFeedReader.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RSSFeedReader.debug.xcconfig"; path = "Target Support Files/Pods-RSSFeedReader/Pods-RSSFeedReader.debug.xcconfig"; sourceTree = "<group>"; };
 		FCF9ADCE138F2681BC8ADD78 /* Pods_RSSFeedReader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RSSFeedReader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -126,6 +128,7 @@
 			children = (
 				08A3A826284001E000D9F88C /* NetworkManager.swift */,
 				08A3A8292840027D00D9F88C /* RSSItem.swift */,
+				88C016742840C76E0030D7FD /* XMLParser.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -405,6 +408,7 @@
 				08A3A82C284004D300D9F88C /* Bindable.swift in Sources */,
 				88C0166A283E6D610030D7FD /* ListViewModel.swift in Sources */,
 				88C0166E283E84AB0030D7FD /* LoadData.swift in Sources */,
+				88C016752840C76E0030D7FD /* XMLParser.swift in Sources */,
 				88C01668283E6C800030D7FD /* AppCoordinator.swift in Sources */,
 				88C01673283FC8CC0030D7FD /* ListTableViewCell.swift in Sources */,
 				08A3A822284000E600D9F88C /* ViewModelApplyied.swift in Sources */,

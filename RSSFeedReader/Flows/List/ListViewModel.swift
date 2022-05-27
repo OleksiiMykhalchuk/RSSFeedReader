@@ -9,8 +9,8 @@ import Foundation
 
 extension ListViewController {
     class ViewModel {
-      weak var coordinator: AppCoordinator?
-        var itemNumber: Int  {
+        weak var coordinator: AppCoordinator?
+        var itemNumber: Int {
             dataSource.count
         }
         private var dataSource: [NetworkManager.RSSItem] = []
@@ -19,15 +19,28 @@ extension ListViewController {
             // do network request here
             // update dataSource
             // call reloadData
+            let url = URL(string: "https://www.upwork.com/ab/feed/jobs/rss?q=mobile+developer")
+            let networkManager = NetworkManager(with: url!)
+            do {
+                try networkManager.fetch(completion: { result in
+                    switch result {
+                    case .success(let data):
+                        self.dataSource = data
+                    case .failure(let error):
+                        print(error)
+                    }
+                })
+            } catch {
+                print("NetworkManager Error")
+            }
         }
-        
         func cellViewModel(for index: Int) -> ListCellViewModel {
             let rssItem = dataSource[index]
             return .init(title: rssItem.title)
         }
 
-    //  func goToList() {
-    //    coordinator?.goToListPage()
-    //  }
+        //  func goToList() {
+        //    coordinator?.goToListPage()
+        //  }
     }
 }
