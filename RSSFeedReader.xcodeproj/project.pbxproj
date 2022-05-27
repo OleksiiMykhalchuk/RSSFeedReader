@@ -181,7 +181,6 @@
 				08A3A81B283FF7A100D9F88C /* Flows */,
 				08A3A81A283FF51900D9F88C /* Generics */,
 				88C01658283E616A0030D7FD /* Coordinator */,
-				88C01657283E61600030D7FD /* ViewModel */,
 				88C01656283E61570030D7FD /* View */,
 				8805400E283D3A1B007D2762 /* AppDelegate.swift */,
 				88054012283D3A1B007D2762 /* ViewController.swift */,
@@ -205,13 +204,6 @@
 				88C01662283E64F80030D7FD /* SettingsViewController.xib */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		88C01657283E61600030D7FD /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		88C01658283E616A0030D7FD /* Coordinator */ = {

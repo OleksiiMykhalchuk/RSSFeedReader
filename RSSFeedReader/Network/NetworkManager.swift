@@ -21,7 +21,11 @@ final class NetworkManager: NSObject {
                 completion(.failure(error))
                 return
             }
-            if let response = response as? HTTPURLResponse, let data = data {
+            if let response = response as? HTTPURLResponse, response.statusCode != 200 {
+                print("Status Code is not 200: statusCode - \(response.statusCode)")
+                print("Response is \(response)")
+            }
+            if let data = data {
                 let xmlManager = XMLMannager(data: data)
                 completion(.success(xmlManager.parse()))
             }
