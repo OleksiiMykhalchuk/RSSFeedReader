@@ -10,13 +10,19 @@ import UIKit
 class ListTableViewCell: UITableViewCell {
     var viewModel: ListCellViewModel? {
         didSet {
+            let htmlString = viewModel?.description
+            let data = htmlString?.data(using: .utf8)
+            let attributedString = try? NSAttributedString(
+                data: data!,
+                options: [.documentType: NSAttributedString.DocumentType.html],
+                documentAttributes: nil)
             titleLabel.text = viewModel?.title
-            descriptionLabel.text = viewModel?.description
+            descriptionLabel.attributedText = attributedString
         }
     }
-  @IBOutlet weak var titleLabel: UILabel!
-  @IBOutlet weak var descriptionLabel: UILabel!
-  override func awakeFromNib() {
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
