@@ -37,9 +37,5 @@ extension ListViewController {
             let rssItem = dataSource[index]
             return .init(title: rssItem.title, description: rssItem.description)
         }
-
-        //  func goToList() {
-        //    coordinator?.goToListPage()
-        //  }
     }
 }

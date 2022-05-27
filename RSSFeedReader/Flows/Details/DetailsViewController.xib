@@ -8,17 +8,44 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailsViewController" customModule="RSSFeedReader" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailsViewController" customModule="RSSFeedReader" customModuleProvider="target">
+            <connections>
+                <outlet property="descriptionLabel" destination="l9G-fh-C0J" id="OyX-Xs-4cw"/>
+                <outlet property="titleLabel" destination="CYY-zo-eeK" id="W8f-j7-AJq"/>
+                <outlet property="view" destination="wy2-oh-Plj" id="l6X-av-DwQ"/>
+            </connections>
+        </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <viewController id="L46-fH-eWP" customClass="DetailsViewController" customModule="RSSFeedReader" customModuleProvider="target">
-            <view key="view" contentMode="scaleToFill" id="J6N-eE-yIX">
-                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                <viewLayoutGuide key="safeArea" id="jEh-ER-187"/>
-                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-            </view>
-            <point key="canvasLocation" x="527" y="83"/>
-        </viewController>
+        <view contentMode="scaleToFill" id="wy2-oh-Plj">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CYY-zo-eeK">
+                    <rect key="frame" x="20" y="68" width="374" height="20.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="description" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l9G-fh-C0J">
+                    <rect key="frame" x="20" y="105.5" width="374" height="20.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="qzA-Pi-ABX"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="CYY-zo-eeK" firstAttribute="leading" secondItem="qzA-Pi-ABX" secondAttribute="leading" constant="20" id="Gpf-zb-Ged"/>
+                <constraint firstItem="CYY-zo-eeK" firstAttribute="top" secondItem="qzA-Pi-ABX" secondAttribute="top" constant="24" id="IyX-eC-lbh"/>
+                <constraint firstItem="qzA-Pi-ABX" firstAttribute="trailing" secondItem="l9G-fh-C0J" secondAttribute="trailing" constant="20" id="Rkn-uh-aoU"/>
+                <constraint firstItem="qzA-Pi-ABX" firstAttribute="trailing" secondItem="CYY-zo-eeK" secondAttribute="trailing" constant="20" id="Vcf-Q2-r8I"/>
+                <constraint firstItem="l9G-fh-C0J" firstAttribute="leading" secondItem="qzA-Pi-ABX" secondAttribute="leading" constant="20" id="fIy-nO-mt7"/>
+                <constraint firstItem="l9G-fh-C0J" firstAttribute="top" secondItem="CYY-zo-eeK" secondAttribute="bottom" constant="17" id="i58-pV-rFi"/>
+                <constraint firstItem="l9G-fh-C0J" firstAttribute="top" secondItem="CYY-zo-eeK" secondAttribute="bottom" constant="17" id="rP8-rQ-xag"/>
+            </constraints>
+            <point key="canvasLocation" x="708" y="93"/>
+        </view>
     </objects>
     <resources>
         <systemColor name="systemBackgroundColor">

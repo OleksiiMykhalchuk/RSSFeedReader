@@ -9,14 +9,11 @@ import UIKit
 
 class ListViewController: UIViewController, ViewModelApplyied, ViewControllerMakeable {
   var tableView: UITableView!
-//  var loadData: LoadData?
   var viewModel: ViewModel!
     override func viewDidLoad() {
         super.viewDidLoad()
-      title = "Title"
+      title = "List"
       showTableView()
-//      loadData = LoadData()
-//      loadData?.loadData()
       let nib = UINib(nibName: "ListCell", bundle: nil)
       tableView.register(nib, forCellReuseIdentifier: "ListCell")
         viewModel.reloadData.bind(to: self) { [weak self] _ in
@@ -28,6 +25,7 @@ class ListViewController: UIViewController, ViewModelApplyied, ViewControllerMak
   private func showTableView() {
     tableView = UITableView(frame: view.frame)
     tableView.dataSource = self
+    tableView.delegate = self
     view.addSubview(tableView)
   }
 }
@@ -42,4 +40,11 @@ extension ListViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
       return viewModel.itemNumber
   }
+}
+// MARK: - UITableViewDelegate
+extension ListViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        viewModel.coordinator?.goToDetailsPage(with: viewModel.cellViewModel(for: indexPath.row))
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
 }
