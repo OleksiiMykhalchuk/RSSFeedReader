@@ -34,8 +34,6 @@
 		88C01666283E6AEE0030D7FD /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C01665283E6AEE0030D7FD /* Coordinator.swift */; };
 		88C01668283E6C800030D7FD /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C01667283E6C800030D7FD /* AppCoordinator.swift */; };
 		88C0166A283E6D610030D7FD /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C01669283E6D610030D7FD /* ListViewModel.swift */; };
-		88C0166C283E82C90030D7FD /* Results.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C0166B283E82C90030D7FD /* Results.swift */; };
-		88C0166E283E84AB0030D7FD /* LoadData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C0166D283E84AB0030D7FD /* LoadData.swift */; };
 		88C01671283FC7E00030D7FD /* ListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88C01670283FC7E00030D7FD /* ListCell.xib */; };
 		88C01673283FC8CC0030D7FD /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C01672283FC8CC0030D7FD /* ListTableViewCell.swift */; };
 		88C016752840C76E0030D7FD /* XMLManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C016742840C76E0030D7FD /* XMLManager.swift */; };
@@ -72,8 +70,6 @@
 		88C01665283E6AEE0030D7FD /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		88C01667283E6C800030D7FD /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		88C01669283E6D610030D7FD /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
-		88C0166B283E82C90030D7FD /* Results.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Results.swift; sourceTree = "<group>"; };
-		88C0166D283E84AB0030D7FD /* LoadData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadData.swift; sourceTree = "<group>"; };
 		88C0166F283F72F20030D7FD /* XML.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = XML.xml; sourceTree = "<group>"; };
 		88C01670283FC7E00030D7FD /* ListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListCell.xib; sourceTree = "<group>"; };
 		88C01672283FC8CC0030D7FD /* ListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
@@ -187,7 +183,6 @@
 				88C01658283E616A0030D7FD /* Coordinator */,
 				88C01657283E61600030D7FD /* ViewModel */,
 				88C01656283E61570030D7FD /* View */,
-				88C01655283E614E0030D7FD /* Model */,
 				8805400E283D3A1B007D2762 /* AppDelegate.swift */,
 				88054012283D3A1B007D2762 /* ViewController.swift */,
 				88054014283D3A1B007D2762 /* Main.storyboard */,
@@ -201,15 +196,6 @@
 				88C01653283E48B70030D7FD /* ViewModel.swift */,
 			);
 			path = RSSFeedReader;
-			sourceTree = "<group>";
-		};
-		88C01655283E614E0030D7FD /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				88C0166B283E82C90030D7FD /* Results.swift */,
-				88C0166D283E84AB0030D7FD /* LoadData.swift */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		88C01656283E61570030D7FD /* View */ = {
@@ -429,7 +415,6 @@
 				08A3A82A2840027D00D9F88C /* RSSItem.swift in Sources */,
 				08A3A82C284004D300D9F88C /* Bindable.swift in Sources */,
 				88C0166A283E6D610030D7FD /* ListViewModel.swift in Sources */,
-				88C0166E283E84AB0030D7FD /* LoadData.swift in Sources */,
 				88C016752840C76E0030D7FD /* XMLManager.swift in Sources */,
 				88C01668283E6C800030D7FD /* AppCoordinator.swift in Sources */,
 				88C01673283FC8CC0030D7FD /* ListTableViewCell.swift in Sources */,
@@ -437,7 +422,6 @@
 				08A3A822284000E600D9F88C /* ViewModelApplyied.swift in Sources */,
 				88C0167828410DF10030D7FD /* DetailsViewModel.swift in Sources */,
 				88C01663283E64F80030D7FD /* SettingsViewController.swift in Sources */,
-				88C0166C283E82C90030D7FD /* Results.swift in Sources */,
 				88C01652283E48210030D7FD /* RegisterViewController.swift in Sources */,
 				88054013283D3A1B007D2762 /* ViewController.swift in Sources */,
 				08A3A827284001E000D9F88C /* NetworkManager.swift in Sources */,

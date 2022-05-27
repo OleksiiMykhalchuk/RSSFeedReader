@@ -12,7 +12,6 @@ extension DetailsViewController {
         weak var coordinator: AppCoordinator?
         var details: DetailsViewModel?
         func start() {
-            
         }
         func viewModel(with data: ListCellViewModel) {
             details = DetailsViewModel(title: data.title, description: data.description)

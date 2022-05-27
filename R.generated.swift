@@ -310,7 +310,9 @@ struct _R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
-    struct main: Rswift.StoryboardResourceType, Rswift.Validatable {
+    struct main: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
+      typealias InitialController = LoginViewController
+
       let bundle = R.hostingBundle
       let loginViewController = StoryboardViewControllerResource<LoginViewController>(identifier: "LoginViewController")
       let name = "Main"

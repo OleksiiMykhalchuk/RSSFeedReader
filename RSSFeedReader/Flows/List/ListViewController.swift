@@ -44,7 +44,7 @@ extension ListViewController: UITableViewDataSource {
 // MARK: - UITableViewDelegate
 extension ListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        viewModel.coordinator?.goToDetailsPage(with: viewModel.cellViewModel(for: indexPath.row))
+        viewModel.coordinator?.goToDetailsPage(with: viewModel.didSelectItem(with: indexPath.row))
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }

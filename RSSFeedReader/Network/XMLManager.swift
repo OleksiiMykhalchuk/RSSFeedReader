@@ -18,14 +18,14 @@ class XMLMannager: NSObject, XMLParserDelegate {
     private var descript: String!
     private var titleIsPresent = false
     private var descriptIsPresent = false
-    private var data: Data!
+    private var data: Data
     init(data: Data) {
         self.data = data
     }
     deinit {
         print("XML Manager deinit{}")
     }
-    func parse() -> [NetworkManager.RSSItem]{
+    func parse() -> [NetworkManager.RSSItem] {
         let parser = XMLParser(data: data)
         parser.delegate = self
         parser.parse()
@@ -34,11 +34,12 @@ class XMLMannager: NSObject, XMLParserDelegate {
     internal func parserDidStartDocument(_ parser: XMLParser) {
         print("start")
     }
-    internal func parser(_ parser: XMLParser,
-                didStartElement elementName: String,
-                namespaceURI: String?,
-                qualifiedName qName: String?,
-                attributes attributeDict: [String : String] = [:]) {
+    internal func parser(
+        _ parser: XMLParser,
+        didStartElement elementName: String,
+        namespaceURI: String?,
+        qualifiedName qName: String?,
+        attributes attributeDict: [String: String] = [:]) {
         if elementName == "rss" {
             rss = true
         } else if elementName == "channel" {
@@ -53,7 +54,11 @@ class XMLMannager: NSObject, XMLParserDelegate {
     internal func parser(_ parser: XMLParser, foundCharacters string: String) {
         currentValue = string
     }
-    internal func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
+    internal func parser(
+        _ parser: XMLParser,
+        didEndElement elementName: String,
+        namespaceURI: String?,
+        qualifiedName qName: String?) {
         if elementName == "item" {
             items.append(.init(title: title, description: descript))
         } else if elementName == "title", rss, channel, itemBool {

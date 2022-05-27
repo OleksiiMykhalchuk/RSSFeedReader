@@ -37,5 +37,9 @@ extension ListViewController {
             let rssItem = dataSource[index]
             return .init(title: rssItem.title, description: rssItem.description)
         }
+        func didSelectItem(with index: Int) -> ListCellViewModel {
+            let rssItem = dataSource[index]
+            return .init(title: rssItem.title, description: rssItem.description)
+        }
     }
 }
