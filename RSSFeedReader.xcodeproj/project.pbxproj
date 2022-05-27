@@ -40,6 +40,7 @@
 		88C01673283FC8CC0030D7FD /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C01672283FC8CC0030D7FD /* ListTableViewCell.swift */; };
 		88C016752840C76E0030D7FD /* XMLManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C016742840C76E0030D7FD /* XMLManager.swift */; };
 		88C0167828410DF10030D7FD /* DetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C0167728410DF10030D7FD /* DetailsViewModel.swift */; };
+		88C0167B2841286E0030D7FD /* NSAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C0167A2841286E0030D7FD /* NSAttributedString.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +79,7 @@
 		88C01672283FC8CC0030D7FD /* ListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
 		88C016742840C76E0030D7FD /* XMLManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XMLManager.swift; sourceTree = "<group>"; };
 		88C0167728410DF10030D7FD /* DetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewModel.swift; sourceTree = "<group>"; };
+		88C0167A2841286E0030D7FD /* NSAttributedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSAttributedString.swift; sourceTree = "<group>"; };
 		95C78FC83EBD143D5C71536E /* Pods-RSSFeedReader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RSSFeedReader.release.xcconfig"; path = "Target Support Files/Pods-RSSFeedReader/Pods-RSSFeedReader.release.xcconfig"; sourceTree = "<group>"; };
 		E17B295F1BF39E84CB111E0B /* Pods-RSSFeedReader.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RSSFeedReader.debug.xcconfig"; path = "Target Support Files/Pods-RSSFeedReader/Pods-RSSFeedReader.debug.xcconfig"; sourceTree = "<group>"; };
 		FCF9ADCE138F2681BC8ADD78 /* Pods_RSSFeedReader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RSSFeedReader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -178,6 +180,7 @@
 		8805400D283D3A1B007D2762 /* RSSFeedReader */ = {
 			isa = PBXGroup;
 			children = (
+				88C01679284128480030D7FD /* Extensions */,
 				08A3A825284001C500D9F88C /* Network */,
 				08A3A81B283FF7A100D9F88C /* Flows */,
 				08A3A81A283FF51900D9F88C /* Generics */,
@@ -241,6 +244,14 @@
 				88C0167728410DF10030D7FD /* DetailsViewModel.swift */,
 			);
 			path = Details;
+			sourceTree = "<group>";
+		};
+		88C01679284128480030D7FD /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				88C0167A2841286E0030D7FD /* NSAttributedString.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		C423C5A21C030464B8869F9C /* Frameworks */ = {
@@ -422,6 +433,7 @@
 				88C016752840C76E0030D7FD /* XMLManager.swift in Sources */,
 				88C01668283E6C800030D7FD /* AppCoordinator.swift in Sources */,
 				88C01673283FC8CC0030D7FD /* ListTableViewCell.swift in Sources */,
+				88C0167B2841286E0030D7FD /* NSAttributedString.swift in Sources */,
 				08A3A822284000E600D9F88C /* ViewModelApplyied.swift in Sources */,
 				88C0167828410DF10030D7FD /* DetailsViewModel.swift in Sources */,
 				88C01663283E64F80030D7FD /* SettingsViewController.swift in Sources */,

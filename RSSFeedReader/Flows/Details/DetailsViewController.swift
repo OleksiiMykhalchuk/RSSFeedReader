@@ -11,8 +11,9 @@ class DetailsViewController: UIViewController, ViewModelApplyied, ViewController
     var viewModel: ViewModel!
     var detailsViewModel: DetailsViewModel? {
         didSet {
+            let htmlString = detailsViewModel?.description
             titleLabel.text = detailsViewModel?.title
-            descriptionLabel.text = detailsViewModel?.description
+            descriptionLabel.attributedText = NSAttributedString.attributedString(string: htmlString ?? "")
         }
     }
     @IBOutlet weak var titleLabel: UILabel!

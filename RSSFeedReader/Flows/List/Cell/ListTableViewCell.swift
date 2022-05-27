@@ -11,13 +11,8 @@ class ListTableViewCell: UITableViewCell {
     var viewModel: ListCellViewModel? {
         didSet {
             let htmlString = viewModel?.description
-            let data = htmlString?.data(using: .utf8)
-            let attributedString = try? NSAttributedString(
-                data: data!,
-                options: [.documentType: NSAttributedString.DocumentType.html],
-                documentAttributes: nil)
             titleLabel.text = viewModel?.title
-            descriptionLabel.attributedText = attributedString
+            descriptionLabel.attributedText = NSAttributedString.attributedString(string: htmlString ?? "")
         }
     }
     @IBOutlet weak var titleLabel: UILabel!
@@ -32,5 +27,4 @@ class ListTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
 }
