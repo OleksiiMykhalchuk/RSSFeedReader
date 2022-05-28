@@ -39,6 +39,7 @@
 		88C016752840C76E0030D7FD /* XMLManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C016742840C76E0030D7FD /* XMLManager.swift */; };
 		88C0167828410DF10030D7FD /* DetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C0167728410DF10030D7FD /* DetailsViewModel.swift */; };
 		88C0167B2841286E0030D7FD /* NSAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C0167A2841286E0030D7FD /* NSAttributedString.swift */; };
+		88C0167D28421EB50030D7FD /* LoadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88C0167C28421EB50030D7FD /* LoadingCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +77,7 @@
 		88C016742840C76E0030D7FD /* XMLManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XMLManager.swift; sourceTree = "<group>"; };
 		88C0167728410DF10030D7FD /* DetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewModel.swift; sourceTree = "<group>"; };
 		88C0167A2841286E0030D7FD /* NSAttributedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSAttributedString.swift; sourceTree = "<group>"; };
+		88C0167C28421EB50030D7FD /* LoadingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingCell.xib; sourceTree = "<group>"; };
 		95C78FC83EBD143D5C71536E /* Pods-RSSFeedReader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RSSFeedReader.release.xcconfig"; path = "Target Support Files/Pods-RSSFeedReader/Pods-RSSFeedReader.release.xcconfig"; sourceTree = "<group>"; };
 		E17B295F1BF39E84CB111E0B /* Pods-RSSFeedReader.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RSSFeedReader.debug.xcconfig"; path = "Target Support Files/Pods-RSSFeedReader/Pods-RSSFeedReader.debug.xcconfig"; sourceTree = "<group>"; };
 		FCF9ADCE138F2681BC8ADD78 /* Pods_RSSFeedReader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RSSFeedReader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -140,6 +142,7 @@
 				88C01672283FC8CC0030D7FD /* ListTableViewCell.swift */,
 				88C01670283FC7E00030D7FD /* ListCell.xib */,
 				08A3A82E2840055E00D9F88C /* ListCellViewModel.swift */,
+				88C0167C28421EB50030D7FD /* LoadingCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -308,6 +311,7 @@
 				88C01660283E64C20030D7FD /* DetailsViewController.xib in Resources */,
 				88C0165C283E64AD0030D7FD /* ListViewController.xib in Resources */,
 				88054016283D3A1B007D2762 /* Main.storyboard in Resources */,
+				88C0167D28421EB50030D7FD /* LoadingCell.xib in Resources */,
 				88C01671283FC7E00030D7FD /* ListCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
