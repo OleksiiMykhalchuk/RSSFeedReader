@@ -19,7 +19,7 @@ extension ListViewController {
             // do network request here
             // update dataSource
             // call reloadData
-            let url = URL(string: "https://www.upwork.com/ab/feed/jobs/rss?q=mobile+developer")
+            let url = URL(string: "https://www.upwork.com/ab/feed/jobs/rss?q=mobile+developer&sort=recency")
             let networkManager = NetworkManager(with: url!)
                networkManager.fetch(completion: { [weak self] result in
                     switch result {
