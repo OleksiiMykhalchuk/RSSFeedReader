@@ -10,5 +10,6 @@ target 'RSSFeedReader' do
   # Pods for RSSFeedReader
   pod 'SwiftLint';
   pod 'R.swift';
+  pod 'RealmSwift';
 
 end

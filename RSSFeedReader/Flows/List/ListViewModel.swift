@@ -32,11 +32,6 @@ extension ListViewController {
                         }
                     case .failure(let error):
                         print(error)
-                        DispatchQueue.main.async {
-                            let alert = UIAlertController(title: "Error", message: "\(error)", preferredStyle: .alert)
-                            let action = UIAlertAction(title: "OK", style: .default)
-                            alert.addAction(action)
-                        }
                     }
                 })
         }
