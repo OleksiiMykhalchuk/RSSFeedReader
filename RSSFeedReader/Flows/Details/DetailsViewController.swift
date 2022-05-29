@@ -14,6 +14,7 @@ class DetailsViewController: UIViewController, ViewModelApplyied, ViewController
             let htmlString = detailsViewModel?.description
             titleLabel.text = detailsViewModel?.title
             descriptionLabel.attributedText = NSAttributedString.attributedString(string: htmlString ?? "")
+            descriptionLabel.font = UIFont(name: "system", size: 14)
         }
     }
     @IBOutlet weak var titleLabel: UILabel!

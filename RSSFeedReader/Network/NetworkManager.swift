@@ -7,17 +7,22 @@
 
 import Foundation
 
-final class NetworkManager: NSObject {
+final class NetworkManager{
     private let url: URL
-
+    enum State {
+        case loading
+        case loaded
+    }
+    private(set) var state: State = .loading
     init(with url: URL) {
         self.url = url
     }
     func fetch(completion: @escaping (Swift.Result<[RSSItem], Error>) -> Void) {
+        state = .loading
         let session = URLSession.shared
         let dataTask = session.dataTask(with: url) { data, response, error in
             if let error = error {
-                print("Data Task Error \(error)")
+//                print("Data Task Error \(error)")
                 completion(.failure(error))
                 return
             }
@@ -29,6 +34,7 @@ final class NetworkManager: NSObject {
             if let data = data {
                 let xmlManager = XMLMannager(data: data)
                 completion(.success(xmlManager.parse()))
+                self.state = .loaded
             }
         }
         dataTask.resume()

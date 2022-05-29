@@ -13,6 +13,9 @@ class ListTableViewCell: UITableViewCell {
             let htmlString = viewModel?.description
             titleLabel.text = viewModel?.title
             descriptionLabel.attributedText = NSAttributedString.attributedString(string: htmlString ?? "")
+            descriptionLabel.sizeToFit()
+            descriptionLabel.font = UIFont(name: "system", size: 14)
+            descriptionLabel.layoutIfNeeded()
         }
     }
     @IBOutlet weak var titleLabel: UILabel!
@@ -24,7 +27,6 @@ class ListTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
         // Configure the view for the selected state
     }
 }

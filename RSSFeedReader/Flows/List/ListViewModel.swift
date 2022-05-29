@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 extension ListViewController {
     class ViewModel {
@@ -13,6 +14,7 @@ extension ListViewController {
         var itemNumber: Int {
             dataSource.count
         }
+        var networkManager: NetworkManager!
         private var dataSource: [NetworkManager.RSSItem] = []
         var reloadData: Bindable<Void> = .init(nil)
         func start() {
@@ -20,7 +22,7 @@ extension ListViewController {
             // update dataSource
             // call reloadData
             let url = URL(string: "https://www.upwork.com/ab/feed/jobs/rss?q=mobile+developer&sort=recency")
-            let networkManager = NetworkManager(with: url!)
+            networkManager = NetworkManager(with: url!)
                networkManager.fetch(completion: { [weak self] result in
                     switch result {
                     case .success(let data):
@@ -30,6 +32,11 @@ extension ListViewController {
                         }
                     case .failure(let error):
                         print(error)
+                        DispatchQueue.main.async {
+                            let alert = UIAlertController(title: "Error", message: "\(error)", preferredStyle: .alert)
+                            let action = UIAlertAction(title: "OK", style: .default)
+                            alert.addAction(action)
+                        }
                     }
                 })
         }
@@ -40,6 +47,9 @@ extension ListViewController {
         func didSelectItem(with index: Int) -> ListCellViewModel {
             let rssItem = dataSource[index]
             return .init(title: rssItem.title, description: rssItem.description)
+        }
+        func isLoding() -> NetworkManager.State {
+            return networkManager.state
         }
     }
 }

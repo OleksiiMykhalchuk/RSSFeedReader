@@ -40,6 +40,7 @@
 		88C0167828410DF10030D7FD /* DetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C0167728410DF10030D7FD /* DetailsViewModel.swift */; };
 		88C0167B2841286E0030D7FD /* NSAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C0167A2841286E0030D7FD /* NSAttributedString.swift */; };
 		88C0167D28421EB50030D7FD /* LoadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88C0167C28421EB50030D7FD /* LoadingCell.xib */; };
+		88C0167F284391DB0030D7FD /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C0167E284391DB0030D7FD /* Alerts.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +79,7 @@
 		88C0167728410DF10030D7FD /* DetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewModel.swift; sourceTree = "<group>"; };
 		88C0167A2841286E0030D7FD /* NSAttributedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSAttributedString.swift; sourceTree = "<group>"; };
 		88C0167C28421EB50030D7FD /* LoadingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingCell.xib; sourceTree = "<group>"; };
+		88C0167E284391DB0030D7FD /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
 		95C78FC83EBD143D5C71536E /* Pods-RSSFeedReader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RSSFeedReader.release.xcconfig"; path = "Target Support Files/Pods-RSSFeedReader/Pods-RSSFeedReader.release.xcconfig"; sourceTree = "<group>"; };
 		E17B295F1BF39E84CB111E0B /* Pods-RSSFeedReader.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RSSFeedReader.debug.xcconfig"; path = "Target Support Files/Pods-RSSFeedReader/Pods-RSSFeedReader.debug.xcconfig"; sourceTree = "<group>"; };
 		FCF9ADCE138F2681BC8ADD78 /* Pods_RSSFeedReader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RSSFeedReader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -102,6 +104,7 @@
 				88C01665283E6AEE0030D7FD /* Coordinator.swift */,
 				08A3A821284000E600D9F88C /* ViewModelApplyied.swift */,
 				08A3A823284000F900D9F88C /* ViewControllerMakeable.swift */,
+				88C0167E284391DB0030D7FD /* Alerts.swift */,
 			);
 			path = Generics;
 			sourceTree = "<group>";
@@ -415,6 +418,7 @@
 				88C01668283E6C800030D7FD /* AppCoordinator.swift in Sources */,
 				88C01673283FC8CC0030D7FD /* ListTableViewCell.swift in Sources */,
 				88C0167B2841286E0030D7FD /* NSAttributedString.swift in Sources */,
+				88C0167F284391DB0030D7FD /* Alerts.swift in Sources */,
 				08A3A822284000E600D9F88C /* ViewModelApplyied.swift in Sources */,
 				88C0167828410DF10030D7FD /* DetailsViewModel.swift in Sources */,
 				88C01663283E64F80030D7FD /* SettingsViewController.swift in Sources */,
