@@ -14,26 +14,16 @@ extension ListViewController {
         var itemNumber: Int {
             dataSource.count
         }
-        var networkManager: NetworkManager!
+        var dataManager: DataManager!
         private var dataSource: [NetworkManager.RSSItem] = []
         var reloadData: Bindable<Void> = .init(nil)
         func start() {
-            // do network request here
-            // update dataSource
-            // call reloadData
-            let url = URL(string: "https://www.upwork.com/ab/feed/jobs/rss?q=mobile+developer&sort=recency")
-            networkManager = NetworkManager(with: url!)
-               networkManager.fetch(completion: { [weak self] result in
-                    switch result {
-                    case .success(let data):
-                        self?.dataSource = data
-                        DispatchQueue.main.async {
-                            self?.reloadData.update(with: ())
-                        }
-                    case .failure(let error):
-                        print(error)
-                    }
-                })
+            dataManager = DataManager()
+            dataSource = dataManager.getData()
+            dataManager.reloadData.bind(to: self) { [weak self] _ in
+                self?.dataSource = (self?.dataManager.dataSource)!
+                self?.reloadData.update(with: ())
+            }
         }
         func cellViewModel(for index: Int) -> ListCellViewModel {
             let rssItem = dataSource[index]
@@ -43,8 +33,8 @@ extension ListViewController {
             let rssItem = dataSource[index]
             return .init(title: rssItem.title, description: rssItem.description)
         }
-        func isLoding() -> NetworkManager.State {
-            return networkManager.state
+        func isLoading() -> NetworkManager.State {
+            return dataManager.state
         }
     }
 }

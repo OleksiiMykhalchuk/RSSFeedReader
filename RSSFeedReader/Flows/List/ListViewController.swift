@@ -34,7 +34,7 @@ class ListViewController: UIViewController, ViewModelApplyied, ViewControllerMak
 // MARK: - UITableViewDataSource
 extension ListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        switch viewModel.isLoding() {
+        switch viewModel.isLoading() {
         case .loading:
             let loadingCell = tableView.dequeueReusableCell(withIdentifier: "LoadingCell")
             let spinner = loadingCell?.viewWithTag(100) as? UIActivityIndicatorView
@@ -50,7 +50,7 @@ extension ListViewController: UITableViewDataSource {
         }
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch viewModel.isLoding() {
+        switch viewModel.isLoading() {
         case .loading:
             return 1
         case .loaded:

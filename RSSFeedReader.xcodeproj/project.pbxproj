@@ -40,6 +40,9 @@
 		88C0167828410DF10030D7FD /* DetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C0167728410DF10030D7FD /* DetailsViewModel.swift */; };
 		88C0167B2841286E0030D7FD /* NSAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C0167A2841286E0030D7FD /* NSAttributedString.swift */; };
 		88C0167D28421EB50030D7FD /* LoadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88C0167C28421EB50030D7FD /* LoadingCell.xib */; };
+		88C016812843B3F70030D7FD /* DataBaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C016802843B3F70030D7FD /* DataBaseManager.swift */; };
+		88C016842844C0FE0030D7FD /* DataBaseObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C016832844C0FE0030D7FD /* DataBaseObject.swift */; };
+		88C0168A2844F1390030D7FD /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C016892844F1390030D7FD /* DataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +81,9 @@
 		88C0167728410DF10030D7FD /* DetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewModel.swift; sourceTree = "<group>"; };
 		88C0167A2841286E0030D7FD /* NSAttributedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSAttributedString.swift; sourceTree = "<group>"; };
 		88C0167C28421EB50030D7FD /* LoadingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingCell.xib; sourceTree = "<group>"; };
+		88C016802843B3F70030D7FD /* DataBaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseManager.swift; sourceTree = "<group>"; };
+		88C016832844C0FE0030D7FD /* DataBaseObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseObject.swift; sourceTree = "<group>"; };
+		88C016892844F1390030D7FD /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		95C78FC83EBD143D5C71536E /* Pods-RSSFeedReader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RSSFeedReader.release.xcconfig"; path = "Target Support Files/Pods-RSSFeedReader/Pods-RSSFeedReader.release.xcconfig"; sourceTree = "<group>"; };
 		E17B295F1BF39E84CB111E0B /* Pods-RSSFeedReader.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RSSFeedReader.debug.xcconfig"; path = "Target Support Files/Pods-RSSFeedReader/Pods-RSSFeedReader.debug.xcconfig"; sourceTree = "<group>"; };
 		FCF9ADCE138F2681BC8ADD78 /* Pods_RSSFeedReader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RSSFeedReader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -179,6 +185,8 @@
 		8805400D283D3A1B007D2762 /* RSSFeedReader */ = {
 			isa = PBXGroup;
 			children = (
+				88C016882844F11B0030D7FD /* DataManager */,
+				88C016822844C0DD0030D7FD /* DataBaseManager */,
 				88C01679284128480030D7FD /* Extensions */,
 				08A3A825284001C500D9F88C /* Network */,
 				08A3A81B283FF7A100D9F88C /* Flows */,
@@ -233,6 +241,23 @@
 				88C0167A2841286E0030D7FD /* NSAttributedString.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		88C016822844C0DD0030D7FD /* DataBaseManager */ = {
+			isa = PBXGroup;
+			children = (
+				88C016802843B3F70030D7FD /* DataBaseManager.swift */,
+				88C016832844C0FE0030D7FD /* DataBaseObject.swift */,
+			);
+			path = DataBaseManager;
+			sourceTree = "<group>";
+		};
+		88C016882844F11B0030D7FD /* DataManager */ = {
+			isa = PBXGroup;
+			children = (
+				88C016892844F1390030D7FD /* DataManager.swift */,
+			);
+			path = DataManager;
 			sourceTree = "<group>";
 		};
 		C423C5A21C030464B8869F9C /* Frameworks */ = {
@@ -405,6 +430,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				08A3A824284000F900D9F88C /* ViewControllerMakeable.swift in Sources */,
+				88C016842844C0FE0030D7FD /* DataBaseObject.swift in Sources */,
 				08A3A82F2840055E00D9F88C /* ListCellViewModel.swift in Sources */,
 				88C01650283E47CE0030D7FD /* LoginViewController.swift in Sources */,
 				88C0164E283E40E80030D7FD /* AppCoordinatorExample.swift in Sources */,
@@ -414,6 +440,7 @@
 				88C016752840C76E0030D7FD /* XMLManager.swift in Sources */,
 				88C01668283E6C800030D7FD /* AppCoordinator.swift in Sources */,
 				88C01673283FC8CC0030D7FD /* ListTableViewCell.swift in Sources */,
+				88C016812843B3F70030D7FD /* DataBaseManager.swift in Sources */,
 				88C0167B2841286E0030D7FD /* NSAttributedString.swift in Sources */,
 				08A3A822284000E600D9F88C /* ViewModelApplyied.swift in Sources */,
 				88C0167828410DF10030D7FD /* DetailsViewModel.swift in Sources */,
@@ -427,6 +454,7 @@
 				88C01666283E6AEE0030D7FD /* Coordinator.swift in Sources */,
 				88C01654283E48B70030D7FD /* ViewModel.swift in Sources */,
 				88054027283D559A007D2762 /* R.generated.swift in Sources */,
+				88C0168A2844F1390030D7FD /* DataManager.swift in Sources */,
 				88C0165F283E64C20030D7FD /* DetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
