@@ -7,8 +7,9 @@
 
 import Foundation
 
-final class NetworkManager{
+final class NetworkManager {
     private let url: URL
+    var xmlManager: XMLManager = XMLManager()
     enum State {
         case loading
         case loaded
@@ -29,8 +30,7 @@ final class NetworkManager{
                 print("Response is \(response)")
             }
             if let data = data {
-                let xmlManager = XMLMannager(data: data)
-                completion(.success(xmlManager.parse()))
+                completion(.success((self?.xmlManager.parse(data: data))!))
                 self?.state = .loaded
             }
         }
