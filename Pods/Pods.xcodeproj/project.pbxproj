@@ -503,7 +503,7 @@
 		2C0698ABB2BF063F3777D9B1F616CBC7 /* RLMAccessor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RLMAccessor.h; path = include/RLMAccessor.h; sourceTree = "<group>"; };
 		2E7C6328A3C793AAEDCA218CF6B386ED /* ReuseIdentifierProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ReuseIdentifierProtocol.swift; path = Library/Core/ReuseIdentifierProtocol.swift; sourceTree = "<group>"; };
 		2F18CD35B20E071C1C063E15896AFD7B /* RLMObjectId.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = RLMObjectId.mm; path = Realm/RLMObjectId.mm; sourceTree = "<group>"; };
-		2FEA3F289A207DB15311FAFD3D6FED3F /* Pods-RSSFeedReader */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-RSSFeedReader"; path = Pods_RSSFeedReader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2FEA3F289A207DB15311FAFD3D6FED3F /* Pods_RSSFeedReader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RSSFeedReader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3012340219A62485554FFE9856CE1515 /* CustomPersistable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CustomPersistable.swift; path = RealmSwift/CustomPersistable.swift; sourceTree = "<group>"; };
 		3074A41A7D7DB28A4BFB6B78F578A10C /* StoryboardResource.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StoryboardResource.swift; path = Library/Core/StoryboardResource.swift; sourceTree = "<group>"; };
 		32CD02172A172C8B9174B74498B41170 /* RLMRealm.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RLMRealm.h; path = include/RLMRealm.h; sourceTree = "<group>"; };
@@ -1130,7 +1130,7 @@
 		EBEB90FFB873D9F7F56CAE4F8DE2910C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2FEA3F289A207DB15311FAFD3D6FED3F /* Pods-RSSFeedReader */,
+				2FEA3F289A207DB15311FAFD3D6FED3F /* Pods_RSSFeedReader.framework */,
 				CA4E3B66CE4D02048C77392B64FD0ABB /* Rswift.framework */,
 				921BE4A82C4A7A5C72A0C6F8B8FEF200 /* Realm.framework */,
 				437919EE08EC6BFCCBAC3BD346309742 /* RealmSwift.framework */,
@@ -1338,7 +1338,7 @@
 			);
 			name = "Pods-RSSFeedReader";
 			productName = Pods_RSSFeedReader;
-			productReference = 2FEA3F289A207DB15311FAFD3D6FED3F /* Pods-RSSFeedReader */;
+			productReference = 2FEA3F289A207DB15311FAFD3D6FED3F /* Pods_RSSFeedReader.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
