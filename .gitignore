@@ -91,3 +91,7 @@ iOSInjectionProject/
 *.generated.swift
 
 .DS_Store
+RSSFeedReader/DataBaseManager/DataBaseManager_BACKUP_2382.swift
+RSSFeedReader/DataBaseManager/DataBaseManager_BASE_2382.swift
+RSSFeedReader/DataBaseManager/DataBaseManager_LOCAL_2382.swift
+RSSFeedReader/DataBaseManager/DataBaseManager_REMOTE_2382.swift
