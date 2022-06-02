@@ -8,8 +8,8 @@
 import Foundation
 
 class XMLManager: NSObject, XMLParserDelegate {
-    private var items: [NetworkManager.RSSItem] = []
-    private var item: NetworkManager.RSSItem!
+    private var items: [RSSItem] = []
+    private var item: RSSItem!
     private var objects: [DataBaseObject] = []
     private var object: DataBaseObject!
     private var rss = false
@@ -18,14 +18,14 @@ class XMLManager: NSObject, XMLParserDelegate {
     private var currentValue: String!
     private var title: String!
     private var descript: String!
+    private var pubDate: String!
     private var titleIsPresent = false
     private var descriptIsPresent = false
     private var data: Data!
-    private var id = 0
     deinit {
         print("XML Manager deinit{}")
     }
-    func parse(data: Data) -> [NetworkManager.RSSItem] {
+    func parse(data: Data) -> [RSSItem] {
         let parser = XMLParser(data: data)
         parser.delegate = self
         parser.parse()
@@ -52,6 +52,7 @@ class XMLManager: NSObject, XMLParserDelegate {
             currentValue = ""
             title = ""
             descript = ""
+            pubDate = ""
         }
     }
     internal func parser(_ parser: XMLParser, foundCharacters string: String) {
@@ -63,12 +64,11 @@ class XMLManager: NSObject, XMLParserDelegate {
         namespaceURI: String?,
         qualifiedName qName: String?) {
         if elementName == "item" {
-            items.append(.init(title: title, description: descript))
+            items.append(.init(title: title, description: descript, pubDate: pubDate))
             object = DataBaseObject()
             object.title = title
             object.desc = descript
-            id += 1
-            object.id = id
+            object.pubDate = pubDate
             objects.append(object)
         } else if elementName == "title", rss, channel, itemBool {
             title = currentValue
@@ -76,6 +76,8 @@ class XMLManager: NSObject, XMLParserDelegate {
         } else if elementName == "description", rss, channel, itemBool {
             descript = currentValue
             descriptIsPresent = true
+        } else if elementName == "pubDate", rss, channel, itemBool {
+            pubDate = currentValue
         }
     }
     internal func parserDidEndDocument(_ parser: XMLParser) {

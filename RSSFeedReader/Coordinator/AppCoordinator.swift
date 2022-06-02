@@ -26,7 +26,7 @@ class AppCoordinator: Coordinator {
       let viewController = ListViewController.make(viewModel: viewModel)
       (rootViewController as? UINavigationController)?.pushViewController(viewController, animated: true)
   }
-    func goToDetailsPage(with data: ListCellViewModel) {
+    func goToDetailsPage(with data: RSSItem) {
         let viewModel = DetailsViewController.ViewModel()
         viewModel.coordinator = self
         viewModel.viewModel(with: data)

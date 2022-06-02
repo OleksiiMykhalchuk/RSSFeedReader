@@ -8,6 +8,14 @@
 import Foundation
 
 struct ListCellViewModel {
-    let title: String
-    let description: String
+    var title: String {
+        rssItem.title
+    }
+    var description: String {
+        rssItem.description
+    }
+    var pubDate: String {
+        rssItem.pubDate
+    }
+    let rssItem: RSSItem
 }

@@ -13,7 +13,7 @@ extension DetailsViewController {
         var details: DetailsViewModel?
         func start() {
         }
-        func viewModel(with data: ListCellViewModel) {
+        func viewModel(with data: RSSItem) {
             details = DetailsViewModel(title: data.title, description: data.description)
         }
     }

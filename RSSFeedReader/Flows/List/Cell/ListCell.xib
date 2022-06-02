@@ -8,11 +8,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ListCell" rowHeight="99" id="3uG-PX-hGf" customClass="ListTableViewCell" customModule="RSSFeedReader" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="414" height="82"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ListCell" rowHeight="117" id="3uG-PX-hGf" customClass="ListTableViewCell" customModule="RSSFeedReader" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3uG-PX-hGf" id="kzF-I3-6Za">
-                <rect key="frame" x="0.0" y="0.0" width="414" height="82"/>
+                <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FOX-ds-zuf">
@@ -27,23 +27,34 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="pubDate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4ul-00-t6n">
+                        <rect key="frame" x="11" y="67" width="392" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="08q-O7-Okc" firstAttribute="leading" secondItem="kzF-I3-6Za" secondAttribute="leading" constant="11" id="8wG-8u-dpB"/>
-                    <constraint firstAttribute="trailing" secondItem="08q-O7-Okc" secondAttribute="trailing" constant="11" id="H0D-t4-iCa"/>
-                    <constraint firstItem="FOX-ds-zuf" firstAttribute="top" secondItem="kzF-I3-6Za" secondAttribute="top" constant="11" id="IbG-ly-ZGX"/>
-                    <constraint firstAttribute="bottom" secondItem="08q-O7-Okc" secondAttribute="bottom" constant="22.5" id="Mx5-ft-0Yp"/>
-                    <constraint firstAttribute="trailing" secondItem="FOX-ds-zuf" secondAttribute="trailing" constant="11" id="PCs-8b-zIN"/>
-                    <constraint firstItem="FOX-ds-zuf" firstAttribute="leading" secondItem="kzF-I3-6Za" secondAttribute="leading" constant="11" id="R1c-w5-dKK"/>
-                    <constraint firstItem="08q-O7-Okc" firstAttribute="top" secondItem="FOX-ds-zuf" secondAttribute="bottom" constant="7.5" id="irg-a8-7GL"/>
-                    <constraint firstItem="08q-O7-Okc" firstAttribute="top" secondItem="FOX-ds-zuf" secondAttribute="bottom" constant="7.5" id="yub-Si-34M"/>
+                    <constraint firstItem="4ul-00-t6n" firstAttribute="leading" secondItem="kzF-I3-6Za" secondAttribute="leading" constant="11" id="BIE-dp-kwZ"/>
+                    <constraint firstItem="FOX-ds-zuf" firstAttribute="leading" secondItem="kzF-I3-6Za" secondAttribute="leading" constant="11" id="FbO-4s-vIx"/>
+                    <constraint firstItem="08q-O7-Okc" firstAttribute="leading" secondItem="kzF-I3-6Za" secondAttribute="leading" constant="11" id="Hyo-gp-bup"/>
+                    <constraint firstItem="08q-O7-Okc" firstAttribute="top" secondItem="FOX-ds-zuf" secondAttribute="bottom" constant="7.5" id="Jdz-41-VEM"/>
+                    <constraint firstAttribute="trailing" secondItem="08q-O7-Okc" secondAttribute="trailing" constant="11" id="MKN-5H-T6f"/>
+                    <constraint firstItem="FOX-ds-zuf" firstAttribute="top" secondItem="kzF-I3-6Za" secondAttribute="top" constant="11" id="Say-7o-P4E"/>
+                    <constraint firstAttribute="trailing" secondItem="4ul-00-t6n" secondAttribute="trailing" constant="11" id="YDc-qh-HeQ"/>
+                    <constraint firstItem="08q-O7-Okc" firstAttribute="top" secondItem="FOX-ds-zuf" secondAttribute="bottom" constant="7.5" id="am0-0a-zsH"/>
+                    <constraint firstItem="4ul-00-t6n" firstAttribute="top" secondItem="08q-O7-Okc" secondAttribute="bottom" constant="7.5" id="gOH-af-7jD"/>
+                    <constraint firstItem="4ul-00-t6n" firstAttribute="top" secondItem="08q-O7-Okc" secondAttribute="bottom" constant="7.5" id="hLP-q1-t8H"/>
+                    <constraint firstAttribute="trailing" secondItem="FOX-ds-zuf" secondAttribute="trailing" constant="11" id="oIw-5W-CRG"/>
+                    <constraint firstAttribute="bottom" secondItem="4ul-00-t6n" secondAttribute="bottom" constant="12" id="ub3-cR-Ekb"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="descriptionLabel" destination="08q-O7-Okc" id="iHa-Ig-jh6"/>
+                <outlet property="pubDateLabel" destination="4ul-00-t6n" id="Euo-iE-vTV"/>
                 <outlet property="titleLabel" destination="FOX-ds-zuf" id="Rgn-4t-dtO"/>
             </connections>
-            <point key="canvasLocation" x="137.68115942028987" y="86.383928571428569"/>
+            <point key="canvasLocation" x="137.68115942028987" y="92.410714285714278"/>
         </tableViewCell>
     </objects>
 </document>

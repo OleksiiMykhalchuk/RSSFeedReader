@@ -60,6 +60,7 @@
 		8805401A283D3A1D007D2762 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8805401C283D3A1D007D2762 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		88054026283D559A007D2762 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
+		88B129312849100700988309 /* Realm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Realm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		88C0164B283E40340030D7FD /* CoordinatorExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorExample.swift; sourceTree = "<group>"; };
 		88C0164D283E40E80030D7FD /* AppCoordinatorExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinatorExample.swift; sourceTree = "<group>"; };
 		88C0164F283E47CE0030D7FD /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -263,6 +264,7 @@
 		C423C5A21C030464B8869F9C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				88B129312849100700988309 /* Realm.framework */,
 				FCF9ADCE138F2681BC8ADD78 /* Pods_RSSFeedReader.framework */,
 			);
 			name = Frameworks;

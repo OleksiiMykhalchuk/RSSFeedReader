@@ -8,7 +8,7 @@
 import UIKit
 
 class ListTableViewCell: UITableViewCell {
-    var viewModel: ListCellViewModel? {
+    var viewModel: RSSItem? {
         didSet {
             let htmlString = viewModel?.description
             titleLabel.text = viewModel?.title
@@ -16,10 +16,14 @@ class ListTableViewCell: UITableViewCell {
             descriptionLabel.sizeToFit()
             descriptionLabel.font = UIFont(name: "system", size: 14)
             descriptionLabel.layoutIfNeeded()
+            pubDateLabel.text = viewModel?.pubDate
+            let dataBaseManager = DataBaseManager()
+            let data = dataBaseManager.readData()
         }
     }
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var pubDateLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -7,9 +7,8 @@
 
 import Foundation
 
-extension NetworkManager {
-    struct RSSItem {
-        let title: String
-        let description: String
-    }
+struct RSSItem {
+    let title: String
+    let description: String
+    let pubDate: String
 }

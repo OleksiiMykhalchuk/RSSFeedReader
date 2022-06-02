@@ -10,7 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailsViewController" customModule="RSSFeedReader" customModuleProvider="target">
             <connections>
-                <outlet property="descriptionLabel" destination="l9G-fh-C0J" id="OyX-Xs-4cw"/>
+                <outlet property="descriptionText" destination="5hk-Gd-BDt" id="UFg-mj-SWf"/>
                 <outlet property="titleLabel" destination="CYY-zo-eeK" id="W8f-j7-AJq"/>
                 <outlet property="view" destination="wy2-oh-Plj" id="l6X-av-DwQ"/>
             </connections>
@@ -26,28 +26,32 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="description" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l9G-fh-C0J">
-                    <rect key="frame" x="20" y="105.5" width="374" height="20.5"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="description" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="5hk-Gd-BDt">
+                    <rect key="frame" x="20" y="96" width="374" height="746"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <color key="textColor" systemColor="labelColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="qzA-Pi-ABX"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="qzA-Pi-ABX" firstAttribute="trailing" secondItem="5hk-Gd-BDt" secondAttribute="trailing" constant="20" id="EvQ-Ph-qHf"/>
+                <constraint firstItem="qzA-Pi-ABX" firstAttribute="bottom" secondItem="5hk-Gd-BDt" secondAttribute="bottom" constant="20" id="F0R-XS-gcW"/>
                 <constraint firstItem="CYY-zo-eeK" firstAttribute="leading" secondItem="qzA-Pi-ABX" secondAttribute="leading" constant="20" id="Gpf-zb-Ged"/>
                 <constraint firstItem="CYY-zo-eeK" firstAttribute="top" secondItem="qzA-Pi-ABX" secondAttribute="top" constant="24" id="IyX-eC-lbh"/>
-                <constraint firstItem="qzA-Pi-ABX" firstAttribute="trailing" secondItem="l9G-fh-C0J" secondAttribute="trailing" constant="20" id="Rkn-uh-aoU"/>
                 <constraint firstItem="qzA-Pi-ABX" firstAttribute="trailing" secondItem="CYY-zo-eeK" secondAttribute="trailing" constant="20" id="Vcf-Q2-r8I"/>
-                <constraint firstItem="l9G-fh-C0J" firstAttribute="leading" secondItem="qzA-Pi-ABX" secondAttribute="leading" constant="20" id="fIy-nO-mt7"/>
-                <constraint firstItem="l9G-fh-C0J" firstAttribute="top" secondItem="CYY-zo-eeK" secondAttribute="bottom" constant="17" id="i58-pV-rFi"/>
-                <constraint firstItem="l9G-fh-C0J" firstAttribute="top" secondItem="CYY-zo-eeK" secondAttribute="bottom" constant="17" id="rP8-rQ-xag"/>
+                <constraint firstItem="5hk-Gd-BDt" firstAttribute="top" secondItem="CYY-zo-eeK" secondAttribute="bottom" constant="7.5" id="iYK-96-J13"/>
+                <constraint firstItem="5hk-Gd-BDt" firstAttribute="leading" secondItem="qzA-Pi-ABX" secondAttribute="leading" constant="20" id="liM-PV-cGe"/>
             </constraints>
             <point key="canvasLocation" x="708" y="93"/>
         </view>
     </objects>
     <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

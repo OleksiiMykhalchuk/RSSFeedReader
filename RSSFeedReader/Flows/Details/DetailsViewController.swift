@@ -13,12 +13,12 @@ class DetailsViewController: UIViewController, ViewModelApplyied, ViewController
         didSet {
             let htmlString = detailsViewModel?.description
             titleLabel.text = detailsViewModel?.title
-            descriptionLabel.attributedText = NSAttributedString.attributedString(string: htmlString ?? "")
-            descriptionLabel.font = UIFont(name: "system", size: 14)
+            descriptionText.attributedText = NSAttributedString.attributedString(string: htmlString ?? "")
+            descriptionText.font = .systemFont(ofSize: 20)
         }
     }
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var descriptionText: UITextView!
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Details"
