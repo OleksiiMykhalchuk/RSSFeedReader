@@ -13,5 +13,4 @@ class DataBaseObject: Object {
     @Persisted var desc = ""
     @Persisted var isNew = true
     @Persisted(primaryKey: true) var pubDate = ""
-
 }
