@@ -11,7 +11,8 @@ import RealmSwift
 class DataBaseManager {
     func sync(_ items: [RSSItem], completion: @escaping (Swift.Result<Void, Error>) -> Void) throws {
         let realm = try Realm()
-        realm.writeAsync({ let results = realm.objects(DataBaseObject.self)
+        realm.writeAsync({
+            let results = realm.objects(DataBaseObject.self)
             let existedItems = results.map {
                 RSSItem(title: $0.title, description: $0.description, pubDate: $0.pubDate) }
             let newItems = items.filter { !existedItems.contains($0) }

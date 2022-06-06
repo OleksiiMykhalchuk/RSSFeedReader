@@ -10,8 +10,6 @@ import Foundation
 class XMLManager: NSObject, XMLParserDelegate {
     private var items: [RSSItem] = []
     private var item: RSSItem!
-    private var objects: [DataBaseObject] = []
-    private var object: DataBaseObject!
     private var rss = false
     private var channel = false
     private var itemBool = false
@@ -19,9 +17,6 @@ class XMLManager: NSObject, XMLParserDelegate {
     private var title: String!
     private var descript: String!
     private var pubDate: String!
-    private var titleIsPresent = false
-    private var descriptIsPresent = false
-    private var data: Data!
     deinit {
         print("XML Manager deinit{}")
     }
@@ -30,9 +25,6 @@ class XMLManager: NSObject, XMLParserDelegate {
         parser.delegate = self
         parser.parse()
         return items
-    }
-    func getObject() -> [DataBaseObject] {
-        return objects
     }
     internal func parserDidStartDocument(_ parser: XMLParser) {
         print("start")
@@ -65,17 +57,10 @@ class XMLManager: NSObject, XMLParserDelegate {
         qualifiedName qName: String?) {
         if elementName == "item" {
             items.append(.init(title: title, description: descript, pubDate: pubDate))
-            object = DataBaseObject()
-            object.title = title
-            object.desc = descript
-            object.pubDate = pubDate
-            objects.append(object)
         } else if elementName == "title", rss, channel, itemBool {
             title = currentValue
-            titleIsPresent = true
         } else if elementName == "description", rss, channel, itemBool {
             descript = currentValue
-            descriptIsPresent = true
         } else if elementName == "pubDate", rss, channel, itemBool {
             pubDate = currentValue
         }
