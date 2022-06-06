@@ -8,7 +8,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ListCell" rowHeight="117" id="3uG-PX-hGf" customClass="ListTableViewCell" customModule="RSSFeedReader" customModuleProvider="target">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ListCell" id="3uG-PX-hGf" customClass="ListTableViewCell" customModule="RSSFeedReader" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3uG-PX-hGf" id="kzF-I3-6Za">
@@ -35,18 +35,18 @@
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="4ul-00-t6n" firstAttribute="leading" secondItem="kzF-I3-6Za" secondAttribute="leading" constant="11" id="BIE-dp-kwZ"/>
-                    <constraint firstItem="FOX-ds-zuf" firstAttribute="leading" secondItem="kzF-I3-6Za" secondAttribute="leading" constant="11" id="FbO-4s-vIx"/>
-                    <constraint firstItem="08q-O7-Okc" firstAttribute="leading" secondItem="kzF-I3-6Za" secondAttribute="leading" constant="11" id="Hyo-gp-bup"/>
-                    <constraint firstItem="08q-O7-Okc" firstAttribute="top" secondItem="FOX-ds-zuf" secondAttribute="bottom" constant="7.5" id="Jdz-41-VEM"/>
-                    <constraint firstAttribute="trailing" secondItem="08q-O7-Okc" secondAttribute="trailing" constant="11" id="MKN-5H-T6f"/>
-                    <constraint firstItem="FOX-ds-zuf" firstAttribute="top" secondItem="kzF-I3-6Za" secondAttribute="top" constant="11" id="Say-7o-P4E"/>
-                    <constraint firstAttribute="trailing" secondItem="4ul-00-t6n" secondAttribute="trailing" constant="11" id="YDc-qh-HeQ"/>
-                    <constraint firstItem="08q-O7-Okc" firstAttribute="top" secondItem="FOX-ds-zuf" secondAttribute="bottom" constant="7.5" id="am0-0a-zsH"/>
-                    <constraint firstItem="4ul-00-t6n" firstAttribute="top" secondItem="08q-O7-Okc" secondAttribute="bottom" constant="7.5" id="gOH-af-7jD"/>
-                    <constraint firstItem="4ul-00-t6n" firstAttribute="top" secondItem="08q-O7-Okc" secondAttribute="bottom" constant="7.5" id="hLP-q1-t8H"/>
-                    <constraint firstAttribute="trailing" secondItem="FOX-ds-zuf" secondAttribute="trailing" constant="11" id="oIw-5W-CRG"/>
-                    <constraint firstAttribute="bottom" secondItem="4ul-00-t6n" secondAttribute="bottom" constant="12" id="ub3-cR-Ekb"/>
+                    <constraint firstItem="08q-O7-Okc" firstAttribute="leading" secondItem="kzF-I3-6Za" secondAttribute="leading" constant="11" id="05C-uD-he4"/>
+                    <constraint firstItem="FOX-ds-zuf" firstAttribute="leading" secondItem="kzF-I3-6Za" secondAttribute="leading" constant="11" id="3hk-Jx-8BE"/>
+                    <constraint firstItem="4ul-00-t6n" firstAttribute="top" secondItem="08q-O7-Okc" secondAttribute="bottom" constant="7.5" id="5Ko-kH-n5C"/>
+                    <constraint firstAttribute="trailing" secondItem="08q-O7-Okc" secondAttribute="trailing" constant="11" id="8l0-H2-AbY"/>
+                    <constraint firstItem="4ul-00-t6n" firstAttribute="leading" secondItem="kzF-I3-6Za" secondAttribute="leading" constant="11" id="Fmx-Xf-32u"/>
+                    <constraint firstAttribute="trailing" secondItem="FOX-ds-zuf" secondAttribute="trailing" constant="11" id="Ubt-oP-9TC"/>
+                    <constraint firstItem="08q-O7-Okc" firstAttribute="top" secondItem="FOX-ds-zuf" secondAttribute="bottom" constant="7.5" id="YXv-yF-phI"/>
+                    <constraint firstItem="FOX-ds-zuf" firstAttribute="top" secondItem="kzF-I3-6Za" secondAttribute="top" constant="11" id="ZNx-oF-J3L"/>
+                    <constraint firstAttribute="trailing" secondItem="4ul-00-t6n" secondAttribute="trailing" constant="11" id="go9-jJ-xyG"/>
+                    <constraint firstItem="4ul-00-t6n" firstAttribute="top" secondItem="08q-O7-Okc" secondAttribute="bottom" constant="7.5" id="m3k-0r-XX7"/>
+                    <constraint firstAttribute="bottom" secondItem="4ul-00-t6n" secondAttribute="bottom" constant="12" id="mXN-O4-tfj"/>
+                    <constraint firstItem="08q-O7-Okc" firstAttribute="top" secondItem="FOX-ds-zuf" secondAttribute="bottom" constant="7.5" id="mpB-OO-98g"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

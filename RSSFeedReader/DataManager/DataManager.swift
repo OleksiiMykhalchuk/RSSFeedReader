@@ -8,45 +8,31 @@
 import Foundation
 
 class DataManager {
-    var dataSource: [RSSItem] = []
-    var dataBaseSource: [DataBaseObject] = []
-    var objects: [DataBaseObject] = []
-    var reloadData: Bindable<Void> = .init(nil)
-    var networkManager: NetworkManager!
-    var dataBaseManager: DataBaseManager!
-    var state: NetworkManager.State = .loading
-    var status: NetworkManager.Status = .normal
-    func getData() -> [RSSItem] {
-        DispatchQueue.main.async {
-            let url = URL(
-                string: "https://www.upwork.com/ab/feed/jobs/rss?q=mobile+developer&sort=recency&paging=0%3B50")
-            self.networkManager = NetworkManager(with: url!)
-            self.dataBaseManager = DataBaseManager()
-            self.networkManager.fetch { [weak self] results in
-                switch results {
-                case .success(let data):
-                    self?.dataSource = data
-                    let objects = self?.networkManager.xmlManager.getObject()
-                    self?.dataBaseManager.writeData(objects: objects!)
-                    self?.dataBaseSource = (self?.dataBaseManager.readData())!
-                    DispatchQueue.main.async {
-                        self?.state = (self?.networkManager.state)!
-                        self?.reloadData.update(with: ())
-                    }
-                case .failure(let error):
-                    print("NetworkManager Error \(error)")
-                    DispatchQueue.main.async {
-                        self?.state = (self?.networkManager.state)!
-                        self?.reloadData.update(with: ())
-                    }
+    private lazy var dataBase: DataBaseManager = .init()
+    private lazy var networkManager: NetworkManager = .init(
+        with: URL(
+            string: "https://www.upwork.com/ab/feed/jobs/rss?q=mobile+developer&sort=recency&paging=0%3B50")!)
+    func fetchData() -> [RSSItem] {
+        do {
+            let items = try dataBase.fetchData()
+            return items.map { RSSItem(title: $0.title, description: $0.description, pubDate: $0.pubDate)}
+        } catch {
+            print("Read Data Error \(error)")
+        }
+        return []
+    }
+    func refreshData(_ completion: @escaping (Swift.Result<Void, Error>) -> Void) {
+        networkManager.fetch { [weak self] result in
+            switch result {
+            case .success(let newItems):
+                do {
+                    try self?.dataBase.sync(newItems, completion: completion)
+                } catch {
+                    completion(.failure(error))
                 }
+            case .failure(let error):
+                completion(.failure(error))
             }
         }
-        return dataSource
-    }
-    func getDataBase() -> [DataBaseObject] {
-        let dataBase = DataBaseManager()
-        let data = dataBase.readData()
-        return data
     }
 }

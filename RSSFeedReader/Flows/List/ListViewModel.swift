@@ -10,21 +10,27 @@ import UIKit
 
 extension ListViewController {
     class ViewModel {
+        enum UpdateState {
+            case inProgress
+            case finish
+        }
         weak var coordinator: AppCoordinator?
-        var itemNumber: Int {
+        var itemsNumber: Int {
             dataSource.count
         }
-        var dataManager: DataManager!
+        private lazy var dataManager: DataManager = .init()
         private var dataSource: [RSSItem] = []
-        private var dataBaseSource: [DataBaseObject] = []
-        var reloadData: Bindable<Void> = .init(nil)
+        let reloadData: Bindable<Void> = .init(nil)
+        let updateStatusData: Bindable<UpdateState> = .init(nil)
         func start() {
-            dataManager = DataManager()
-            dataSource = dataManager.getData()
-//            dataBaseSource = dataManager.getDataBase()
-            dataManager.reloadData.bind(to: self) { [weak self] _ in
-                self?.dataSource = (self?.dataManager.dataSource)!
-                self?.reloadData.update(with: ())
+            refreshDataSource()
+            startUpdate()
+        }
+        func startUpdate() {
+            updateStatusData.update(with: .inProgress)
+            dataManager.refreshData { [weak self] _ in
+                self?.updateStatusData.update(with: .finish)
+                self?.refreshDataSource()
             }
         }
         func cellViewModel(for index: Int) -> RSSItem {
@@ -32,15 +38,11 @@ extension ListViewController {
             return rssItem
         }
         func cellViewIfNew(for index: Int) -> Bool {
-            dataBaseSource = dataManager.getDataBase()
-            let object = dataBaseSource[index]
-            return object.isNew
+            return false
         }
-        func isLoading() -> NetworkManager.State {
-            return dataManager.state
-        }
-        func getStatus() -> NetworkManager.Status {
-            return dataManager.status
+        private func refreshDataSource() {
+            dataSource = dataManager.fetchData()
+            reloadData.update(with: ())
         }
     }
 }

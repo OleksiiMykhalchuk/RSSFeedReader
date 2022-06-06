@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct RSSItem {
+struct RSSItem: Equatable {
     let title: String
     let description: String
     let pubDate: String

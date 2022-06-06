@@ -17,8 +17,6 @@ class ListTableViewCell: UITableViewCell {
             descriptionLabel.font = UIFont(name: "system", size: 14)
             descriptionLabel.layoutIfNeeded()
             pubDateLabel.text = viewModel?.pubDate
-            let dataBaseManager = DataBaseManager()
-            let data = dataBaseManager.readData()
         }
     }
     @IBOutlet weak var titleLabel: UILabel!
