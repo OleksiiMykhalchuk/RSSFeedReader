@@ -44,7 +44,7 @@ extension ListViewController {
             if index == 0 {
                 defaults.set(rssItem.pubDate, forKey: "lastDate")
             }
-            if lastDate! < rssItem.pubDate {
+            if let lastDate = lastDate, lastDate < rssItem.pubDate, !dataSource.isEmpty {
                 return true
             } else {
                 return false
