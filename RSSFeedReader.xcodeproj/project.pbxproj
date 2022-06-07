@@ -20,6 +20,9 @@
 		88054018283D3A1D007D2762 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88054017283D3A1D007D2762 /* Assets.xcassets */; };
 		8805401B283D3A1D007D2762 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88054019283D3A1D007D2762 /* LaunchScreen.storyboard */; };
 		88054027283D559A007D2762 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88054026283D559A007D2762 /* R.generated.swift */; };
+		8814C581284F6AF00086ABCC /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8814C57F284F6AF00086ABCC /* SettingsViewController.swift */; };
+		8814C582284F6AF00086ABCC /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8814C580284F6AF00086ABCC /* SettingsViewController.xib */; };
+		8814C584284F6B250086ABCC /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8814C583284F6B250086ABCC /* SettingsViewModel.swift */; };
 		88C0164C283E40340030D7FD /* CoordinatorExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C0164B283E40340030D7FD /* CoordinatorExample.swift */; };
 		88C0164E283E40E80030D7FD /* AppCoordinatorExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C0164D283E40E80030D7FD /* AppCoordinatorExample.swift */; };
 		88C01650283E47CE0030D7FD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C0164F283E47CE0030D7FD /* LoginViewController.swift */; };
@@ -29,8 +32,6 @@
 		88C0165C283E64AD0030D7FD /* ListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88C0165A283E64AD0030D7FD /* ListViewController.xib */; };
 		88C0165F283E64C20030D7FD /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C0165D283E64C20030D7FD /* DetailsViewController.swift */; };
 		88C01660283E64C20030D7FD /* DetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88C0165E283E64C20030D7FD /* DetailsViewController.xib */; };
-		88C01663283E64F80030D7FD /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C01661283E64F80030D7FD /* SettingsViewController.swift */; };
-		88C01664283E64F80030D7FD /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88C01662283E64F80030D7FD /* SettingsViewController.xib */; };
 		88C01666283E6AEE0030D7FD /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C01665283E6AEE0030D7FD /* Coordinator.swift */; };
 		88C01668283E6C800030D7FD /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C01667283E6C800030D7FD /* AppCoordinator.swift */; };
 		88C0166A283E6D610030D7FD /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C01669283E6D610030D7FD /* ListViewModel.swift */; };
@@ -60,6 +61,9 @@
 		8805401A283D3A1D007D2762 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8805401C283D3A1D007D2762 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		88054026283D559A007D2762 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
+		8814C57F284F6AF00086ABCC /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		8814C580284F6AF00086ABCC /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
+		8814C583284F6B250086ABCC /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		88B129312849100700988309 /* Realm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Realm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		88C0164B283E40340030D7FD /* CoordinatorExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorExample.swift; sourceTree = "<group>"; };
 		88C0164D283E40E80030D7FD /* AppCoordinatorExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinatorExample.swift; sourceTree = "<group>"; };
@@ -70,8 +74,6 @@
 		88C0165A283E64AD0030D7FD /* ListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListViewController.xib; sourceTree = "<group>"; };
 		88C0165D283E64C20030D7FD /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		88C0165E283E64C20030D7FD /* DetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailsViewController.xib; sourceTree = "<group>"; };
-		88C01661283E64F80030D7FD /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		88C01662283E64F80030D7FD /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
 		88C01665283E6AEE0030D7FD /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		88C01667283E6C800030D7FD /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		88C01669283E6D610030D7FD /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 		08A3A81B283FF7A100D9F88C /* Flows */ = {
 			isa = PBXGroup;
 			children = (
+				8892326A284F5F3C006E56F2 /* Settings */,
 				88C0167628410D500030D7FD /* Details */,
 				08A3A81C283FF7AA00D9F88C /* List */,
 			);
@@ -193,7 +196,6 @@
 				08A3A81B283FF7A100D9F88C /* Flows */,
 				08A3A81A283FF51900D9F88C /* Generics */,
 				88C01658283E616A0030D7FD /* Coordinator */,
-				88C01656283E61570030D7FD /* View */,
 				8805400E283D3A1B007D2762 /* AppDelegate.swift */,
 				88054012283D3A1B007D2762 /* ViewController.swift */,
 				88054014283D3A1B007D2762 /* Main.storyboard */,
@@ -209,13 +211,14 @@
 			path = RSSFeedReader;
 			sourceTree = "<group>";
 		};
-		88C01656283E61570030D7FD /* View */ = {
+		8892326A284F5F3C006E56F2 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				88C01661283E64F80030D7FD /* SettingsViewController.swift */,
-				88C01662283E64F80030D7FD /* SettingsViewController.xib */,
+				8814C57F284F6AF00086ABCC /* SettingsViewController.swift */,
+				8814C580284F6AF00086ABCC /* SettingsViewController.xib */,
+				8814C583284F6B250086ABCC /* SettingsViewModel.swift */,
 			);
-			path = View;
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		88C01658283E616A0030D7FD /* Coordinator */ = {
@@ -333,9 +336,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				8805401B283D3A1D007D2762 /* LaunchScreen.storyboard in Resources */,
-				88C01664283E64F80030D7FD /* SettingsViewController.xib in Resources */,
 				88054018283D3A1D007D2762 /* Assets.xcassets in Resources */,
 				88C01660283E64C20030D7FD /* DetailsViewController.xib in Resources */,
+				8814C582284F6AF00086ABCC /* SettingsViewController.xib in Resources */,
 				88C0165C283E64AD0030D7FD /* ListViewController.xib in Resources */,
 				88054016283D3A1B007D2762 /* Main.storyboard in Resources */,
 				88C0167D28421EB50030D7FD /* LoadingCell.xib in Resources */,
@@ -446,7 +449,6 @@
 				88C0167B2841286E0030D7FD /* NSAttributedString.swift in Sources */,
 				08A3A822284000E600D9F88C /* ViewModelApplyied.swift in Sources */,
 				88C0167828410DF10030D7FD /* DetailsViewModel.swift in Sources */,
-				88C01663283E64F80030D7FD /* SettingsViewController.swift in Sources */,
 				88C01652283E48210030D7FD /* RegisterViewController.swift in Sources */,
 				88054013283D3A1B007D2762 /* ViewController.swift in Sources */,
 				08A3A827284001E000D9F88C /* NetworkManager.swift in Sources */,
@@ -458,6 +460,8 @@
 				88054027283D559A007D2762 /* R.generated.swift in Sources */,
 				88C0168A2844F1390030D7FD /* DataManager.swift in Sources */,
 				88C0165F283E64C20030D7FD /* DetailsViewController.swift in Sources */,
+				8814C581284F6AF00086ABCC /* SettingsViewController.swift in Sources */,
+				8814C584284F6B250086ABCC /* SettingsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

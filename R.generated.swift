@@ -208,8 +208,8 @@ struct R: Rswift.Validatable {
       return R.nib.loadingCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UITableViewCell
     }
 
-    static func settingsViewController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> SettingsViewController? {
-      return R.nib.settingsViewController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? SettingsViewController
+    static func settingsViewController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+      return R.nib.settingsViewController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
     }
 
     fileprivate init() {}
@@ -301,8 +301,8 @@ struct _R: Rswift.Validatable {
       let bundle = R.hostingBundle
       let name = "SettingsViewController"
 
-      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> SettingsViewController? {
-        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? SettingsViewController
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
       }
 
       fileprivate init() {}

@@ -43,6 +43,7 @@ class ListViewController: UIViewController, ViewModelApplyied, ViewControllerMak
         tableView.reloadData()
     }
     @objc func settings(sender: Any) {
+        viewModel.coordinator?.goToSettingsPage()
     }
 }
 // MARK: - UITableViewDataSource

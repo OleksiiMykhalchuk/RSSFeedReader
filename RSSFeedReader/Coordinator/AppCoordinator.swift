@@ -33,4 +33,12 @@ class AppCoordinator: Coordinator {
         let viewController = DetailsViewController.make(viewModel: viewModel)
         (rootViewController as? UINavigationController)?.pushViewController(viewController, animated: true)
     }
+    func goToSettingsPage() {
+        let viewModel = SettingsViewController.ViewModel()
+        viewModel.coordinator = self
+        let viewController = SettingsViewController.make(viewModel: viewModel)
+        viewController.modalPresentationStyle = .automatic
+        viewController.modalTransitionStyle = .flipHorizontal
+        (rootViewController as? UINavigationController)?.present(viewController, animated: true)
+    }
 }
