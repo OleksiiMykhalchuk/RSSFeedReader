@@ -38,4 +38,22 @@ class DataBaseManager {
         let objects = Array(results) as [DataBaseObject]
         return objects
     }
+    func saveLink(_ item: RSSUrl, completion: @escaping (Swift.Result<Void, Error>) -> Void ) throws {
+        let realm = try Realm()
+        realm.writeAsync({
+            realm.add(item)
+        }, onComplete: { error in
+                if let error = error {
+                    completion(.failure(error))
+                } else {
+                    completion(.success(()))
+                }
+        })
+    }
+    func fetchLink() throws -> [RSSUrl] {
+        let realm = try Realm()
+        let results = realm.objects(RSSUrl.self)
+        let objects = Array(results) as [RSSUrl]
+        return objects
+    }
 }

@@ -7,9 +7,15 @@
 
 import Foundation
 import RealmSwift
+import Realm
 
 class DataBaseObject: Object {
     @Persisted var title = ""
     @Persisted var desc = ""
     @Persisted(primaryKey: true) var pubDate = ""
+}
+
+class RSSUrl: Object {
+    @Persisted var url = ""
+    @Persisted(primaryKey: true) var id = ""
 }

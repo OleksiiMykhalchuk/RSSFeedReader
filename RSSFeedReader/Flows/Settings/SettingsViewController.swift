@@ -9,10 +9,14 @@ import UIKit
 
 class SettingsViewController: UIViewController, ViewModelApplyied, ViewControllerMakeable {
     var viewModel: ViewModel!
+    var tableView: UITableView!
+    var textField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
         addCloseButton()
         addTextField()
+        addTableView()
+        viewModel.start()
     }
     private func addCloseButton() {
         let btn = UIButton(type: .system)
@@ -24,10 +28,17 @@ class SettingsViewController: UIViewController, ViewModelApplyied, ViewControlle
     @objc func close(sender: Any) {
         dismiss(animated: true)
     }
+    @objc func didEndOnExit(sender: Any) {
+        viewModel.save(url: textField.text ?? "no data")
+    }
     private func addTextField() {
-        let textField = UITextField()
+        textField = UITextField()
         textField.borderStyle = .roundedRect
         textField.placeholder = "Insert RSS Link"
+        textField.clearButtonMode = .whileEditing
+        textField.returnKeyType = .done
+        textField.enablesReturnKeyAutomatically = true
+        textField.addTarget(self, action: #selector(didEndOnExit), for: .editingDidEndOnExit)
         view.addSubview(textField)
         let constraints = [textField.topAnchor.constraint(equalTo: view.topAnchor, constant: 45),
                            textField.heightAnchor.constraint(equalToConstant: 50),
@@ -35,5 +46,32 @@ class SettingsViewController: UIViewController, ViewModelApplyied, ViewControlle
                            textField.centerXAnchor.constraint(equalTo: view.centerXAnchor)]
         textField.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate(constraints)
+    }
+    private func addTableView() {
+        tableView = UITableView()
+        tableView.delegate = self
+        tableView.dataSource = self
+        view.addSubview(tableView)
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        let constraints = [
+            tableView.topAnchor.constraint(equalTo: textField.bottomAnchor, constant: 10),
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 10),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 10)]
+        NSLayoutConstraint.activate(constraints)
+    }
+}
+// MARK: - TableView Delegate, DataSource
+extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell(style: .value1, reuseIdentifier: "default")
+        cell.textLabel?.text = viewModel.cellViewModel(for: indexPath.row).url
+        return cell
+    }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel.itemsNumber
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }

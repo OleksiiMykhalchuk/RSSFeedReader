@@ -37,4 +37,27 @@ class DataManager {
             }
         }
     }
+    func saveLink(_ item: RSSUrl) {
+        do {
+           try dataBase.saveLink(item, completion: { result in
+                switch result {
+                case .success(_):
+                    print("Link Saved")
+                case .failure(_):
+                    print("Error Saving")
+                }
+            })
+        } catch {
+            print("DataBase Error")
+        }
+    }
+    func fetchLink() -> [RSSUrl] {
+        do {
+            let items = try dataBase.fetchLink()
+            return items
+        } catch {
+            print("Error Fetching the Links")
+        }
+        return []
+    }
 }
