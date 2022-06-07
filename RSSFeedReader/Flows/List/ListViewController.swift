@@ -54,11 +54,15 @@ extension ListViewController: UITableViewDataSource {
             spinner?.startAnimating()
             return loadingCell!
         } else {
-            let cellViewModel = viewModel.cellViewModel(for: indexPath.row)
-            let cell = tableView.dequeueReusableCell(withIdentifier: "ListCell") as? ListTableViewCell
-            cell?.viewModel = cellViewModel
-            cell?.layer.borderWidth = 1
-            return cell!
+                let cellViewModel = viewModel.cellViewModel(for: indexPath.row)
+                let cell = tableView.dequeueReusableCell(withIdentifier: "ListCell") as? ListTableViewCell
+            let cellView = viewModel.cellViewIfNew(for: indexPath.row)
+            if cellView {
+                cell?.backgroundColor = .green
+            }
+                cell?.viewModel = cellViewModel
+                cell?.layer.borderWidth = 1
+                return cell!
         }
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

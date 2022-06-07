@@ -38,7 +38,17 @@ extension ListViewController {
             return rssItem
         }
         func cellViewIfNew(for index: Int) -> Bool {
-            return false
+            let rssItem = dataSource[index]
+            let defaults = UserDefaults.standard
+            let lastDate = defaults.object(forKey: "lastDate") as? String
+            if index == 0 {
+                defaults.set(rssItem.pubDate, forKey: "lastDate")
+            }
+            if lastDate! < rssItem.pubDate {
+                return true
+            } else {
+                return false
+            }
         }
         private func refreshDataSource() {
             dataSource = dataManager.fetchData()

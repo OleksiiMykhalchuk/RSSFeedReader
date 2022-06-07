@@ -15,7 +15,9 @@ class DataManager {
     func fetchData() -> [RSSItem] {
         do {
             let items = try dataBase.fetchData()
-            return items.map { RSSItem(title: $0.title, description: $0.desc, pubDate: $0.pubDate)}
+            let itemsSorted = items.sorted { lhs, rhs in
+                rhs.pubDate < lhs.pubDate}
+            return itemsSorted.map { RSSItem(title: $0.title, description: $0.desc, pubDate: $0.pubDate)}
         } catch {
             print("Read Data Error \(error)")
         }
