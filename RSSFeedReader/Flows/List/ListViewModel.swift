@@ -13,6 +13,7 @@ extension ListViewController {
         enum UpdateState {
             case inProgress
             case finish
+            case failure
         }
         weak var coordinator: AppCoordinator?
         var itemsNumber: Int {
@@ -28,9 +29,14 @@ extension ListViewController {
         }
         func startUpdate() {
             updateStatusData.update(with: .inProgress)
-            dataManager.refreshData { [weak self] _ in
-                self?.updateStatusData.update(with: .finish)
-                self?.refreshDataSource()
+            dataManager.refreshData { [weak self] result in
+                switch result {
+                case .success(()):
+                    self?.updateStatusData.update(with: .finish)
+                    self?.refreshDataSource()
+                case .failure(let error):
+                    self?.updateStatusData.update(with: .failure)
+                }
             }
         }
         func cellViewModel(for index: Int) -> RSSItem {

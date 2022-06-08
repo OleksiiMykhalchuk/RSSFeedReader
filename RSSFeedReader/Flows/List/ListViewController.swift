@@ -14,14 +14,15 @@ class ListViewController: UIViewController, ViewModelApplyied, ViewControllerMak
         super.viewDidLoad()
         title = "List"
         showTableView()
-        let nib = UINib(nibName: "ListCell", bundle: nil)
-        tableView.register(nib, forCellReuseIdentifier: "ListCell")
-        let loadingNib = UINib(nibName: "LoadingCell", bundle: nil)
-        tableView.register(loadingNib, forCellReuseIdentifier: "LoadingCell")
+        tableView.register(R.nib.listCell)
+        tableView.register(R.nib.loadingCell)
         viewModel.reloadData.bind(to: self) { [weak self] _ in
             // refresh tableView
             self?.tableView.reloadData()
         }
+        viewModel.updateStatusData.bind(to: self, callback: { [weak self] _ in
+            self?.tableView.reloadData()
+        })
         viewModel.start()
         addBarButton()
     }
@@ -45,6 +46,13 @@ class ListViewController: UIViewController, ViewModelApplyied, ViewControllerMak
     @objc func settings(sender: Any) {
         viewModel.coordinator?.goToSettingsPage()
     }
+    private func showAlert(title: String, message: String) {
+        let alert = UIAlertController(
+            title: title, message: message, preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .default)
+        alert.addAction(action)
+        present(alert, animated: true)
+    }
 }
 // MARK: - UITableViewDataSource
 extension ListViewController: UITableViewDataSource {
@@ -54,7 +62,7 @@ extension ListViewController: UITableViewDataSource {
             let spinner = loadingCell?.viewWithTag(100) as? UIActivityIndicatorView
             spinner?.startAnimating()
             return loadingCell!
-        } else {
+        } else if viewModel.updateStatusData.lastValue == .finish {
                 let cellViewModel = viewModel.cellViewModel(for: indexPath.row)
                 let cell = tableView.dequeueReusableCell(withIdentifier: "ListCell") as? ListTableViewCell
             let cellView = viewModel.cellViewIfNew(for: indexPath.row)
@@ -64,13 +72,22 @@ extension ListViewController: UITableViewDataSource {
                 cell?.viewModel = cellViewModel
                 cell?.layer.borderWidth = 1
                 return cell!
+        } else {
+            let cell = UITableViewCell(style: .default, reuseIdentifier: "Failure")
+            cell.textLabel?.text = "Error Loading"
+            cell.textLabel?.textAlignment = .center
+            showAlert(title: "Error Loading", message: "Check Internet Connection!")
+            NSLog("Error Loading")
+            return cell
         }
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if viewModel.updateStatusData.lastValue == .inProgress {
             return 1
-        } else {
+        } else if viewModel.updateStatusData.lastValue == .finish {
             return viewModel.itemsNumber
+        } else {
+            return 1
         }
     }
 }

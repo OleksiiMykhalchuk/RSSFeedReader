@@ -139,6 +139,20 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
+  /// This `R.file` struct is generated, and contains static references to 1 files.
+  struct file {
+    /// Resource file `File.txt`.
+    static let fileTxt = Rswift.FileResource(bundle: R.hostingBundle, name: "File", pathExtension: "txt")
+
+    /// `bundle.url(forResource: "File", withExtension: "txt")`
+    static func fileTxt(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.fileTxt
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    fileprivate init() {}
+  }
+
   /// This `R.nib` struct is generated, and contains static references to 5 nibs.
   struct nib {
     /// Nib `DetailsViewController`.
