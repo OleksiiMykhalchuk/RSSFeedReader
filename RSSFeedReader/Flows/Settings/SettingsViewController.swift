@@ -29,7 +29,16 @@ class SettingsViewController: UIViewController, ViewModelApplyied, ViewControlle
         dismiss(animated: true)
     }
     @objc func didEndOnExit(sender: Any) {
-        viewModel.save(url: textField.text ?? "no data")
+        viewModel.save(url: textField.text ?? "no data") { [weak self] result in
+            switch result {
+            case .success(()):
+                self?.viewModel.refreshData()
+                self?.tableView.reloadData()
+            case .failure(let error):
+                print("Saving Error \(error)")
+            }
+        }
+        textField.text = ""
     }
     private func addTextField() {
         textField = UITextField()
@@ -64,8 +73,10 @@ class SettingsViewController: UIViewController, ViewModelApplyied, ViewControlle
 // MARK: - TableView Delegate, DataSource
 extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .value1, reuseIdentifier: "default")
+        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "default")
         cell.textLabel?.text = viewModel.cellViewModel(for: indexPath.row).url
+        cell.textLabel?.numberOfLines = 0
+        cell.detailTextLabel?.text = "New Items"
         return cell
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -73,5 +84,10 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        viewModel.deleteLink(for: indexPath.row)
+        viewModel.refreshData()
+        tableView.deleteRows(at: [indexPath], with: .automatic)
     }
 }

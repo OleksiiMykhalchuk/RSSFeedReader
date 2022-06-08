@@ -37,14 +37,16 @@ class DataManager {
             }
         }
     }
-    func saveLink(_ item: RSSUrl) {
+    func saveLink(_ item: RSSUrl, copmletion: @escaping (Swift.Result<Void, Error>) -> Void) {
         do {
            try dataBase.saveLink(item, completion: { result in
                 switch result {
                 case .success(_):
                     print("Link Saved")
-                case .failure(_):
+                    copmletion(.success(()))
+                case .failure(let error):
                     print("Error Saving")
+                    copmletion(.failure(error))
                 }
             })
         } catch {
@@ -59,5 +61,19 @@ class DataManager {
             print("Error Fetching the Links")
         }
         return []
+    }
+    func deleteLink(item: RSSUrl) {
+        do {
+            try dataBase.deleteLink(item, completion: { result in
+                switch result {
+                case .success(_):
+                    print("Link Deleted")
+                case .failure(_):
+                    print("Link Delete Failure")
+                }
+            })
+        } catch {
+            print("Error Data Base while Delete")
+        }
     }
 }

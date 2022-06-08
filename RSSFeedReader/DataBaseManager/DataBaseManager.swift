@@ -9,6 +9,9 @@ import Foundation
 import RealmSwift
 
 class DataBaseManager {
+    enum DataBaseError: Error {
+        case deleteLinkError
+    }
     func sync(_ items: [RSSItem], completion: @escaping (Swift.Result<Void, Error>) -> Void) throws {
         let realm = try Realm()
         realm.writeAsync({
@@ -55,5 +58,17 @@ class DataBaseManager {
         let results = realm.objects(RSSUrl.self)
         let objects = Array(results) as [RSSUrl]
         return objects
+    }
+    func deleteLink(_ item: RSSUrl, completion: (Swift.Result<Void, Error>) -> Void) throws {
+        let realm = try Realm()
+        try realm.write {
+            let object = realm.object(ofType: RSSUrl.self, forPrimaryKey: item.id)
+            if let object = object {
+                realm.delete(object)
+                completion(.success(()))
+            } else {
+                completion(.failure(DataBaseError.deleteLinkError))
+            }
+        }
     }
 }
