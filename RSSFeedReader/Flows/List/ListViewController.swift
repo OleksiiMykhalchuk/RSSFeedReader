@@ -65,10 +65,6 @@ extension ListViewController: UITableViewDataSource {
         } else if viewModel.updateStatusData.lastValue == .finish {
                 let cellViewModel = viewModel.cellViewModel(for: indexPath.row)
                 let cell = tableView.dequeueReusableCell(withIdentifier: "ListCell") as? ListTableViewCell
-            let cellView = viewModel.cellViewIfNew(for: indexPath.row)
-            if cellView {
-                cell?.backgroundColor = .green
-            }
                 cell?.viewModel = cellViewModel
                 cell?.layer.borderWidth = 1
                 return cell!
@@ -100,5 +96,9 @@ extension ListViewController: UITableViewDelegate {
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
+    }
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        viewModel.deleteObject(for: indexPath.row)
+        tableView.deleteRows(at: [indexPath], with: .automatic)
     }
 }

@@ -11,9 +11,7 @@ import UIKit
 extension ListViewController {
     class ViewModel {
         enum UpdateState {
-            case inProgress
-            case finish
-            case failure
+            case inProgress, finish, failure
         }
         weak var coordinator: AppCoordinator?
         var itemsNumber: Int {
@@ -55,6 +53,11 @@ extension ListViewController {
             } else {
                 return false
             }
+        }
+        func deleteObject(for index: Int) {
+            let item = dataSource[index]
+            dataManager.deleteObject(item: item)
+            reloadData.update(with: ())
         }
         private func refreshDataSource() {
             dataSource = dataManager.fetchData()

@@ -11,7 +11,8 @@ class DataManager {
     private lazy var dataBase: DataBaseManager = .init()
     private lazy var networkManager: NetworkManager = .init(
         with: URL(
-            string: "https://www.upwork.com/ab/feed/jobs/rss?q=mobile+developer&sort=recency&paging=0%3B50")!)
+            string: "https://www.ledsign.com.ua/test.xml")!)
+//    "https://www.upwork.com/ab/feed/jobs/rss?q=mobile+developer&sort=recency&paging=0%3B50"
     func fetchData() -> [RSSItem] {
         do {
             let items = try dataBase.fetchData()
@@ -35,6 +36,20 @@ class DataManager {
             case .failure(let error):
                 completion(.failure(error))
             }
+        }
+    }
+    func deleteObject(item: RSSItem) {
+        do {
+            try dataBase.deleteItem(item) { result in
+                switch result {
+                case .success(_):
+                    print("Object Deleted")
+                case .failure(let error):
+                    print("Error deleting the object \(error.localizedDescription)")
+                }
+            }
+        } catch {
+            print("DataBase Error")
         }
     }
     func saveLink(_ item: RSSUrl, copmletion: @escaping (Swift.Result<Void, Error>) -> Void) {
@@ -74,6 +89,15 @@ class DataManager {
             })
         } catch {
             print("Error Data Base while Delete")
+        }
+    }
+    func fetchLastDate() -> String {
+        do {
+            let lastDate = try dataBase.fetchLastDate()
+            return lastDate
+        } catch {
+            print("Error fetching last date")
+            return ""
         }
     }
 }

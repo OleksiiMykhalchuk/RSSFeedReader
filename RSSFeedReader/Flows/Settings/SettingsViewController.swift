@@ -31,7 +31,7 @@ class SettingsViewController: UIViewController, ViewModelApplyied, ViewControlle
     @objc func didEndOnExit(sender: Any) {
         viewModel.save(url: textField.text ?? "no data") { [weak self] result in
             switch result {
-            case .success(()):
+            case .success(_):
                 self?.viewModel.refreshData()
                 self?.tableView.reloadData()
             case .failure(let error):
