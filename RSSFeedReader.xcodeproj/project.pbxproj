@@ -23,6 +23,7 @@
 		8814C581284F6AF00086ABCC /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8814C57F284F6AF00086ABCC /* SettingsViewController.swift */; };
 		8814C582284F6AF00086ABCC /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8814C580284F6AF00086ABCC /* SettingsViewController.xib */; };
 		8814C584284F6B250086ABCC /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8814C583284F6B250086ABCC /* SettingsViewModel.swift */; };
+		8822DF752857F9A20079E998 /* LinkOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8822DF742857F9A20079E998 /* LinkOperation.swift */; };
 		8824FE882855917D00A16F52 /* network.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8824FE872855917D00A16F52 /* network.xml */; };
 		884CBEEC285740370063819A /* xampp.xml in Resources */ = {isa = PBXBuildFile; fileRef = 884CBEEB285740370063819A /* xampp.xml */; };
 		88C0164C283E40340030D7FD /* CoordinatorExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C0164B283E40340030D7FD /* CoordinatorExample.swift */; };
@@ -66,6 +67,7 @@
 		8814C57F284F6AF00086ABCC /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		8814C580284F6AF00086ABCC /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
 		8814C583284F6B250086ABCC /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		8822DF742857F9A20079E998 /* LinkOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkOperation.swift; sourceTree = "<group>"; };
 		8824FE872855917D00A16F52 /* network.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = network.xml; sourceTree = "<group>"; };
 		884CBEEB285740370063819A /* xampp.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = xampp.xml; path = ../../../../../../Applications/XAMPP/xamppfiles/htdocs/xml/xampp.xml; sourceTree = "<group>"; };
 		88B129312849100700988309 /* Realm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Realm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -266,6 +268,7 @@
 			isa = PBXGroup;
 			children = (
 				88C016892844F1390030D7FD /* DataManager.swift */,
+				8822DF742857F9A20079E998 /* LinkOperation.swift */,
 			);
 			path = DataManager;
 			sourceTree = "<group>";
@@ -457,6 +460,7 @@
 				88C0167B2841286E0030D7FD /* NSAttributedString.swift in Sources */,
 				08A3A822284000E600D9F88C /* ViewModelApplyied.swift in Sources */,
 				88C0167828410DF10030D7FD /* DetailsViewModel.swift in Sources */,
+				8822DF752857F9A20079E998 /* LinkOperation.swift in Sources */,
 				88C01652283E48210030D7FD /* RegisterViewController.swift in Sources */,
 				88054013283D3A1B007D2762 /* ViewController.swift in Sources */,
 				08A3A827284001E000D9F88C /* NetworkManager.swift in Sources */,
