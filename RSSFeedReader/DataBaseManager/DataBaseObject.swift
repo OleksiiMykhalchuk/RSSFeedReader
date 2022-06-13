@@ -10,9 +10,12 @@ import RealmSwift
 import Realm
 
 class DataBaseObject: Object {
-    @Persisted var title = ""
-    @Persisted var desc = ""
-    @Persisted(primaryKey: true) var pubDate = ""
+    @objc dynamic var title = ""
+    @objc dynamic var desc = ""
+    @objc dynamic var pubDate = ""
+    override static func primaryKey() -> String? {
+        return "pubDate"
+    }
 }
 
 class RSSUrl: Object {

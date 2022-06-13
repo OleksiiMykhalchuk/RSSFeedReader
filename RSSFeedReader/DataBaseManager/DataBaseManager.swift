@@ -26,13 +26,15 @@ class DataBaseManager {
                 dataBaseItem.pubDate = $0.pubDate
                 return dataBaseItem
             }
-            realm.add(newDataBaseItem, update: .modified)
             let lastDate = LastDate()
             let existedItemsSorted = existedItems.sorted { lhs, rhs in
                 lhs.pubDate > rhs.pubDate
             }
-            lastDate.lastDate = existedItemsSorted.first.map { $0.pubDate }!
-            realm.add(lastDate, update: .modified)
+            if let dateExisted = existedItemsSorted.first.map { $0.pubDate } {
+                lastDate.lastDate = dateExisted
+                realm.add(lastDate, update: .modified)
+            }
+            realm.add(newDataBaseItem, update: .modified)
         }, onComplete: { error in
             if let error = error {
                 completion(.failure(error))

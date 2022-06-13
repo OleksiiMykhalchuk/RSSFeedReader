@@ -13,6 +13,7 @@ class ListViewController: UIViewController, ViewModelApplyied, ViewControllerMak
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "List"
+
         showTableView()
         tableView.register(R.nib.listCell)
         tableView.register(R.nib.loadingCell)
@@ -65,6 +66,9 @@ extension ListViewController: UITableViewDataSource {
         } else if viewModel.updateStatusData.lastValue == .finish {
                 let cellViewModel = viewModel.cellViewModel(for: indexPath.row)
                 let cell = tableView.dequeueReusableCell(withIdentifier: "ListCell") as? ListTableViewCell
+            if viewModel.cellViewIfNew(for: indexPath.row) {
+                cell?.backgroundColor = .green
+            }
                 cell?.viewModel = cellViewModel
                 cell?.layer.borderWidth = 1
                 return cell!
