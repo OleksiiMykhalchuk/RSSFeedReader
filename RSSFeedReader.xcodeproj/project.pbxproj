@@ -23,7 +23,8 @@
 		8814C581284F6AF00086ABCC /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8814C57F284F6AF00086ABCC /* SettingsViewController.swift */; };
 		8814C582284F6AF00086ABCC /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8814C580284F6AF00086ABCC /* SettingsViewController.xib */; };
 		8814C584284F6B250086ABCC /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8814C583284F6B250086ABCC /* SettingsViewModel.swift */; };
-		8824FE882855917D00A16F52 /* test.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8824FE872855917D00A16F52 /* test.xml */; };
+		8824FE882855917D00A16F52 /* network.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8824FE872855917D00A16F52 /* network.xml */; };
+		884CBEEC285740370063819A /* xampp.xml in Resources */ = {isa = PBXBuildFile; fileRef = 884CBEEB285740370063819A /* xampp.xml */; };
 		88C0164C283E40340030D7FD /* CoordinatorExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C0164B283E40340030D7FD /* CoordinatorExample.swift */; };
 		88C0164E283E40E80030D7FD /* AppCoordinatorExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C0164D283E40E80030D7FD /* AppCoordinatorExample.swift */; };
 		88C01650283E47CE0030D7FD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C0164F283E47CE0030D7FD /* LoginViewController.swift */; };
@@ -65,7 +66,8 @@
 		8814C57F284F6AF00086ABCC /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		8814C580284F6AF00086ABCC /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
 		8814C583284F6B250086ABCC /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
-		8824FE872855917D00A16F52 /* test.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = test.xml; sourceTree = "<group>"; };
+		8824FE872855917D00A16F52 /* network.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = network.xml; sourceTree = "<group>"; };
+		884CBEEB285740370063819A /* xampp.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = xampp.xml; path = ../../../../../../Applications/XAMPP/xamppfiles/htdocs/xml/xampp.xml; sourceTree = "<group>"; };
 		88B129312849100700988309 /* Realm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Realm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		88C0164B283E40340030D7FD /* CoordinatorExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorExample.swift; sourceTree = "<group>"; };
 		88C0164D283E40E80030D7FD /* AppCoordinatorExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinatorExample.swift; sourceTree = "<group>"; };
@@ -171,7 +173,8 @@
 		88054002283D3A1B007D2762 = {
 			isa = PBXGroup;
 			children = (
-				8824FE872855917D00A16F52 /* test.xml */,
+				8824FE872855917D00A16F52 /* network.xml */,
+				884CBEEB285740370063819A /* xampp.xml */,
 				88C0166F283F72F20030D7FD /* XML.xml */,
 				88054026283D559A007D2762 /* R.generated.swift */,
 				8805400D283D3A1B007D2762 /* RSSFeedReader */,
@@ -339,9 +342,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				8805401B283D3A1D007D2762 /* LaunchScreen.storyboard in Resources */,
+				884CBEEC285740370063819A /* xampp.xml in Resources */,
 				88054018283D3A1D007D2762 /* Assets.xcassets in Resources */,
 				88C01660283E64C20030D7FD /* DetailsViewController.xib in Resources */,
-				8824FE882855917D00A16F52 /* test.xml in Resources */,
+				8824FE882855917D00A16F52 /* network.xml in Resources */,
 				8814C582284F6AF00086ABCC /* SettingsViewController.xib in Resources */,
 				88C0165C283E64AD0030D7FD /* ListViewController.xib in Resources */,
 				88054016283D3A1B007D2762 /* Main.storyboard in Resources */,

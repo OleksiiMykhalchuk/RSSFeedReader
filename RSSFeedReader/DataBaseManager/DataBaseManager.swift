@@ -17,7 +17,7 @@ class DataBaseManager {
         realm.writeAsync({
             let results = realm.objects(DataBaseObject.self)
             let existedItems = results.map {
-                RSSItem(title: $0.title, description: $0.description, pubDate: $0.pubDate) }
+                RSSItem(title: $0.title, description: $0.desc, pubDate: $0.pubDate) }
             let newItems = items.filter { !existedItems.contains($0) }
             let newDataBaseItem: [DataBaseObject] = newItems.map {
                 let dataBaseItem = DataBaseObject()
@@ -26,7 +26,7 @@ class DataBaseManager {
                 dataBaseItem.pubDate = $0.pubDate
                 return dataBaseItem
             }
-            realm.add(newDataBaseItem, update: .all)
+            realm.add(newDataBaseItem, update: .modified)
             let lastDate = LastDate()
             let existedItemsSorted = existedItems.sorted { lhs, rhs in
                 lhs.pubDate > rhs.pubDate

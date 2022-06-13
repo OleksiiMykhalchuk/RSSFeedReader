@@ -139,14 +139,22 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.file` struct is generated, and contains static references to 1 files.
+  /// This `R.file` struct is generated, and contains static references to 2 files.
   struct file {
-    /// Resource file `test.xml`.
-    static let testXml = Rswift.FileResource(bundle: R.hostingBundle, name: "test", pathExtension: "xml")
+    /// Resource file `network.xml`.
+    static let networkXml = Rswift.FileResource(bundle: R.hostingBundle, name: "network", pathExtension: "xml")
+    /// Resource file `xampp.xml`.
+    static let xamppXml = Rswift.FileResource(bundle: R.hostingBundle, name: "xampp", pathExtension: "xml")
 
-    /// `bundle.url(forResource: "test", withExtension: "xml")`
-    static func testXml(_: Void = ()) -> Foundation.URL? {
-      let fileResource = R.file.testXml
+    /// `bundle.url(forResource: "network", withExtension: "xml")`
+    static func networkXml(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.networkXml
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "xampp", withExtension: "xml")`
+    static func xamppXml(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.xamppXml
       return fileResource.bundle.url(forResource: fileResource)
     }
 

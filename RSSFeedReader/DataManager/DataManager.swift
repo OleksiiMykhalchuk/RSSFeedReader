@@ -11,8 +11,11 @@ class DataManager {
     private lazy var dataBase: DataBaseManager = .init()
     private lazy var networkManager: NetworkManager = .init(
         with: URL(
-            string: "https://www.ledsign.com.ua/test.xml")!)
+            string: "http://localhost/xml/xampp.xml")!)
 //    "https://www.upwork.com/ab/feed/jobs/rss?q=mobile+developer&sort=recency&paging=0%3B50"
+    /*
+     https://www.ledsign.com.ua/test.xml
+     */
     func fetchData() -> [RSSItem] {
         do {
             let items = try dataBase.fetchData()
