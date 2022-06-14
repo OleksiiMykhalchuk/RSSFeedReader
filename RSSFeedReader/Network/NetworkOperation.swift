@@ -7,6 +7,7 @@
 
 import UIKit
 typealias CompletionURL = ((Data?, URLResponse?, Error?) -> Void)?
+
 final class NetworkOperation: Operation {
     var item: RSSItem?
     private let url: URL
@@ -48,8 +49,7 @@ final class NetworkOperation: Operation {
         super.init()
     }
     override func main() {
-        URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
-            guard let self = self else { return }
+        URLSession.shared.dataTask(with: url) { data, response, error in
             defer { self.state = .finished }
             if let completion = self.completion {
                 completion(data, response, error)

@@ -17,8 +17,28 @@ final class NetworkManager {
         case emptyData
     }
     func fetch(completion: @escaping (Swift.Result<[RSSItem], Error>) -> Void) {
-        let session = URLSession.shared
-        let dataTask = session.dataTask(with: url) { [weak self] data, _, error in
+//        let session = URLSession.shared
+//        let dataTask = session.dataTask(with: url) { [weak self] data, _, error in
+//            guard let data = data else {
+//                if let error = error {
+//                    DispatchQueue.main.async {
+//                        completion(.failure(error))
+//                    }
+//                } else {
+//                    DispatchQueue.main.async {
+//                        completion(.failure(NetworkManagerError.emptyData))
+//                    }
+//                }
+//                return
+//            }
+//            let items = self?.xmlManager.parse(data: data) ?? []
+//            DispatchQueue.main.async {
+//                completion(.success(items))
+//            }
+//        }
+//        dataTask.resume()
+        let operation = NetworkOperation(url: url) { [weak self] data, response, error in
+            guard let self = self else { return }
             guard let data = data else {
                 if let error = error {
                     DispatchQueue.main.async {
@@ -31,11 +51,11 @@ final class NetworkManager {
                 }
                 return
             }
-            let items = self?.xmlManager.parse(data: data) ?? []
+            let items = self.xmlManager.parse(data: data)
             DispatchQueue.main.async {
                 completion(.success(items))
             }
         }
-        dataTask.resume()
+        operation.start()
     }
 }
