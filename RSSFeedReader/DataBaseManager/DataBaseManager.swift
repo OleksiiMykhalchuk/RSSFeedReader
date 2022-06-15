@@ -26,12 +26,6 @@ class DataBaseManager {
                 dataBaseItem.pubDate = $0.pubDate
                 return dataBaseItem
             }
-
-            let existedItemsSorted = existedItems.sorted { lhs, rhs in
-                lhs.pubDate > rhs.pubDate
-            }
-            let defaults = UserDefaults.standard
-            defaults.set(existedItemsSorted.first?.pubDate, forKey: "pubDate")
             realm.add(newDataBaseItem)
         }, onComplete: { error in
             if let error = error {
@@ -88,10 +82,5 @@ class DataBaseManager {
                 completion(.failure(DataBaseError.deleteLinkError))
             }
         }
-    }
-    func fetchLastDate() throws -> String {
-        let realm = try Realm()
-        let results = realm.objects(LastDate.self)
-        return results.last?.lastDate ?? ""
     }
 }

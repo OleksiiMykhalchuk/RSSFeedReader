@@ -104,13 +104,4 @@ class DataManager {
             print("Error Data Base while Delete")
         }
     }
-    func fetchLastDate() -> String {
-        do {
-            let lastDate = try dataBase.fetchLastDate()
-            return lastDate
-        } catch {
-            print("Error fetching last date")
-            return ""
-        }
-    }
 }

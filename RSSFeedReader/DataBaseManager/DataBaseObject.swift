@@ -22,10 +22,3 @@ class RSSUrl: Object {
     @Persisted var url = ""
     @Persisted(primaryKey: true) var id = ""
 }
-
-class LastDate: Object {
-    @objc dynamic var lastDate = ""
-    override static func primaryKey() -> String? {
-        return "lastDate"
-    }
-}
