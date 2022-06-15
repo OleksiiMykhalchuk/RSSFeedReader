@@ -101,8 +101,13 @@ extension ListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView,
+                   commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         viewModel.deleteObject(for: indexPath.row)
+        viewModel.reloadData.bind(to: self) { [weak self] _ in
+            self?.viewModel.startUpdate()
+            self?.tableView.reloadData()
+        }
         tableView.deleteRows(at: [indexPath], with: .automatic)
     }
 }

@@ -9,9 +9,7 @@ import UIKit
 typealias CompletionURL = ((Data?, URLResponse?, Error?) -> Void)?
 
 final class NetworkOperation: Operation {
-    var item: RSSItem?
     private let url: URL
-    private lazy var xmlManager: XMLManager = XMLManager()
     private let completion: CompletionURL
     private static let context = CIContext()
     enum State: String {
@@ -62,4 +60,3 @@ final class NetworkOperation: Operation {
         state = .executing
     }
 }
-

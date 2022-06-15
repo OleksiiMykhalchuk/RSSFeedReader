@@ -13,7 +13,8 @@ class SettingsViewController: UIViewController, ViewModelApplyied, ViewControlle
     var textField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
-        addCloseButton()
+        title = "Links"
+//        addCloseButton()
         addTextField()
         addTableView()
         viewModel.start()
@@ -49,7 +50,7 @@ class SettingsViewController: UIViewController, ViewModelApplyied, ViewControlle
         textField.enablesReturnKeyAutomatically = true
         textField.addTarget(self, action: #selector(didEndOnExit), for: .editingDidEndOnExit)
         view.addSubview(textField)
-        let constraints = [textField.topAnchor.constraint(equalTo: view.topAnchor, constant: 45),
+        let constraints = [textField.topAnchor.constraint(equalTo: view.topAnchor, constant: 85),
                            textField.heightAnchor.constraint(equalToConstant: 50),
                            textField.widthAnchor.constraint(equalToConstant: view.bounds.size.width-30),
                            textField.centerXAnchor.constraint(equalTo: view.centerXAnchor)]

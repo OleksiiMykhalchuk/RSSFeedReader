@@ -12,9 +12,19 @@ class DataManager {
     private lazy var networkManager: NetworkManager = .init(
         with: URL(
             string: "http://localhost/xml/xampp.xml")!)
+    private lazy var urls: [URL] = {
+        let items = fetchLink()
+        let array = Array(items) as [RSSUrl]
+        let urls = items.map {
+            URL.init(string: $0.url)!
+        } as [URL]
+        return urls
+    }()
 //    "https://www.upwork.com/ab/feed/jobs/rss?q=mobile+developer&sort=recency&paging=0%3B50"
     /*
      https://www.ledsign.com.ua/test.xml
+     URL(
+         string: "http://localhost/xml/xampp.xml")!)
      */
     func fetchData() -> [RSSItem] {
         do {

@@ -43,11 +43,11 @@ extension ListViewController {
         }
         func cellViewIfNew(for index: Int) -> Bool {
             let rssItem = dataSource[index]
-            let lastDate = dataManager.fetchLastDate()
+            let lastDate = UserDefaults.standard.object(forKey: "pubDate") as? String
             let formatter = DateFormatter()
             formatter.dateFormat = "E, dd MMM yyyy HH:mm:ss Z"
             guard let rssDate = formatter.date(from: rssItem.pubDate) else { return false }
-            guard let last = formatter.date(from: lastDate) else { return false }
+            guard let last = formatter.date(from: lastDate ?? "") else { return false }
             return rssDate.compare(last) == ComparisonResult.orderedDescending
         }
         func deleteObject(for index: Int) {
