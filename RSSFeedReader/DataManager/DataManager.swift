@@ -10,8 +10,7 @@ import Foundation
 class DataManager {
     private lazy var dataBase: DataBaseManager = .init()
     private lazy var networkManager: NetworkManager = .init(
-        with: URL(
-            string: "http://localhost/xml/xampp.xml")!)
+        with: "http://localhost/xml/xampp.xml")
     private lazy var urls: [String] = {
         let items = fetchLink()
         let array = Array(items) as [RSSUrl]
@@ -44,8 +43,8 @@ class DataManager {
         if !urls.isEmpty {
             for index in 0..<urls.count {
                 let urlString = urls[index]
-                if let url = URL(string: urlString) {
-                    let networkManager = NetworkManager(with: url)
+//                if let url = URL(string: urlString) {
+                    let networkManager = NetworkManager(with: urlString)
                     let operation = DataOperation(
                         source: urlString,
                         dataBase: dataBase,
@@ -53,7 +52,7 @@ class DataManager {
                         completion: completion)
                     let operationQueue = OperationQueue()
                     operationQueue.addOperation(operation)
-                }
+//                }
             }
         } else {
             completion(.failure(DataError.emptyLinkData))

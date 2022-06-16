@@ -8,9 +8,9 @@
 import Foundation
 
 final class NetworkManager {
-    private let url: URL
+    private let url: String
     private lazy var xmlManager: XMLManager = XMLManager()
-    init(with url: URL) {
+    init(with url: String) {
         self.url = url
     }
     enum NetworkManagerError: Error {
@@ -18,7 +18,10 @@ final class NetworkManager {
     }
     func fetch(completion: @escaping (Swift.Result<[RSSItem], Error>) -> Void) {
         let session = URLSession.shared
-        let dataTask = session.dataTask(with: url) { [weak self] data, _, error in
+        guard let urlFromString = URL(string: url) else {
+            return
+        }
+        let dataTask = session.dataTask(with: urlFromString) { [weak self] data, _, error in
             guard let data = data else {
                 if let error = error {
                     DispatchQueue.main.async {
@@ -31,7 +34,7 @@ final class NetworkManager {
                 }
                 return
             }
-            let items = self?.xmlManager.parse(data: data) ?? []
+            let items = self?.xmlManager.parse(data: data, url: self!.url) ?? []
             DispatchQueue.main.async {
                 completion(.success(items))
             }

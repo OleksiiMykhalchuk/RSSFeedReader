@@ -17,11 +17,13 @@ class XMLManager: NSObject, XMLParserDelegate {
     private var title: String!
     private var descript: String!
     private var pubDate: String!
+    private var url: String!
     deinit {
         print("XML Manager deinit{}")
     }
-    func parse(data: Data) -> [RSSItem] {
+    func parse(data: Data, url: String) -> [RSSItem] {
         let parser = XMLParser(data: data)
+        self.url = url
         parser.delegate = self
         parser.parse()
         return items
@@ -56,7 +58,7 @@ class XMLManager: NSObject, XMLParserDelegate {
         namespaceURI: String?,
         qualifiedName qName: String?) {
         if elementName == "item" {
-            items.append(.init(title: title, description: descript, pubDate: pubDate, source: ""))
+            items.append(.init(title: title, description: descript, pubDate: pubDate, source: url))
         } else if elementName == "title", rss, channel, itemBool {
             title = currentValue
         } else if elementName == "description", rss, channel, itemBool {
