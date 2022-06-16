@@ -51,20 +51,6 @@ class DataManager {
             }
         }
     }
-    func deleteObject(item: RSSItem) {
-        do {
-            try dataBase.deleteItem(item) { result in
-                switch result {
-                case .success(_):
-                    print("Object Deleted")
-                case .failure(let error):
-                    print("Error deleting the object \(error.localizedDescription)")
-                }
-            }
-        } catch {
-            print("DataBase Error")
-        }
-    }
     func saveLink(_ item: RSSUrl, copmletion: @escaping (Swift.Result<Void, Error>) -> Void) {
         do {
            try dataBase.saveLink(item, completion: { result in

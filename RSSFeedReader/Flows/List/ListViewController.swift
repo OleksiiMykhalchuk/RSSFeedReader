@@ -10,10 +10,11 @@ import UIKit
 class ListViewController: UIViewController, ViewModelApplyied, ViewControllerMakeable {
     var tableView: UITableView!
     var viewModel: ViewModel!
+    private var isNotScrolled: Bool!
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "List"
-
+        isNotScrolled = true
         showTableView()
         tableView.register(R.nib.listCell)
         tableView.register(R.nib.loadingCell)
@@ -21,11 +22,12 @@ class ListViewController: UIViewController, ViewModelApplyied, ViewControllerMak
             // refresh tableView
             self?.tableView.reloadData()
         }
-        viewModel.updateStatusData.bind(to: self, callback: { [weak self] _ in
+        viewModel.updateStatusData.bind(to: self) { [weak self] _ in
             self?.tableView.reloadData()
-        })
+        }
         viewModel.start()
         addBarButton()
+        viewModel.saveOldViewDate()
     }
     private func showTableView() {
         tableView = UITableView(frame: view.frame)
@@ -41,8 +43,12 @@ class ListViewController: UIViewController, ViewModelApplyied, ViewControllerMak
     }
     @objc func update(sender: Any) {
         print("Update")
+        viewModel.saveOldViewDate()
         viewModel.startUpdate()
-        tableView.reloadData()
+        viewModel.reloadData.bind(to: self) { [weak self] _ in
+            self?.tableView.reloadData()
+        }
+        isNotScrolled = true
     }
     @objc func settings(sender: Any) {
         viewModel.coordinator?.goToSettingsPage()
@@ -66,9 +72,11 @@ extension ListViewController: UITableViewDataSource {
         } else if viewModel.updateStatusData.lastValue == .finish {
                 let cellViewModel = viewModel.cellViewModel(for: indexPath.row)
                 let cell = tableView.dequeueReusableCell(withIdentifier: "ListCell") as? ListTableViewCell
-            if viewModel.cellViewIfNew(for: indexPath.row) {
-                cell?.backgroundColor = .green
-            }
+                if viewModel.cellViewIfNew(for: indexPath.row) {
+                    cell?.backgroundColor = .green
+                } else {
+                    cell?.backgroundColor = .white
+                }
                 cell?.viewModel = cellViewModel
                 cell?.layer.borderWidth = 1
                 return cell!
@@ -101,13 +109,13 @@ extension ListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
-    func tableView(_ tableView: UITableView,
-                   commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        viewModel.deleteObject(for: indexPath.row)
-        viewModel.reloadData.bind(to: self) { [weak self] _ in
-            self?.viewModel.startUpdate()
-            self?.tableView.reloadData()
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if let lastVisibleIdexPath = tableView.indexPathsForVisibleRows?.last,
+           viewModel.updateStatusData.lastValue == .finish {
+            if indexPath == lastVisibleIdexPath, isNotScrolled {
+                viewModel.saveLastViewDate()
+                isNotScrolled = false
+            }
         }
-        tableView.deleteRows(at: [indexPath], with: .automatic)
     }
 }

@@ -13,6 +13,7 @@ class DataBaseObject: Object {
     @objc dynamic var title = ""
     @objc dynamic var desc = ""
     @objc dynamic var pubDate = ""
+    @objc dynamic var source = ""
     override static func primaryKey() -> String? {
         return "pubDate"
     }

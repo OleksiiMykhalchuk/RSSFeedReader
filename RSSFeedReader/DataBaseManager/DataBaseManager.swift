@@ -41,18 +41,6 @@ class DataBaseManager {
         let objects = Array(results) as [DataBaseObject]
         return objects
     }
-    func deleteItem(_ item: RSSItem, completion: @escaping (Swift.Result<Void, Error>) -> Void) throws {
-        let realm = try Realm()
-        try realm.write {
-            let object = realm.object(ofType: DataBaseObject.self, forPrimaryKey: item.pubDate)
-            if let object = object {
-                realm.delete(object)
-                completion(.success(()))
-            } else {
-                completion(.failure(DataBaseError.deleteObjectError))
-            }
-        }
-    }
     func saveLink(_ item: RSSUrl, completion: @escaping (Swift.Result<Void, Error>) -> Void ) throws {
         let realm = try Realm()
         realm.writeAsync({

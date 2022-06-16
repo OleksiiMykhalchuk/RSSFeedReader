@@ -17,6 +17,7 @@ extension ListViewController {
         var itemsNumber: Int {
             dataSource.count
         }
+        private var oldPubDate: String!
         private lazy var dataManager: DataManager = .init()
         private var dataSource: [RSSItem] = []
         let reloadData: Bindable<Void> = .init(nil)
@@ -43,17 +44,23 @@ extension ListViewController {
         }
         func cellViewIfNew(for index: Int) -> Bool {
             let rssItem = dataSource[index]
-            let lastDate = UserDefaults.standard.object(forKey: "pubDate") as? String
-            let formatter = DateFormatter()
-            formatter.dateFormat = "E, dd MMM yyyy HH:mm:ss Z"
-            guard let rssDate = formatter.date(from: rssItem.pubDate) else { return false }
-            guard let last = formatter.date(from: lastDate ?? "") else { return false }
-            return rssDate.compare(last) == ComparisonResult.orderedDescending
+            if let lastDate = oldPubDate {
+                print("\(String(describing: lastDate))")
+                let formatter = DateFormatter()
+                formatter.dateFormat = "E, dd MMM yyyy HH:mm:ss Z"
+                guard let rssDate = formatter.date(from: rssItem.pubDate) else { return false }
+                guard let last = formatter.date(from: lastDate) else { return false }
+                return rssDate.compare(last) == ComparisonResult.orderedDescending
+            } else {
+                return true
+            }
         }
-        func deleteObject(for index: Int) {
-            let item = dataSource[index]
-            dataManager.deleteObject(item: item)
-            reloadData.update(with: ())
+        func saveOldViewDate() {
+            oldPubDate = UserDefaults.standard.object(forKey: "pubDate") as? String
+        }
+        func saveLastViewDate() {
+            UserDefaults.standard.set(dataSource.first?.pubDate, forKey: "pubDate")
+            print("LastDateSaved")
         }
         private func refreshDataSource() {
             dataSource = dataManager.fetchData()
