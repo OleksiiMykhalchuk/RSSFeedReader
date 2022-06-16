@@ -80,6 +80,13 @@ extension ListViewController: UITableViewDataSource {
                 cell?.viewModel = cellViewModel
                 cell?.layer.borderWidth = 1
                 return cell!
+        } else if viewModel.updateStatusData.lastValue == .noLinks {
+            let cell = UITableViewCell(style: .default, reuseIdentifier: "Failure No Links")
+            cell.textLabel?.text = "Error Add Link"
+            cell.textLabel?.textAlignment = .center
+            showAlert(title: "No Links", message: "Add Link")
+            NSLog("Error Loading")
+            return cell
         } else {
             let cell = UITableViewCell(style: .default, reuseIdentifier: "Failure")
             cell.textLabel?.text = "Error Loading"

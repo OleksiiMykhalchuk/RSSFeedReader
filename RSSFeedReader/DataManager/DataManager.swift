@@ -18,13 +18,16 @@ class DataManager {
         let urls: [String] = array.map { $0.url }
         return urls
     }()
-//    "https://www.upwork.com/ab/feed/jobs/rss?q=mobile+developer&sort=recency&paging=0%3B50"
+//    "https://www.upwork.com/ab/feed/jobs/rss?q=mobile+developer&sort=recency&paging=0%3B10"
 //https://www.upwork.com/ab/feed/jobs/rss?q=python&sort=recency&paging=0%3B10
     /*
      https://www.ledsign.com.ua/test.xml
      URL(
          string: "http://localhost/xml/xampp.xml")!)
      */
+    enum DataError: Error {
+        case emptyLinkData
+    }
     func fetchData() -> [RSSItem] {
         do {
             let items = try dataBase.fetchData()
@@ -37,32 +40,24 @@ class DataManager {
         return []
     }
     func refreshData(_ completion: @escaping (Swift.Result<Void, Error>) -> Void) {
-        for index in 0..<urls.count {
-            let urlString = urls[index]
-            if let url = URL(string: urlString) {
-                let networkManager = NetworkManager(with: url)
-                let operation = DataOperation(
-                    source: urlString,
-                    dataBase: dataBase,
-                    networkManager: networkManager,
-                    completion: completion)
-                let operationQueue = OperationQueue()
-                operationQueue.addOperation(operation)
+        let urls = linkToString()
+        if !urls.isEmpty {
+            for index in 0..<urls.count {
+                let urlString = urls[index]
+                if let url = URL(string: urlString) {
+                    let networkManager = NetworkManager(with: url)
+                    let operation = DataOperation(
+                        source: urlString,
+                        dataBase: dataBase,
+                        networkManager: networkManager,
+                        completion: completion)
+                    let operationQueue = OperationQueue()
+                    operationQueue.addOperation(operation)
+                }
             }
+        } else {
+            completion(.failure(DataError.emptyLinkData))
         }
-
-//        networkManager.fetch { [weak self] result in
-//            switch result {
-//            case .success(let newItems):
-//                do {
-//                    try self?.dataBase.sync(newItems, completion: completion)
-//                } catch {
-//                    completion(.failure(error))
-//                }
-//            case .failure(let error):
-//                completion(.failure(error))
-//            }
-//        }
     }
     func saveLink(_ item: RSSUrl, copmletion: @escaping (Swift.Result<Void, Error>) -> Void) {
         do {
@@ -88,6 +83,12 @@ class DataManager {
             print("Error Fetching the Links")
         }
         return []
+    }
+    private func linkToString() -> [String] {
+        let objects = fetchLink()
+        let link = Array(objects) as [RSSUrl]
+        let links = link.map { $0.url }
+        return links
     }
     func deleteLink(item: RSSUrl) {
         do {
