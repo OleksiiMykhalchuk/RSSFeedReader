@@ -17,8 +17,10 @@ class ListTableViewCell: UITableViewCell {
             descriptionLabel.font = UIFont(name: "system", size: 14)
             descriptionLabel.layoutIfNeeded()
             pubDateLabel.text = viewModel?.pubDate
+            source.text = viewModel?.source
         }
     }
+    @IBOutlet weak var source: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var pubDateLabel: UILabel!

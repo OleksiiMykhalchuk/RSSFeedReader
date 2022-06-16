@@ -33,7 +33,7 @@ class DataOperation: Operation {
                     print("Error Sync Data Base in Operation \(error.localizedDescription)")
                 }
             case .failure(let error):
-                print("Network Manager Fetch Error Operation")
+                print("Network Manager Fetch Error Operation \(error.localizedDescription)")
             }
         }
     }

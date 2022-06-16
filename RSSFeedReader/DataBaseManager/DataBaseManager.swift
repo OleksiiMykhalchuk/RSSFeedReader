@@ -17,7 +17,7 @@ class DataBaseManager {
         realm.writeAsync({
             let results = realm.objects(DataBaseObject.self)
             let existedItems = results.map {
-                RSSItem(title: $0.title, description: $0.desc, pubDate: $0.pubDate) }
+                RSSItem(title: $0.title, description: $0.desc, pubDate: $0.pubDate, source: $0.source) }
             let newItems = items.filter { !existedItems.contains($0) }
             let newDataBaseItem: [DataBaseObject] = newItems.map {
                 let dataBaseItem = DataBaseObject()

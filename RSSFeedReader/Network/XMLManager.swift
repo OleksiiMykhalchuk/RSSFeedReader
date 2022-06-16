@@ -56,7 +56,7 @@ class XMLManager: NSObject, XMLParserDelegate {
         namespaceURI: String?,
         qualifiedName qName: String?) {
         if elementName == "item" {
-            items.append(.init(title: title, description: descript, pubDate: pubDate))
+            items.append(.init(title: title, description: descript, pubDate: pubDate, source: ""))
         } else if elementName == "title", rss, channel, itemBool {
             title = currentValue
         } else if elementName == "description", rss, channel, itemBool {

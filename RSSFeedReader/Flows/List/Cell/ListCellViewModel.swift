@@ -17,5 +17,8 @@ struct ListCellViewModel {
     var pubDate: String {
         rssItem.pubDate
     }
+    var source: String {
+        rssItem.source
+    }
     let rssItem: RSSItem
 }
