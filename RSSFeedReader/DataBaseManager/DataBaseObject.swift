@@ -14,9 +14,9 @@ class DataBaseObject: Object {
     @objc dynamic var desc = ""
     @objc dynamic var pubDate = ""
     @objc dynamic var source = ""
-    override static func primaryKey() -> String? {
-        return "pubDate"
-    }
+//    override static func primaryKey() -> String? {
+//        return "pubDate"
+//    }
 }
 
 class RSSUrl: Object {

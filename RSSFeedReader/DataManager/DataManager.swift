@@ -12,15 +12,14 @@ class DataManager {
     private lazy var networkManager: NetworkManager = .init(
         with: URL(
             string: "http://localhost/xml/xampp.xml")!)
-    private lazy var urls: [URL] = {
+    private lazy var urls: [String] = {
         let items = fetchLink()
         let array = Array(items) as [RSSUrl]
-        let urls = items.map {
-            URL.init(string: $0.url)!
-        } as [URL]
+        let urls: [String] = array.map { $0.url }
         return urls
     }()
 //    "https://www.upwork.com/ab/feed/jobs/rss?q=mobile+developer&sort=recency&paging=0%3B50"
+//https://www.upwork.com/ab/feed/jobs/rss?q=python&sort=recency&paging=0%3B10
     /*
      https://www.ledsign.com.ua/test.xml
      URL(
@@ -38,18 +37,32 @@ class DataManager {
         return []
     }
     func refreshData(_ completion: @escaping (Swift.Result<Void, Error>) -> Void) {
-        networkManager.fetch { [weak self] result in
-            switch result {
-            case .success(let newItems):
-                do {
-                    try self?.dataBase.sync(newItems, completion: completion)
-                } catch {
-                    completion(.failure(error))
-                }
-            case .failure(let error):
-                completion(.failure(error))
+        for index in 0..<urls.count {
+            let urlString = urls[index]
+            if let url = URL(string: urlString) {
+                let networkManager = NetworkManager(with: url)
+                let operation = DataOperation(
+                    source: urlString,
+                    dataBase: dataBase,
+                    networkManager: networkManager,
+                    completion: completion)
+                let operationQueue = OperationQueue()
+                operationQueue.addOperation(operation)
             }
         }
+
+//        networkManager.fetch { [weak self] result in
+//            switch result {
+//            case .success(let newItems):
+//                do {
+//                    try self?.dataBase.sync(newItems, completion: completion)
+//                } catch {
+//                    completion(.failure(error))
+//                }
+//            case .failure(let error):
+//                completion(.failure(error))
+//            }
+//        }
     }
     func saveLink(_ item: RSSUrl, copmletion: @escaping (Swift.Result<Void, Error>) -> Void) {
         do {

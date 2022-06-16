@@ -45,7 +45,6 @@ extension ListViewController {
         func cellViewIfNew(for index: Int) -> Bool {
             let rssItem = dataSource[index]
             if let lastDate = oldPubDate {
-                print("\(String(describing: lastDate))")
                 let formatter = DateFormatter()
                 formatter.dateFormat = "E, dd MMM yyyy HH:mm:ss Z"
                 guard let rssDate = formatter.date(from: rssItem.pubDate) else { return false }

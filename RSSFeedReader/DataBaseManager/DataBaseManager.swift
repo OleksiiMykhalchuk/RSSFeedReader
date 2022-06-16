@@ -12,7 +12,7 @@ class DataBaseManager {
     enum DataBaseError: Error {
         case deleteLinkError, deleteObjectError
     }
-    func sync(_ items: [RSSItem], completion: @escaping (Swift.Result<Void, Error>) -> Void) throws {
+    func sync(_ items: [RSSItem], source: String, completion: @escaping (Swift.Result<Void, Error>) -> Void) throws {
         let realm = try Realm()
         realm.writeAsync({
             let results = realm.objects(DataBaseObject.self)
@@ -24,6 +24,7 @@ class DataBaseManager {
                 dataBaseItem.title = $0.title
                 dataBaseItem.desc = $0.description
                 dataBaseItem.pubDate = $0.pubDate
+                dataBaseItem.source = source
                 return dataBaseItem
             }
             realm.add(newDataBaseItem)
