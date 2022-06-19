@@ -48,6 +48,7 @@ extension SettingsViewController {
                 }
             }
             dataManager.deleteLink(item: rssLink)
+            UserDefaults.standard.removeObject(forKey: "pubDate")
         }
 
     }
