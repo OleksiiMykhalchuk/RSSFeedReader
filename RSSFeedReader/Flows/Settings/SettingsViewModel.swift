@@ -39,6 +39,14 @@ extension SettingsViewController {
         }
         func deleteLink(for index: Int) {
             let rssLink = dataSource[index]
+            dataManager.deleteDBData(with: rssLink.url) { result in
+                switch result {
+                case .success(_):
+                    print("Content of URL  deleted")
+                case .failure(let error):
+                    print("Error deleteting URL content, error is \(error.localizedDescription)")
+                }
+            }
             dataManager.deleteLink(item: rssLink)
         }
 

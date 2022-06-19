@@ -42,6 +42,16 @@ class DataBaseManager {
         let objects = Array(results) as [DataBaseObject]
         return objects
     }
+    func deleteData(with link: String) throws {
+        let realm = try Realm()
+        try realm.write {
+            let objects = realm.objects(DataBaseObject.self)
+            let objectsWithLink = objects.where {
+                $0.source == link
+            }
+            realm.delete(objectsWithLink)
+        }
+    }
     func saveLink(_ item: RSSUrl, completion: @escaping (Swift.Result<Void, Error>) -> Void ) throws {
         let realm = try Realm()
         realm.writeAsync({

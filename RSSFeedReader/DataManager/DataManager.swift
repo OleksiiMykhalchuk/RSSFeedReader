@@ -58,6 +58,14 @@ class DataManager {
             completion(.failure(DataError.emptyLinkData))
         }
     }
+    func deleteDBData(with link: String, completion: (Swift.Result<Void, Error>) -> Void) {
+        do {
+           try dataBase.deleteData(with: link)
+            completion(.success(()))
+        } catch {
+            completion(.failure(error))
+        }
+    }
     func saveLink(_ item: RSSUrl, copmletion: @escaping (Swift.Result<Void, Error>) -> Void) {
         do {
            try dataBase.saveLink(item, completion: { result in
