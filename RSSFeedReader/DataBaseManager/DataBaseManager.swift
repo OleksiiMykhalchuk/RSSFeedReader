@@ -19,6 +19,7 @@ class DataBaseManager {
             let existedItems = results.map {
                 RSSItem(title: $0.title, description: $0.desc, pubDate: $0.pubDate, source: $0.source) }
             let newItems = items.filter { !existedItems.contains($0) }
+            UserDefaults.standard.set(newItems.count, forKey: source)
             let newDataBaseItem: [DataBaseObject] = newItems.map {
                 let dataBaseItem = DataBaseObject()
                 dataBaseItem.title = $0.title

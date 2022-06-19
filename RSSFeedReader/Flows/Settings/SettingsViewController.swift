@@ -75,16 +75,21 @@ class SettingsViewController: UIViewController, ViewModelApplyied, ViewControlle
 extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "default")
-        cell.textLabel?.text = viewModel.cellViewModel(for: indexPath.row).url
+        let url = viewModel.cellViewModel(for: indexPath.row).url
+        cell.textLabel?.text = url
         cell.textLabel?.numberOfLines = 0
-        cell.detailTextLabel?.text = "New Items"
+        if let newItemsCount = UserDefaults.standard.object(forKey: url) {
+            cell.detailTextLabel?.text = "New Items = \(String(describing: newItemsCount))"
+        }
         return cell
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.itemsNumber
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
+        tableView.deselectRow(
+            at: indexPath,
+            animated: true)
     }
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         viewModel.deleteLink(for: indexPath.row)

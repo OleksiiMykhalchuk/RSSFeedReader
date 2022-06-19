@@ -39,6 +39,7 @@ extension SettingsViewController {
         }
         func deleteLink(for index: Int) {
             let rssLink = dataSource[index]
+            let url = rssLink.url
             dataManager.deleteDBData(with: rssLink.url) { result in
                 switch result {
                 case .success(_):
@@ -49,6 +50,7 @@ extension SettingsViewController {
             }
             dataManager.deleteLink(item: rssLink)
             UserDefaults.standard.removeObject(forKey: "pubDate")
+            UserDefaults.standard.removeObject(forKey: url)
         }
 
     }
