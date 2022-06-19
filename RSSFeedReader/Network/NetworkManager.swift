@@ -14,7 +14,7 @@ final class NetworkManager {
         self.url = url
     }
     enum NetworkManagerError: Error {
-        case emptyData
+        case emptyData, badResponse
     }
     func fetch(completion: @escaping (Swift.Result<[RSSItem], Error>) -> Void) {
         let session = URLSession.shared
