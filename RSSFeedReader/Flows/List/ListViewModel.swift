@@ -11,7 +11,7 @@ import UIKit
 extension ListViewController {
     class ViewModel {
         enum UpdateState {
-            case inProgress, finish, failure, noLinks
+            case inProgress, finish, failure, noLinks, badResponse
         }
         weak var coordinator: AppCoordinator?
         var itemsNumber: Int {
@@ -38,6 +38,7 @@ extension ListViewController {
                         self?.updateStatusData.update(with: .noLinks)
                     } else {
                         self?.updateStatusData.update(with: .failure)
+                        print("****\(error)")
                     }
                 }
             }

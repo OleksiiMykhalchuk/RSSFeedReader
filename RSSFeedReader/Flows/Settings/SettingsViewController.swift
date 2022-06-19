@@ -13,7 +13,7 @@ class SettingsViewController: UIViewController, ViewModelApplyied, ViewControlle
     var textField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Links"
+        title = "URLs"
 //        addCloseButton()
         addTextField()
         addTableView()
@@ -44,6 +44,7 @@ class SettingsViewController: UIViewController, ViewModelApplyied, ViewControlle
                 print("Saving Error \(error)")
             }
         }
+        UserDefaults.standard.removeObject(forKey: "pubDate")
         textField.text = ""
     }
     private func addTextField() {

@@ -42,7 +42,7 @@ class ListViewController: UIViewController, ViewModelApplyied, ViewControllerMak
         navigationItem.rightBarButtonItem = UIBarButtonItem(
             title: "Update", style: .plain, target: self, action: #selector(update))
         navigationItem.leftBarButtonItem = UIBarButtonItem(
-            title: "Settings", style: .plain, target: self, action: #selector(settings))
+            title: "URLs", style: .plain, target: self, action: #selector(settings))
     }
     @objc func update(sender: Any) {
         print("Update")
@@ -94,7 +94,7 @@ extension ListViewController: UITableViewDataSource {
             let cell = UITableViewCell(style: .default, reuseIdentifier: "Failure")
             cell.textLabel?.text = "Error Loading"
             cell.textLabel?.textAlignment = .center
-            showAlert(title: "Error Loading", message: "Check Internet Connection!")
+            showAlert(title: "Error Loading", message: "Check Internet Connection or URL!")
             NSLog("Error Loading")
             return cell
         }

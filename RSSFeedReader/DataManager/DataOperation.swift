@@ -34,6 +34,7 @@ class DataOperation: Operation {
                 }
             case .failure(let error):
                 print("Network Manager Fetch Error Operation \(error.localizedDescription)")
+                    self?.completion(.failure(error))
             }
         }
     }

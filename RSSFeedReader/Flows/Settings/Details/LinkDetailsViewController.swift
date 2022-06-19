@@ -46,6 +46,7 @@ class LinkDetailsViewController: UIViewController, ViewModelApplyied, ViewContro
                 print("Error")
             }
         }
+        UserDefaults.standard.removeObject(forKey: "pubDate")
         navigationController?.popViewController(animated: true)
     }
 }
