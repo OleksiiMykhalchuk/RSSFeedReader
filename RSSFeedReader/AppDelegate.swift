@@ -27,4 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print(applicationDocumentDirectory)
         return true
     }
+    func applicationWillEnterForeground(_ application: UIApplication) {
+        print("Foreground")
+    }
 }

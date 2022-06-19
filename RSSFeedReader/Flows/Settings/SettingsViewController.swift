@@ -87,6 +87,7 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
         return viewModel.itemsNumber
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        viewModel.coordinator?.goToListPage()
         tableView.deselectRow(
             at: indexPath,
             animated: true)
