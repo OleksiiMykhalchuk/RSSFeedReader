@@ -161,10 +161,12 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.nib` struct is generated, and contains static references to 5 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 6 nibs.
   struct nib {
     /// Nib `DetailsViewController`.
     static let detailsViewController = _R.nib._DetailsViewController()
+    /// Nib `LinkDetailsViewController`.
+    static let linkDetailsViewController = _R.nib._LinkDetailsViewController()
     /// Nib `ListCell`.
     static let listCell = _R.nib._ListCell()
     /// Nib `ListViewController`.
@@ -179,6 +181,14 @@ struct R: Rswift.Validatable {
     @available(*, deprecated, message: "Use UINib(resource: R.nib.detailsViewController) instead")
     static func detailsViewController(_: Void = ()) -> UIKit.UINib {
       return UIKit.UINib(resource: R.nib.detailsViewController)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "LinkDetailsViewController", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.linkDetailsViewController) instead")
+    static func linkDetailsViewController(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.linkDetailsViewController)
     }
     #endif
 
@@ -216,6 +226,10 @@ struct R: Rswift.Validatable {
 
     static func detailsViewController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
       return R.nib.detailsViewController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+    }
+
+    static func linkDetailsViewController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+      return R.nib.linkDetailsViewController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
     }
 
     static func listCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> ListTableViewCell? {
@@ -272,6 +286,17 @@ struct _R: Rswift.Validatable {
     struct _DetailsViewController: Rswift.NibResourceType {
       let bundle = R.hostingBundle
       let name = "DetailsViewController"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _LinkDetailsViewController: Rswift.NibResourceType {
+      let bundle = R.hostingBundle
+      let name = "LinkDetailsViewController"
 
       func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
         return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView

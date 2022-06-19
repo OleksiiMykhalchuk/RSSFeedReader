@@ -37,8 +37,13 @@ class AppCoordinator: Coordinator {
         let viewModel = SettingsViewController.ViewModel()
         viewModel.coordinator = self
         let viewController = SettingsViewController.make(viewModel: viewModel)
-//        viewController.modalPresentationStyle = .automatic
-//        viewController.modalTransitionStyle = .flipHorizontal
+        (rootViewController as? UINavigationController)?.pushViewController(viewController, animated: true)
+    }
+    func goToLinkDetails(with data: RSSUrl) {
+        let viewModel = LinkDetailsViewController.ViewModel()
+        viewModel.viewModel(with: data)
+        viewModel.coordinator = self
+        let viewController = LinkDetailsViewController.make(viewModel: viewModel)
         (rootViewController as? UINavigationController)?.pushViewController(viewController, animated: true)
     }
 }

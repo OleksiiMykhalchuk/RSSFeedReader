@@ -111,4 +111,11 @@ class DataManager {
             print("Error Data Base while Delete")
         }
     }
+    func updateLink(item: RSSUrl, with url: String, completion: @escaping (Swift.Result<Void, Error>) -> Void) {
+        do {
+            try dataBase.updateLink(item, with: url, completion: completion)
+        } catch {
+            print("Error Updating the Link")
+        }
+    }
 }

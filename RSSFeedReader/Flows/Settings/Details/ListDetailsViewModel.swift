@@ -11,5 +11,9 @@ extension LinkDetailsViewController {
     class ViewModel {
         weak var coordinator: AppCoordinator?
         lazy var dataManager: DataManager = .init()
+        var item: RSSUrl!
+        func viewModel(with data: RSSUrl) {
+            item = data
+        }
     }
 }

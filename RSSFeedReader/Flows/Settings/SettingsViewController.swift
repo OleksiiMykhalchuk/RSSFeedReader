@@ -19,6 +19,11 @@ class SettingsViewController: UIViewController, ViewModelApplyied, ViewControlle
         addTableView()
         viewModel.start()
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+        print("ViewWillAppear")
+    }
     private func addCloseButton() {
         let btn = UIButton(type: .system)
         btn.setTitle("Close", for: .normal)
@@ -47,6 +52,8 @@ class SettingsViewController: UIViewController, ViewModelApplyied, ViewControlle
         textField.placeholder = "Insert RSS Link"
         textField.clearButtonMode = .whileEditing
         textField.returnKeyType = .done
+        textField.autocapitalizationType = .none
+        textField.spellCheckingType = .no
         textField.enablesReturnKeyAutomatically = true
         textField.addTarget(self, action: #selector(didEndOnExit), for: .editingDidEndOnExit)
         view.addSubview(textField)
@@ -87,7 +94,7 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
         return viewModel.itemsNumber
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        viewModel.coordinator?.goToListPage()
+        viewModel.coordinator?.goToLinkDetails(with: viewModel.cellViewModel(for: indexPath.row))
         tableView.deselectRow(
             at: indexPath,
             animated: true)

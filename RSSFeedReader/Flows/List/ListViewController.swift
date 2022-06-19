@@ -29,6 +29,9 @@ class ListViewController: UIViewController, ViewModelApplyied, ViewControllerMak
         addBarButton()
         viewModel.saveOldViewDate()
     }
+    override func viewWillAppear(_ animated: Bool) {
+        update(sender: self)
+    }
     private func showTableView() {
         tableView = UITableView(frame: view.frame)
         tableView.dataSource = self
