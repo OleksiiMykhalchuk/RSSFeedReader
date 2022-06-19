@@ -26,6 +26,9 @@
 		8822DF752857F9A20079E998 /* NetworkOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8822DF742857F9A20079E998 /* NetworkOperation.swift */; };
 		8824FE882855917D00A16F52 /* network.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8824FE872855917D00A16F52 /* network.xml */; };
 		882F4F45285ADD380013B5DD /* DataOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882F4F44285ADD380013B5DD /* DataOperation.swift */; };
+		8830AF7E285F07F70051F93A /* LinkDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8830AF7C285F07F60051F93A /* LinkDetailsViewController.swift */; };
+		8830AF7F285F07F70051F93A /* LinkDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8830AF7D285F07F60051F93A /* LinkDetailsViewController.xib */; };
+		8830AF81285F08550051F93A /* ListDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8830AF80285F08550051F93A /* ListDetailsViewModel.swift */; };
 		884CBEEC285740370063819A /* xampp.xml in Resources */ = {isa = PBXBuildFile; fileRef = 884CBEEB285740370063819A /* xampp.xml */; };
 		88C0164C283E40340030D7FD /* CoordinatorExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C0164B283E40340030D7FD /* CoordinatorExample.swift */; };
 		88C0164E283E40E80030D7FD /* AppCoordinatorExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C0164D283E40E80030D7FD /* AppCoordinatorExample.swift */; };
@@ -71,6 +74,9 @@
 		8822DF742857F9A20079E998 /* NetworkOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkOperation.swift; sourceTree = "<group>"; };
 		8824FE872855917D00A16F52 /* network.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = network.xml; sourceTree = "<group>"; };
 		882F4F44285ADD380013B5DD /* DataOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataOperation.swift; sourceTree = "<group>"; };
+		8830AF7C285F07F60051F93A /* LinkDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkDetailsViewController.swift; sourceTree = "<group>"; };
+		8830AF7D285F07F60051F93A /* LinkDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LinkDetailsViewController.xib; sourceTree = "<group>"; };
+		8830AF80285F08550051F93A /* ListDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDetailsViewModel.swift; sourceTree = "<group>"; };
 		884CBEEB285740370063819A /* xampp.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = xampp.xml; path = ../../../../../../Applications/XAMPP/xamppfiles/htdocs/xml/xampp.xml; sourceTree = "<group>"; };
 		88B129312849100700988309 /* Realm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Realm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		88C0164B283E40340030D7FD /* CoordinatorExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorExample.swift; sourceTree = "<group>"; };
@@ -222,9 +228,20 @@
 			path = RSSFeedReader;
 			sourceTree = "<group>";
 		};
+		8830AF7B285F07B90051F93A /* Details */ = {
+			isa = PBXGroup;
+			children = (
+				8830AF7C285F07F60051F93A /* LinkDetailsViewController.swift */,
+				8830AF7D285F07F60051F93A /* LinkDetailsViewController.xib */,
+				8830AF80285F08550051F93A /* ListDetailsViewModel.swift */,
+			);
+			path = Details;
+			sourceTree = "<group>";
+		};
 		8892326A284F5F3C006E56F2 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				8830AF7B285F07B90051F93A /* Details */,
 				8814C57F284F6AF00086ABCC /* SettingsViewController.swift */,
 				8814C580284F6AF00086ABCC /* SettingsViewController.xib */,
 				8814C583284F6B250086ABCC /* SettingsViewModel.swift */,
@@ -353,6 +370,7 @@
 				88C01660283E64C20030D7FD /* DetailsViewController.xib in Resources */,
 				8824FE882855917D00A16F52 /* network.xml in Resources */,
 				8814C582284F6AF00086ABCC /* SettingsViewController.xib in Resources */,
+				8830AF7F285F07F70051F93A /* LinkDetailsViewController.xib in Resources */,
 				88C0165C283E64AD0030D7FD /* ListViewController.xib in Resources */,
 				88054016283D3A1B007D2762 /* Main.storyboard in Resources */,
 				88C0167D28421EB50030D7FD /* LoadingCell.xib in Resources */,
@@ -451,6 +469,7 @@
 				08A3A824284000F900D9F88C /* ViewControllerMakeable.swift in Sources */,
 				88C016842844C0FE0030D7FD /* DataBaseObject.swift in Sources */,
 				08A3A82F2840055E00D9F88C /* ListCellViewModel.swift in Sources */,
+				8830AF81285F08550051F93A /* ListDetailsViewModel.swift in Sources */,
 				88C01650283E47CE0030D7FD /* LoginViewController.swift in Sources */,
 				88C0164E283E40E80030D7FD /* AppCoordinatorExample.swift in Sources */,
 				08A3A82A2840027D00D9F88C /* RSSItem.swift in Sources */,
@@ -476,6 +495,7 @@
 				88C0168A2844F1390030D7FD /* DataManager.swift in Sources */,
 				88C0165F283E64C20030D7FD /* DetailsViewController.swift in Sources */,
 				882F4F45285ADD380013B5DD /* DataOperation.swift in Sources */,
+				8830AF7E285F07F70051F93A /* LinkDetailsViewController.swift in Sources */,
 				8814C581284F6AF00086ABCC /* SettingsViewController.swift in Sources */,
 				8814C584284F6B250086ABCC /* SettingsViewModel.swift in Sources */,
 			);
