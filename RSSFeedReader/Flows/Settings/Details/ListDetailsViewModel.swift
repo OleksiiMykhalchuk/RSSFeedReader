@@ -6,3 +6,10 @@
 //
 
 import Foundation
+
+extension LinkDetailsViewController {
+    class ViewModel {
+        weak var coordinator: AppCoordinator?
+        lazy var dataManager: DataManager = .init()
+    }
+}
