@@ -23,7 +23,6 @@
 		8814C581284F6AF00086ABCC /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8814C57F284F6AF00086ABCC /* SettingsViewController.swift */; };
 		8814C582284F6AF00086ABCC /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8814C580284F6AF00086ABCC /* SettingsViewController.xib */; };
 		8814C584284F6B250086ABCC /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8814C583284F6B250086ABCC /* SettingsViewModel.swift */; };
-		8822DF752857F9A20079E998 /* NetworkOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8822DF742857F9A20079E998 /* NetworkOperation.swift */; };
 		8824FE882855917D00A16F52 /* network.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8824FE872855917D00A16F52 /* network.xml */; };
 		882F4F45285ADD380013B5DD /* DataOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882F4F44285ADD380013B5DD /* DataOperation.swift */; };
 		8830AF7E285F07F70051F93A /* LinkDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8830AF7C285F07F60051F93A /* LinkDetailsViewController.swift */; };
@@ -71,7 +70,6 @@
 		8814C57F284F6AF00086ABCC /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		8814C580284F6AF00086ABCC /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
 		8814C583284F6B250086ABCC /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
-		8822DF742857F9A20079E998 /* NetworkOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkOperation.swift; sourceTree = "<group>"; };
 		8824FE872855917D00A16F52 /* network.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = network.xml; sourceTree = "<group>"; };
 		882F4F44285ADD380013B5DD /* DataOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataOperation.swift; sourceTree = "<group>"; };
 		8830AF7C285F07F60051F93A /* LinkDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkDetailsViewController.swift; sourceTree = "<group>"; };
@@ -154,7 +152,6 @@
 			isa = PBXGroup;
 			children = (
 				08A3A826284001E000D9F88C /* NetworkManager.swift */,
-				8822DF742857F9A20079E998 /* NetworkOperation.swift */,
 				08A3A8292840027D00D9F88C /* RSSItem.swift */,
 				88C016742840C76E0030D7FD /* XMLManager.swift */,
 			);
@@ -482,7 +479,6 @@
 				88C0167B2841286E0030D7FD /* NSAttributedString.swift in Sources */,
 				08A3A822284000E600D9F88C /* ViewModelApplyied.swift in Sources */,
 				88C0167828410DF10030D7FD /* DetailsViewModel.swift in Sources */,
-				8822DF752857F9A20079E998 /* NetworkOperation.swift in Sources */,
 				88C01652283E48210030D7FD /* RegisterViewController.swift in Sources */,
 				88054013283D3A1B007D2762 /* ViewController.swift in Sources */,
 				08A3A827284001E000D9F88C /* NetworkManager.swift in Sources */,

@@ -9,14 +9,18 @@ import Foundation
 
 class DataManager {
     private lazy var dataBase: DataBaseManager = .init()
-    private lazy var networkManager: NetworkManager = .init(
-        with: "http://localhost/xml/xampp.xml")
     private lazy var urls: [String] = {
         let items = fetchLink()
         let array = Array(items) as [RSSUrl]
         let urls: [String] = array.map { $0.url }
         return urls
     }()
+    private lazy var refreshDataOperationQueue: OperationQueue = {
+        let queue = OperationQueue()
+        queue.maxConcurrentOperationCount = 1
+        return queue
+    }()
+    private var operations: [Operation] = []
 //    "https://www.upwork.com/ab/feed/jobs/rss?q=mobile+developer&sort=recency&paging=0%3B10"
 //https://www.upwork.com/ab/feed/jobs/rss?q=python&sort=recency&paging=0%3B10
     /*
@@ -40,22 +44,36 @@ class DataManager {
     }
     func refreshData(_ completion: @escaping (Swift.Result<Void, Error>) -> Void) {
         let urls = linkToString()
+        cancelAllOperations()
+        operations.removeAll()
         if !urls.isEmpty {
             for index in 0..<urls.count {
                 let urlString = urls[index]
-//                if let url = URL(string: urlString) {
                     let networkManager = NetworkManager(with: urlString)
                     let operation = DataOperation(
                         source: urlString,
                         dataBase: dataBase,
                         networkManager: networkManager,
                         completion: completion)
-                    let operationQueue = OperationQueue()
-                    operationQueue.addOperation(operation)
-//                }
+                operations.append(operation)
+                    refreshDataOperationQueue.addOperation(operation)
+                print("***Operation \(refreshDataOperationQueue)")
+            }
+            refreshDataOperationQueue.addOperation {
+                DispatchQueue.main.async {
+                    completion(.success(()))
+                    print("*****Success \(self.operations)")
+                }
             }
         } else {
             completion(.failure(DataError.emptyLinkData))
+        }
+    }
+    func cancelAllOperations() {
+        if !operations.isEmpty {
+            for operation in operations {
+                operation.cancel()
+            }
         }
     }
     func deleteDBData(with link: String, completion: (Swift.Result<Void, Error>) -> Void) {

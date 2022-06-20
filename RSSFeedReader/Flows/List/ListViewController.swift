@@ -30,7 +30,7 @@ class ListViewController: UIViewController, ViewModelApplyied, ViewControllerMak
         viewModel.saveOldViewDate()
     }
     override func viewWillAppear(_ animated: Bool) {
-        update(sender: self)
+//        update(sender: self)
     }
     private func showTableView() {
         tableView = UITableView(frame: view.frame)
