@@ -13,13 +13,13 @@ class DataOperation: Operation {
     private var dataBase: DataBaseManager
     private var networkManager: NetworkManager
     private var source: String
-    private var completion: Complete
     enum State: String {
         case ready, executing, finished
         fileprivate var keyPath: String {
             return "is\(rawValue.capitalized)"
         }
     }
+    var fetchedError: Error?
     var state = State.ready {
         willSet {
             willChangeValue(forKey: newValue.keyPath)
@@ -37,16 +37,18 @@ class DataOperation: Operation {
         return state == .executing
     }
     override var isFinished: Bool {
-        return state == .executing
+        return state == .finished
     }
     override var isAsynchronous: Bool {
         return true
     }
-    init(source: String, dataBase: DataBaseManager, networkManager: NetworkManager, completion: @escaping Complete) {
+    init(source: String, dataBase: DataBaseManager, networkManager: NetworkManager) {
         self.dataBase = dataBase
         self.networkManager = networkManager
-        self.completion = completion
         self.source = source
+    }
+    deinit {
+        print("**** Operation Deinit")
     }
     override func start() {
         if isCancelled {
@@ -55,6 +57,7 @@ class DataOperation: Operation {
         }
         main()
         state = .executing
+        print("start")
     }
     override func cancel() {
         super.cancel()
@@ -66,13 +69,23 @@ class DataOperation: Operation {
             switch result {
             case .success(let items):
                 do {
-                    try self.dataBase.sync(items, source: self.source, completion: self.completion)
+                    try self.dataBase.sync(items, source: self.source) { result in
+                        switch result {
+                        case .success(_):
+                            self.state = .finished
+                        case .failure(let error):
+                            print("**** Operaition Main DataBase Sync Error \(error.localizedDescription)")
+                            self.state = .finished
+                        }
+                    }
                 } catch {
                     print("Error Sync Data Base in Operation \(error.localizedDescription)")
+                    self.state = .finished
                 }
             case .failure(let error):
                 print("Network Manager Fetch Error Operation \(error.localizedDescription)")
-                    self.completion(.failure(error))
+                self.fetchedError = error
+                self.state = .finished
             }
         }
     }

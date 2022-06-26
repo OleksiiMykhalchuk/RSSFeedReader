@@ -21,6 +21,7 @@ class DataManager {
         return queue
     }()
     private var operations: [Operation] = []
+    private var errorCollection: [ErrorCollection] = []
 //    "https://www.upwork.com/ab/feed/jobs/rss?q=mobile+developer&sort=recency&paging=0%3B10"
 //https://www.upwork.com/ab/feed/jobs/rss?q=python&sort=recency&paging=0%3B10
     /*
@@ -29,7 +30,7 @@ class DataManager {
          string: "http://localhost/xml/xampp.xml")!)
      */
     enum DataError: Error {
-        case emptyLinkData
+        case emptyLinkData, failure
     }
     func fetchData() -> [RSSItem] {
         do {
@@ -45,24 +46,28 @@ class DataManager {
     func refreshData(_ completion: @escaping (Swift.Result<Void, Error>) -> Void) {
         let urls = linkToString()
         cancelAllOperations()
-        operations.removeAll()
         if !urls.isEmpty {
+            errorCollection.removeAll()
             for index in 0..<urls.count {
                 let urlString = urls[index]
                     let networkManager = NetworkManager(with: urlString)
                     let operation = DataOperation(
                         source: urlString,
                         dataBase: dataBase,
-                        networkManager: networkManager,
-                        completion: completion)
-                operations.append(operation)
+                        networkManager: networkManager)
+                    operations.append(operation)
                     refreshDataOperationQueue.addOperation(operation)
                 print("***Operation \(refreshDataOperationQueue)")
+                operation.completionBlock = {
+                    if let error = operation.fetchedError {
+                        self.errorCollection.append(ErrorCollection(fetchedError: error, url: self.urls[index]))
+                    }
+                }
             }
             refreshDataOperationQueue.addOperation {
                 DispatchQueue.main.async {
                     completion(.success(()))
-                    print("*****Success \(self.operations)")
+                    print("*****All Done \(self.operations)")
                 }
             }
         } else {
@@ -74,6 +79,7 @@ class DataManager {
             for operation in operations {
                 operation.cancel()
             }
+            operations.removeAll()
         }
     }
     func deleteDBData(with link: String, completion: (Swift.Result<Void, Error>) -> Void) {
@@ -88,7 +94,7 @@ class DataManager {
         do {
            try dataBase.saveLink(item, completion: { result in
                 switch result {
-                case .success(_):
+                case .success(let void):
                     print("Link Saved")
                     copmletion(.success(()))
                 case .failure(let error):
@@ -136,4 +142,12 @@ class DataManager {
             print("Error Updating the Link")
         }
     }
+    func fetchError() -> [ErrorCollection]? {
+        return errorCollection 
+    }
+}
+
+struct ErrorCollection {
+    let fetchedError: Error
+    let url: String
 }

@@ -11,6 +11,7 @@ class ListViewController: UIViewController, ViewModelApplyied, ViewControllerMak
     var tableView: UITableView!
     var viewModel: ViewModel!
     private var isNotScrolled: Bool!
+    private let refreshControll = UIRefreshControl()
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "List"
@@ -29,29 +30,36 @@ class ListViewController: UIViewController, ViewModelApplyied, ViewControllerMak
         addBarButton()
         viewModel.saveOldViewDate()
     }
-    override func viewWillAppear(_ animated: Bool) {
-//        update(sender: self)
-    }
     private func showTableView() {
         tableView = UITableView(frame: view.frame)
         tableView.dataSource = self
         tableView.delegate = self
         view.addSubview(tableView)
+        if #available(iOS 10.0, *) {
+            tableView.refreshControl = refreshControll
+        } else {
+            tableView.addSubview(refreshControll)
+        }
     }
     private func addBarButton() {
         navigationItem.rightBarButtonItem = UIBarButtonItem(
-            title: "Update", style: .plain, target: self, action: #selector(update))
+            title: "Refresh", style: .plain, target: self, action: #selector(update))
         navigationItem.leftBarButtonItem = UIBarButtonItem(
             title: "URLs", style: .plain, target: self, action: #selector(settings))
     }
-    @objc func update(sender: Any) {
+    @objc private func update() {
         print("Update")
+//        refreshControll.addTarget(self, action: #selector(refreshData), for: .valueChanged)
         viewModel.saveOldViewDate()
         viewModel.startUpdate()
         viewModel.reloadData.bind(to: self) { [weak self] _ in
             self?.tableView.reloadData()
         }
         isNotScrolled = true
+    }
+    @objc private func refreshData(_ sender: Any) {
+
+        print("****RefreshData")
     }
     @objc func settings(sender: Any) {
         viewModel.coordinator?.goToSettingsPage()
@@ -125,6 +133,16 @@ extension ListViewController: UITableViewDelegate {
             if indexPath == lastVisibleIdexPath, isNotScrolled {
                 viewModel.saveLastViewDate()
                 isNotScrolled = false
+                let errorCollection = viewModel.ifUrlFailed()
+                if !errorCollection.isEmpty {
+                    var url = ""
+                    var message = ""
+                    for index in 0..<viewModel.ifUrlFailed().count {
+                        url += "\(index+1). [\(errorCollection[index].url)]\n"
+                        message += "\(index+1). Error Message: \(errorCollection[index].fetchedError.localizedDescription)\n"
+                    }
+                    showAlert(title: url, message: message)
+                }
             }
         }
     }

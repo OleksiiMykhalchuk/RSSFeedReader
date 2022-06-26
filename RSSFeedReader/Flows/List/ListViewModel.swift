@@ -11,7 +11,7 @@ import UIKit
 extension ListViewController {
     class ViewModel {
         enum UpdateState {
-            case inProgress, finish, failure, noLinks, badResponse
+            case inProgress, finish, failure, noLinks
         }
         weak var coordinator: AppCoordinator?
         var itemsNumber: Int {
@@ -20,6 +20,7 @@ extension ListViewController {
         private var oldPubDate: String!
         private lazy var dataManager: DataManager = .init()
         private var dataSource: [RSSItem] = []
+        private var errorCollection: [ErrorCollection] = []
         let reloadData: Bindable<Void> = .init(nil)
         let updateStatusData: Bindable<UpdateState> = .init(nil)
         func start() {
@@ -31,8 +32,9 @@ extension ListViewController {
             dataManager.refreshData { [weak self] result in
                 switch result {
                 case .success(()):
-                    self?.updateStatusData.update(with: .finish)
                     self?.refreshDataSource()
+                    self?.updateStatusData.update(with: .finish)
+                    self?.errorCollection = self?.dataManager.fetchError() ?? []
                 case .failure(let error):
                     if error as? DataManager.DataError == DataManager.DataError.emptyLinkData {
                         self?.updateStatusData.update(with: .noLinks)
@@ -42,6 +44,10 @@ extension ListViewController {
                     }
                 }
             }
+            print("****** Start Update")
+        }
+        func ifUrlFailed() -> [ErrorCollection] {
+            return errorCollection 
         }
         func cellViewModel(for index: Int) -> RSSItem {
             let rssItem = dataSource[index]
@@ -68,6 +74,7 @@ extension ListViewController {
         }
         private func refreshDataSource() {
             dataSource = dataManager.fetchData()
+            errorCollection = dataManager.fetchError() ?? []
             reloadData.update(with: ())
         }
     }
