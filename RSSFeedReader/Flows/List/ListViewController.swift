@@ -22,6 +22,7 @@ class ListViewController: UIViewController, ViewModelApplyied, ViewControllerMak
         viewModel.reloadData.bind(to: self) { [weak self] _ in
             // refresh tableView
             self?.tableView.reloadData()
+            self?.refreshControll.endRefreshing()
         }
         viewModel.updateStatusData.bind(to: self) { [weak self] _ in
             self?.tableView.reloadData()
@@ -40,6 +41,7 @@ class ListViewController: UIViewController, ViewModelApplyied, ViewControllerMak
         } else {
             tableView.addSubview(refreshControll)
         }
+        refreshControll.addTarget(self, action: #selector(update), for: .valueChanged)
     }
     private func addBarButton() {
         navigationItem.rightBarButtonItem = UIBarButtonItem(
@@ -48,18 +50,15 @@ class ListViewController: UIViewController, ViewModelApplyied, ViewControllerMak
             title: "URLs", style: .plain, target: self, action: #selector(settings))
     }
     @objc private func update() {
-        print("Update")
-//        refreshControll.addTarget(self, action: #selector(refreshData), for: .valueChanged)
+        print("Refresh")
+        refreshControll.beginRefreshing()
         viewModel.saveOldViewDate()
         viewModel.startUpdate()
         viewModel.reloadData.bind(to: self) { [weak self] _ in
             self?.tableView.reloadData()
+            self?.refreshControll.endRefreshing()
         }
         isNotScrolled = true
-    }
-    @objc private func refreshData(_ sender: Any) {
-
-        print("****RefreshData")
     }
     @objc func settings(sender: Any) {
         viewModel.coordinator?.goToSettingsPage()
@@ -76,11 +75,17 @@ class ListViewController: UIViewController, ViewModelApplyied, ViewControllerMak
 extension ListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if viewModel.updateStatusData.lastValue == .inProgress {
-            let loadingCell = tableView.dequeueReusableCell(withIdentifier: "LoadingCell")
-            let spinner = loadingCell?.viewWithTag(100) as? UIActivityIndicatorView
-            spinner?.startAnimating()
-            return loadingCell!
+            refreshControll.beginRefreshing()
+//            let loadingCell = tableView.dequeueReusableCell(withIdentifier: "LoadingCell")
+//            let spinner = loadingCell?.viewWithTag(100) as? UIActivityIndicatorView
+//            spinner?.startAnimating()
+            return UITableViewCell()
         } else if viewModel.updateStatusData.lastValue == .finish {
+            if viewModel.itemsNumber == 0 {
+                let cell = UITableViewCell(style: .default, reuseIdentifier: "default")
+                cell.textLabel?.text = "Text"
+                return cell
+            }
                 let cellViewModel = viewModel.cellViewModel(for: indexPath.row)
                 let cell = tableView.dequeueReusableCell(withIdentifier: "ListCell") as? ListTableViewCell
                 if viewModel.cellViewIfNew(for: indexPath.row) {
@@ -102,8 +107,9 @@ extension ListViewController: UITableViewDataSource {
             let cell = UITableViewCell(style: .default, reuseIdentifier: "Failure")
             cell.textLabel?.text = "Error Loading"
             cell.textLabel?.textAlignment = .center
-            showAlert(title: "Error Loading", message: "Check Internet Connection or URL!")
-            NSLog("Error Loading")
+//            showAlert(title: "Error Loading", message: "Check Internet Connection or URL!")
+//            NSLog("Error Loading")
+//            refreshControll.beginRefreshing()
             return cell
         }
     }
@@ -144,6 +150,8 @@ extension ListViewController: UITableViewDelegate {
                     showAlert(title: url, message: message)
                 }
             }
+        } else {
+//            showAlert(title: "Alert", message: "Alert")
         }
     }
 }
