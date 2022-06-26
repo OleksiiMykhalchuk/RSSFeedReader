@@ -11,11 +11,16 @@ import UIKit
 extension ListViewController {
     class ViewModel {
         enum UpdateState {
-            case inProgress, finish, failure, noLinks
+            case inProgress, finish, failure, noLinks, empty
         }
         weak var coordinator: AppCoordinator?
         var itemsNumber: Int {
-            dataSource.count
+            if dataSource.isEmpty {
+                updateStatusData.update(with: .empty)
+                return 0
+            } else {
+                return dataSource.count
+            }
         }
         private var oldPubDate: String!
         private lazy var dataManager: DataManager = .init()

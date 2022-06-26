@@ -103,6 +103,11 @@ extension ListViewController: UITableViewDataSource {
             showAlert(title: "No Links", message: "Add Link")
             NSLog("Error Loading")
             return cell
+        } else if viewModel.updateStatusData.lastValue == .empty {
+            let cell = UITableViewCell(style: .default, reuseIdentifier: "empty")
+            cell.textLabel?.text = "No Data"
+            cell.textLabel?.textAlignment = .center
+            return cell
         } else {
             let cell = UITableViewCell(style: .default, reuseIdentifier: "Failure")
             cell.textLabel?.text = "Error Loading"
@@ -134,8 +139,9 @@ extension ListViewController: UITableViewDelegate {
         return UITableView.automaticDimension
     }
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+//
         if let lastVisibleIdexPath = tableView.indexPathsForVisibleRows?.last,
-           viewModel.updateStatusData.lastValue == .finish {
+           viewModel.updateStatusData.lastValue == .finish || viewModel.updateStatusData.lastValue == .empty {
             if indexPath == lastVisibleIdexPath, isNotScrolled {
                 viewModel.saveLastViewDate()
                 isNotScrolled = false
