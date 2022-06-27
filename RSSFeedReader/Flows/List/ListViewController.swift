@@ -156,8 +156,6 @@ extension ListViewController: UITableViewDelegate {
                     showAlert(title: url, message: message)
                 }
             }
-        } else {
-//            showAlert(title: "Alert", message: "Alert")
         }
     }
 }
